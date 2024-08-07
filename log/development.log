@@ -1,8 +1,0 @@
-Started GET "/" for 127.0.0.1 at 2024-08-07 09:51:21 +0700
-  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
-Processing by Rails::WelcomeController#index as HTML
-  Rendering /home/puda14/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/railties-7.0.7/lib/rails/templates/rails/welcome/index.html.erb
-  Rendered /home/puda14/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/railties-7.0.7/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.7ms | Allocations: 635)
-Completed 200 OK in 554ms (Views: 2.6ms | ActiveRecord: 0.0ms | Allocations: 952457)
-
-
