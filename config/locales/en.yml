@@ -1,2 +1,34 @@
 en:
-  hello: "Hello world"
+  layouts:
+    application:
+      base_title: "Soccer Field App"
+    header:
+      soccer_field_app: "Soccer Field App"
+      home: "Home"
+      fields: "Fields"
+      users: "Users"
+      statistics: "Statistics"
+      logout: "Logout"
+      account: "Account"
+      profile: "Profile"
+      history: "History"
+      timeline: "Timeline"
+      sign_in: "Sign in"
+  static_pages:
+    field_list:
+      title: "Fields"
+  sessions:
+    new:
+      title: "Sign in"
+      sign_in: "Sign in"
+      password: "Password"
+      new_user?: "New user?"
+      sign_up_now!: "Sign up now!"
+    messages:
+      invalid_params_sign_in: "Invalid email/password combination"
+  admin:
+    base:
+      not_admin: "You do not have permission to access this page."
+  user:
+    base:
+      not_user: "You need to sign in to access this page."
