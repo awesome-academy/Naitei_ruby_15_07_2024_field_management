@@ -1,0 +1,48 @@
+<nav class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container-fluid">
+    <%= link_to t(".soccer_field_app"), root_path, id: "logo" %>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="nav-item">
+          <%= link_to t(".home"), root_path, class: "nav-link" %>
+        </li>
+        <% if logged_in? %>
+          <% if current_user.admin? %>
+            <li class="nav-item">
+              <%= link_to t(".fields"), field_list_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to t(".users"), admin_users_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to t(".statistics"), root_path, class: "nav-link" %>
+            </li>
+            <li>
+              <%= link_to t(".logout"), logout_path, method: :delete, class: "dropdown-item" %>
+            </li>
+          <% else %>
+            <li class="nav-item dropdown">
+              <a href="#" id="account" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <%= t(".account") %>
+                <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="account">
+                <li><%= link_to t(".profile"), user_profile_path, class: "dropdown-item" %></li>
+                <li><%= link_to t(".history"), root_path, class: "dropdown-item" %></li>
+                <li><%= link_to t(".timeline"), root_path, class: "dropdown-item" %></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><%= link_to t(".logout"), logout_path, method: :delete, class: "dropdown-item" %></li>
+              </ul>
+            </li>
+          <% end %>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to t(".sign_in"), signin_path, class: "nav-link" %>
+          </li>
+        <% end %>
+        <%= link_to "English", locale: :en %>
+        <%= link_to "Vietnamese", locale: :vi %>
+      </ul>
+    </div>
+  </div>
+</nav>

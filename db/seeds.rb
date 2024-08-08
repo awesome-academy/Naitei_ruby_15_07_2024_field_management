@@ -1,8 +1,26 @@
+User.create!(
+  name: "admin",
+  email: "admin@test.com",
+  password: "123456",
+  role: :admin,
+  activated: true,
+  activated_at: DateTime.now
+)
+
+User.create!(
+  name: "user",
+  email: "user@test.com",
+  password: "123456",
+  role: :user,
+  activated: true,
+  activated_at: DateTime.now
+)
+
 users = 30.times.map do
   User.create!(
     name: Faker::Name.name,
     email: Faker::Internet.email,
-    password: "password",
+    password: "123456",
     role: :user,
     activated: true,
     activated_at: DateTime.now
