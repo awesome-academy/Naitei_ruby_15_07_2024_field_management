@@ -1,2 +1,34 @@
-en:
-  hello: "Chao"
+vi:
+  layouts:
+    application:
+      base_title: "Ứng dụng đặt sân"
+    header:
+      soccer_field_app: "Ứng dụng đặt sân"
+      home: "Trang chủ"
+      fields: "Các sân"
+      users: "Người dùng"
+      statistics: "Thống kê"
+      logout: "Đăng xuất"
+      account: "Tài khoản"
+      profile: "Hồ sơ"
+      history: "Lịch sử thuê"
+      timeline: "Hoạt động"
+      sign_in: "Đăng nhập"
+  static_pages:
+    field_list:
+      title: "Các sân"
+  sessions:
+    new:
+      title: "Đăng nhập"
+      sign_in: "Đăng nhập"
+      password: "Mật khẩu"
+      new_user?: "Người đùng mới"
+      sign_up_now!: "Đăng nhập ngay"
+    messages:
+      invalid_params_sign_in: "Email / Tài khoản không đúng"
+  admin:
+    base:
+      not_admin: "Bạn cần phải có quyền để truy cập trang này"
+  user:
+    base:
+      not_user: "Bạn cần phải sign in để truy cập trang này"
