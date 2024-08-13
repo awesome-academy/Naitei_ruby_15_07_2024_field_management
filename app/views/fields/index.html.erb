@@ -1,0 +1,58 @@
+<div class="container mt-4">
+  <h1 class="mb-4"><%= t ".soccer_field_title" %></h1>
+  <%= form_with url: fields_path, method: :get, local: true do %>
+    <div class="row g-3">
+      <div class="col-md-12">
+        <%= label_tag :name, t(".search_by_name") %>
+        <%= text_field_tag :name, params[:name], class: "form-control", placeholder: t(".enter_field_name") %>
+      </div>
+    </div>
+
+    <div class="row g-3">  
+      <div class="col-md-3">
+        <%= label_tag :price, t(".price.price_placeholder") %>
+        <%= select_tag :price, options_for_select([
+                                  [t(".price.all"), ""], 
+                                  [t(".price.desc"), :DESC], 
+                                  [t(".price.asc"), :ASC]], 
+                                  params[:price]), class: "form-control" %>
+      </div>
+
+      <div class="col-md-3">
+        <%= label_tag :grass, t(".grass.grass_type") %>
+        <%= select_tag :grass, options_for_select([
+                                  [t(".grass.all"), ""], 
+                                  [t(".grass.natural"), :natural], 
+                                  [t(".grass.artificial"), :artificial]], 
+                                  params[:grass]), class: "form-control" %>
+      </div>
+
+      <div class="col-md-3">
+        <%= label_tag :capactity,t(".capacity.capacity_type") %>
+        <%= select_tag :capactity, options_for_select([
+                                  [t(".capacity.all"), ""], 
+                                  [t(".capacity.five"), 5], 
+                                  [t(".capacity.seven"), 7], 
+                                  [t(".capacity.eleven"), 11]],
+                                  params[:grass]), class: "form-control" %>
+      </div>
+
+      <div class="col-md-3">
+        <%= label_tag :rating, t(".rating.rating_placeholder") %>
+        <%= select_tag :rating, options_for_select([
+                                  [t(".rating.all"), ""], 
+                                  [t(".rating.desc"), :DESC], 
+                                  [t(".rating.asc"), :ASC]], 
+                                  params[:rating]), class: "form-control" %>
+      </div>
+    </div>
+    <div class="row g-3"> 
+        <%= submit_tag t(".submit_button"), class: "button" %>
+    </div>
+  <% end %>
+
+  <%== pagy_bootstrap_nav @pagy %>
+  <div class="row g-4 list-field">
+    <%= render @fields %>
+  </div>
+</div>

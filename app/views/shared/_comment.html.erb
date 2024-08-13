@@ -1,0 +1,37 @@
+<div class="section bg-transparent">
+  <h2><strong><%= t ".comment_text" %></strong></h2>
+  <div class="row rating">
+    <div class="star-rating">
+      <i class="fa fa-star" data-index="1"></i>
+      <i class="fa fa-star" data-index="2"></i>
+      <i class="fa fa-star" data-index="3"></i>
+      <i class="fa fa-star" data-index="4"></i>
+      <i class="fa fa-star" data-index="5"></i>
+    </div>
+    <input
+      type="text"
+      name="name"
+      class="form-control"
+      placeholder="Bình luận"
+      style="height: 50px"
+    />
+    <%= link_to t(".publish"), "#", class: "btn btn-success" %>
+    <div>
+      <h4>...</h4>
+      <div class="row comment-container"></div>
+      <div class="comment">
+        <div class="sub-comment">
+          <img
+            src= <%= Settings.comment_example_avatar %>
+            class="comment-avatar"
+            alt="Avatar"
+          />
+          <div>
+            <h5><strong>...</strong></h5>
+            <p>...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

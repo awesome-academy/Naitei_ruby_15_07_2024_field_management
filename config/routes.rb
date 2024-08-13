@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   scope "(:locale)", locale: /en|vi/ do
-    get "field_list", to: "static_pages#field_list"
-
+    resources :fields, only:[:index, :show]
     get "/signin", to: "sessions#new"
     post "/signin", to: "sessions#create"
     get "/logout", to: "sessions#destroy"
@@ -14,6 +13,6 @@ Rails.application.routes.draw do
       resource :profile, only: [:show]
     end
 
-    root "static_pages#field_list"
+    root "fields#index"
   end
 end

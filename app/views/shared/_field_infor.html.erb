@@ -1,0 +1,65 @@
+<div>
+  <div class="detail-info">
+    <h2 class="row field-detail-name">
+      <%= @field.name %> <br/>
+      <span class="rating-star">
+        <%= display_rating(@average_rating) %>
+      </span>
+    </h2>
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-3"></div>
+      <div class="col-md-3"></div>
+      <div class="col-md-3">
+        <%= link_to t(".back_to_prev_page"), fields_path, class: "btn btn-success" %>
+        <%= link_to t(".booking_field"), "#", class: "btn btn-success" %>
+      </div>
+    </div>
+  </div>
+  <div class="detail-img">
+    <%= image_tag @field.images.first if @field.images.attached? %>
+  </div>
+</div>
+
+<div class="section bg-transparent row mb-5 section-field-detail">
+  <div class="col-md-6 field-description">
+    <h2 class=""><strong><%= t ".description" %></strong></h2>
+    <div class="row">
+      <div class="col-md-6 description-field">
+        <p>
+          <strong><%= t ".rating" %></strong><%= @average_rating %> /5
+        </p>
+        <p>
+          <strong><%= t ".price" %></strong><%= @field.price %> VND
+        </p>
+        <p>
+          <strong><%= t ".grass" %></strong> <%= @field.grass %>
+        </p>
+        <p>
+          <strong><%= t ".capacity" %></strong> <%= @field.capacity %> <%= t ".people" %>
+        </p>
+      </div>
+      <div class="col-md-6 text-start">
+        <p>
+          <strong><%= t ".open_time" %></strong> <%= @field.open_time.strftime Settings.format_date %>
+        </p>
+        <p>
+          <strong><%= t ".close_time" %></strong> <%= @field.close_time.strftime Settings.format_date %>
+        </p>
+        <p>
+          <strong><%= t ".block_time" %></strong> <%= @field.block_time %>
+        </p>
+        <p>
+          <strong><%= t ".address" %></strong> <%= @field.address %>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row g-4 list-field">
+    <%== pagy_bootstrap_nav @pagy %>
+    <% @images.each do |image| %>
+      <%= image_tag(image, class: "d-block w-100 field_infor_image") %>
+    <% end %>
+  </div>
+</div>

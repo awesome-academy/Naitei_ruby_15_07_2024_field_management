@@ -32,3 +32,57 @@ en:
   user:
     base:
       not_user: "You need to sign in to access this page."
+  fields:
+    index:
+      soccer_field_title: "Soccer Fields List"
+      search_by_name: "Search by name"
+      enter_field_name: "Enter field name"
+      price:
+        price_placeholder: "Price"
+        all: "All"
+        desc: "Descending"
+        asc: "Ascending"
+      grass:
+        grass_type: "Grass Types"
+        all: "All"
+        natural: "Natural"
+        artificial: "Artificial"
+      capacity:
+        capacity_type: "Capacity Types"
+        all: "All"
+        five: "5 players"
+        seven: "7 players"
+        eleven: "11 players"
+      rating:
+        rating_placeholder: "Rating"
+        all: "All"
+        desc: "Descending"
+        asc: "Ascending"
+      submit_button: "Submit"
+      field_detail:
+        rating: "Rating"
+        price: "Price"
+        grass: "Grass"
+        address: "Address"
+        view_detail: "View detail"
+      no_rating_yet: "No rating yet"
+      currency: "VND"
+    show:
+      field_not_found: "Field not found!"
+  shared:
+    field_infor:
+      back_to_prev_page: "Back to prev page"
+      booking_field: "Booking"
+      description: "Description"
+      rating: "Rating:"
+      price: "Price:"
+      grass: "Grass:"
+      capacity: "Capacity:"
+      open_time: "Open time:"
+      close_time: "Close time:"
+      block_time: "Block time:"
+      address: "Address:"
+      people: "people"
+    comment:
+      comment_text: "Comment"
+      publish: "Publish" 

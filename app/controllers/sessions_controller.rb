@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     if user&.authenticate params[:session][:password]
       reset_session
       log_in user
-      redirect_to field_list_path, status: :see_other
+      redirect_to fields_path, status: :see_other
     else
       flash.now[:danger] = t ".messages.invalid_params_sign_in"
       render :new, status: :unprocessable_entity

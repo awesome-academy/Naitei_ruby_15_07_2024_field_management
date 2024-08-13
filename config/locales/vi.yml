@@ -32,3 +32,57 @@ vi:
   user:
     base:
       not_user: "Bạn cần phải sign in để truy cập trang này"
+  fields:
+    index:
+      soccer_field_title: "Danh sách sân bóng"
+      search_by_name: "Tìm kiếm theo tên"
+      enter_field_name: "Nhập tên sân bóng"
+      price:
+        price_placeholder: "Giá" 
+        all: "Tất cả"
+        desc: "Từ cao đến thấp"
+        asc: "Từ thấp đến cao"
+      grass:
+        grass_type: "Loại cỏ"
+        all: "Tất cả"
+        natural: "Tự nhiên"
+        artificial: "Nhân tạo"
+      capacity:
+        capacity_type: "Sức chứa"
+        all: "Tất cả"
+        five: "5 người"
+        seven: "7 người"
+        eleven: "11 người"
+      rating:
+        rating_placeholder: "Đánh giá"
+        all: "Tất cả"
+        desc: "Từ cao đến thấp"
+        asc: "Từ thấp đến cao"
+      submit_button: "Tìm kiếm"
+      field_detail:
+        rating: "Đánh giá:"
+        price: "Giá:"
+        grass: "Loại cỏ:"
+        address: "Địa chỉ:"
+        view_detail: "Xem chi tiết"
+      no_rating_yet: "Chua co rating"
+      currency: "VND"
+    show:
+      field_not_found: "Khong tim thay san nay!"
+  shared:
+    field_infor:
+      back_to_prev_page: "Quay lại danh sách"
+      booking_field: "Đặt sân"
+      description: "Mô tả"
+      rating: "Đánh giá:"
+      price: "Giá:"
+      grass: "Loại cỏ:"
+      capacity: "Capacity"
+      open_time: "Giờ mở cửa:"
+      close_time: "Giờ đóng cửa:"
+      block_time: "Thời gian chặn:"
+      address: "Địa chỉ:"
+      people: "người"
+    comment:
+      comment_text: "Bình luận"
+      publish: "Đăng"
