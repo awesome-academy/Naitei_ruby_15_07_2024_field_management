@@ -28,15 +28,23 @@ users = 30.times.map do
 end
 
 fields = 20.times.map do
-  Field.create!(
+  field = Field.create!(
     name: Faker::Sports::Football.team,
     price: Faker::Commerce.price(range: 50.0..200.0),
     grass: [:natural, :artificial].sample,
     capacity: [5, 7, 11].sample,
     open_time: DateTime.parse("2023-01-01 08:00"),
     close_time: DateTime.parse("2023-01-01 22:00"),
-    block_time: 0
+    block_time: 1
   )
+
+  3.times do
+    image_url = "https://res.cloudinary.com/dlgyapagf/image/upload/v1723106081/Soccer-field/intern_sun_f#{rand(1..3)}.jpg"
+    downloaded_image = URI.open(image_url)
+    field.images.attach(io: downloaded_image, filename: "field#{rand(1..3)}.png")
+  end
+
+  field
 end
 
 5.times.map do
