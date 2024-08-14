@@ -1,5 +1,6 @@
 $white: #fff;
 $background: #35b26b;
+$button-background: #35b26b;
 $button-text:rgb(0, 0, 0);
 $button-hover: #31a162;
 $button-active: #309a5e;
@@ -13,3 +14,11 @@ $comment-color: #ddd;
 $rating-star: #ffdc6c;
 $description-field: #000;
 $star-empty: gray;
+$status-pending-background-color: #f0ad4e;
+$status-pending-color: white;
+$status-approval-background-color:#5cb85c;
+$status-approval-color: white;
+$status-canceled-background-color:#d9534f;
+$status-canceled-color: white;
+$status-default-background-color: #6c757d;
+$status-default-color: white;

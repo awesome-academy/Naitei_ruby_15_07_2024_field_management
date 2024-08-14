@@ -38,7 +38,7 @@ textarea {
 .custom-btn {
   font-size: 14px;
   padding: 8px 10px;
-  background-color: $background;
+  background-color: $button-background;
   border: none;
   color: $button-text;
   border-radius: 5px;
@@ -51,7 +51,7 @@ textarea {
 }
 .p-link {
   font-size: 18px;
-  color: $background;
+  color: $button-background;
   text-decoration: underline;
   font-size: 14px;
 }

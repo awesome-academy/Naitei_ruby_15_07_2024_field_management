@@ -1,0 +1,38 @@
+<%= form_with url: admin_booking_fields_path, method: :get, local: true do |f| %>
+  <div class="row form-row">
+    <div class="col-md-2">
+      <%= f.label :date, t(".date") %>
+      <%= f.date_field :date, value: params[:date], class: "form-control" %>
+    </div>
+    <div class="col-md-2">
+      <%= f.label :field_name, t(".field_name") %>
+      <%= f.text_field :field_name, value: params[:field_name], class: "form-control" %>
+    </div>
+    <div class="col-md-2">
+      <%= f.label :total_min, t(".total_min") %>
+      <%= f.number_field :total_min, value: params[:total_min], class: "form-control" %>
+    </div>
+    <div class="col-md-2">
+      <%= f.label :total_max, t(".total_max") %>
+      <%= f.number_field :total_max, value: params[:total_max], class: "form-control" %>
+    </div>
+    <div class="col-md-2">
+      <%= f.label :start_time, t(".start_time") %>
+      <%= f.time_field :start_time, value: params[:start_time], class: "form-control" %>
+    </div>
+    <div class="col-md-2">
+      <%= f.label :end_time, t(".end_time") %>
+      <%= f.time_field :end_time, value: params[:end_time], class: "form-control" %>
+    </div>
+  </div>
+  <div class="row form-row">
+    <div class="col-md-2">
+      <%= f.label :status, t(".status") %>
+      <%= f.select :status, options_for_select(BookingField.statuses.keys.map { |status| [status.capitalize, status] }, params[:status]), include_blank: true, class: "form-select" %>
+    </div>
+    <div class="col-md-2 mt-4">
+      <%= f.submit t(".filter"), class: "btn btn-primary" %>
+      <%= link_to t(".all"), admin_booking_fields_path, class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>

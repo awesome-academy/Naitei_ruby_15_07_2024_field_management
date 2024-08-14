@@ -29,6 +29,34 @@ en:
   admin:
     base:
       not_admin: "You do not have permission to access this page."
+    booking_fields:
+      index:
+        title: "Bookings"
+        date: "Date"
+        from: "From"
+        to: "To"
+        field_name: "Field Name"
+        user_name: "User"
+        total: "Total"
+        status: "Status"
+        change_status: "Change status"
+        date: "Date"
+      filter_form:
+        filter: "Filter"
+        all: "All"
+        status: "Status"
+        field_name: "Field name"
+        total_min: "Total min"
+        total_max: "Total max"
+        start_time: "Start time"
+        end_time: "End time"
+      statuses:
+        pending: "Pending"
+        approval: "Approval"
+        canceled: "Canceled"
+      messages:
+        success_change_status: "Booking field status updated successfully."
+        error_change_status: "Failed to update booking field status."
   user:
     base:
       not_user: "You need to sign in to access this page."
@@ -85,4 +113,4 @@ en:
       people: "people"
     comment:
       comment_text: "Comment"
-      publish: "Publish" 
+      publish: "Publish"
