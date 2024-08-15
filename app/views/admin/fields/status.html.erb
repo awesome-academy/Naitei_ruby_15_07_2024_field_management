@@ -1,0 +1,16 @@
+<div class="container mt-4">
+  <h1><%= @field.name %></h1>
+  <div class="row">
+    <div class="col-md-4">
+      <p><strong><%= t ".price" %>:</strong> <%= @field.price %></p>
+      <p><strong><%= t ".grass_type" %>:</strong> <%= @field.grass %></p>
+      <p><strong><%= t ".capacity" %>:</strong> <%= @field.capacity %> people</p>
+      <p><strong><%= t ".open_time" %>:</strong> <%= @field.open_time.strftime(Settings.admin.time_format) %></p>
+      <p><strong><%= t ".close_time" %>:</strong> <%= @field.close_time.strftime(Settings.admin.time_format) %></p>
+      <p><strong><%= t ".address" %>:</strong> <%= @field.address %></p>
+    </div>
+    <div class="col-md-8">
+    </div>
+  </div>
+  <%= render_field_status_calendar @field, @date %>
+</div>

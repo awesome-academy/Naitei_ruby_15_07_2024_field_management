@@ -17,4 +17,12 @@ module FieldsHelper
       end).join.html_safe # rubocop:disable Rails/OutputSafety
     end
   end
+
+  def field_link field
+    if current_user&.admin?
+      status_admin_field_path field
+    else
+      field_path field
+    end
+  end
 end

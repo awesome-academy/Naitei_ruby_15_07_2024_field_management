@@ -1,0 +1,18 @@
+<div class="d-flex justify-content-between mb-3">
+  <%= link_to I18n.t("calendar.days.today"), path.call(@field, date: Time.zone.today), class: "btn btn-primary" %>
+  <div class="d-flex align-items-center">
+    <%= link_to "&lt;".html_safe, path.call(@field, date: @date - Settings.calendar.change_week.week), class: "btn btn-secondary mr-2" %>
+    <span class="font-weight-bold"><%= month_year_format @start_of_week %></span>
+    <%= link_to "&gt;".html_safe, path.call(@field, date: @date + Settings.calendar.change_week.week), class: "btn btn-secondary ml-2" %>
+  </div>
+</div>
+
+<div class="calendar">
+  <%= days_row %>
+  <% @time_slots.each do |time| %>
+    <%= time_slot_row time %>
+  <% end %>
+  <% if @date == Time.zone.today %>
+    <div id="current-time-indicator" class="current-time-indicator"></div>
+  <% end %>
+</div>
