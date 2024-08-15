@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_08_12_030524) do
+ActiveRecord::Schema[7.0].define(version: 2024_08_14_150303) do
   create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -51,8 +51,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_08_12_030524) do
     t.bigint "user_id", null: false
     t.bigint "field_id", null: false
     t.date "date", null: false
-    t.datetime "start_time"
-    t.datetime "end_time"
+    t.time "start_time"
+    t.time "end_time"
     t.float "total"
     t.integer "status"
     t.datetime "created_at", null: false
@@ -135,6 +135,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_08_12_030524) do
     t.datetime "activated_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "phone"
   end
 
   create_table "vouchers", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|

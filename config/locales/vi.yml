@@ -29,6 +29,34 @@ vi:
   admin:
     base:
       not_admin: "Bạn cần phải có quyền để truy cập trang này"
+    booking_fields:
+      index:
+        title: "Danh sách đặt sân"
+        date: "Ngày"
+        from: "Từ"
+        to: "Đến"
+        field_name: "Tên sân"
+        user_name: "Người đặt"
+        total: "Tổng"
+        status: "Trạng thái"
+        change_status: "Thay đổi"
+        date: "Ngày"
+      filter_form:
+        filter: "Lọc"
+        all: "Tất cả"
+        status: "Trạng thái"
+        field_name: "Tên sân"
+        total_min: "Tổng min"
+        total_max: "Tổng max"
+        start_time: "Bắt đầu"
+        end_time: "Kết thúc"
+      statuses:
+        pending: "Đang xử lý"
+        approval: "Chấp nhận"
+        canceled: "Đã từ chối"
+      messages:
+        success_change_status: "Cập nhật trạng thái thành công."
+        error_change_status: "Lỗi cập nhật trạng thái."
   user:
     base:
       not_user: "Bạn cần phải sign in để truy cập trang này"
@@ -38,7 +66,7 @@ vi:
       search_by_name: "Tìm kiếm theo tên"
       enter_field_name: "Nhập tên sân bóng"
       price:
-        price_placeholder: "Giá" 
+        price_placeholder: "Giá"
         all: "Tất cả"
         desc: "Từ cao đến thấp"
         asc: "Từ thấp đến cao"

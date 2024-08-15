@@ -1,0 +1,28 @@
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+@import 'color';
+
+/* status */
+.status-pending {
+  background-color: $status-pending-background-color;
+  color: $status-pending-color;
+}
+
+.status-approval {
+  background-color: $status-approval-background-color ;
+  color: $status-approval-color;
+}
+
+.status-canceled {
+  background-color: $status-canceled-background-color;
+  color: $status-canceled-color;
+}
+
+.status-default {
+  background-color: $status-default-background-color;
+  color: $status-default-color;
+}
+
+.form-row {
+  margin-bottom: 20px;
+}

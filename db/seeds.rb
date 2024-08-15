@@ -1,6 +1,7 @@
 User.create!(
   name: "admin",
   email: "admin@test.com",
+  phone: Faker::PhoneNumber.cell_phone_in_e164,
   password: "123456",
   role: :admin,
   activated: true,
@@ -10,6 +11,7 @@ User.create!(
 User.create!(
   name: "user",
   email: "user@test.com",
+  phone: Faker::PhoneNumber.cell_phone_in_e164,
   password: "123456",
   role: :user,
   activated: true,
@@ -20,6 +22,7 @@ users = 30.times.map do
   User.create!(
     name: Faker::Name.name,
     email: Faker::Internet.email,
+    phone: Faker::PhoneNumber.cell_phone_in_e164,
     password: "123456",
     role: :user,
     activated: true,
