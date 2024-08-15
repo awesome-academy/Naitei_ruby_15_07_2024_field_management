@@ -17,6 +17,12 @@ Rails.application.routes.draw do
 
     namespace :user do
       resource :profile, only: %i(show)
+      resources :booking_fields, only: [:new, :create, :pay] do
+        member do
+          get :pay
+          get :demo_payment
+        end
+      end
     end
 
     root "fields#index"
