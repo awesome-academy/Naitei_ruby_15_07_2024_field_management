@@ -1,4 +1,7 @@
 vi:
+  job:
+    check_payment_status:
+      not_found: "Don dat san với ID %{id} không tìm thấy."
   activerecord:
     error:
       multiple_of_30_minutes: "Block phai la boi cua 30 phut"
@@ -151,12 +154,22 @@ vi:
           blocks: "So blocks (Moi block la %{hour} gio)"
           total_price: "Tong tien"
           booking: "Đặt sân"
+        total_error: "Tong tien khong the nho hon 0. Chon lai!"
+        general_error: "Hay dien het cac truong !"
+        available_voucher: "Vouchers"
+        action: "Show"
       show_pay:
         payment: "Thanh toan"
         card_name: "Ten the"
         card_number: "So the"
         confirm_payment: "Thanh toan"
         cancelled: "Huy dat san"
+    vouchers:
+      voucher:
+        code: "Ma voucher"
+        value: "Gia tri"
+        expired_date: "Ngay het han"
+        quantity: "So luong"
   fields:
     index:
       soccer_field_title: "Danh sách sân bóng"

@@ -8,8 +8,10 @@ class BookingField < ApplicationRecord
               :booking_not_overlapping
 
   enum status: {pending: 0, approval: 1, canceled: 2}
+  enum paymentStatus: {paid: 0, unpaid: 1}
 
   has_many :use_vouchers, dependent: :destroy
+  has_many :vouchers, through: :use_vouchers
 
   validates :date, presence: true
   validates :start_time, presence: true

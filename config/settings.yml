@@ -40,3 +40,5 @@ users:
     uppercase: '[A-Z]'
     digit: '\d'
     special_char: '[@$!%*?&]'
+rate: "/5"
+vouchers_limit_page: 3

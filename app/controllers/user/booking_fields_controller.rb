@@ -8,20 +8,17 @@ class User::BookingFieldsController < ApplicationController
       redirect_to fields_path
     else
       @booking_field = BookingField.new
+      @vouchers = Voucher.available_vouchers
     end
   end
 
   def create
     @booking_field = current_user.booking_fields.build booking_params
-
+    process_vouchers
     if @booking_field.save
-      @booking_field.update_column(:status, :pending)
-      redirect_to pay_user_booking_field_path(@booking_field)
+      handle_success_save_booking
     else
-      @field = Field.find_by id: params[:booking_field][:field_id]
-      @booking_field.assign_attributes(@booking_field.attributes
-                                          .transform_values{nil})
-      render :new
+      handle_faile_save_booking
     end
   end
 
@@ -36,6 +33,30 @@ class User::BookingFieldsController < ApplicationController
   end
 
   private
+
+  def handle_success_save_booking
+    @booking_field.update_column(:status, :pending)
+    @booking_field.update_column(:paymentStatus, :unpaid)
+    # CheckPaymentJob.set(wait: 1.minute).perform_later(@booking_field.id)
+
+    redirect_to pay_user_booking_field_path @booking_field
+  end
+
+  def handle_faile_save_booking
+    @field = Field.find_by id: params[:booking_field][:field_id]
+    @booking_field.assign_attributes(@booking_field.attributes
+                                        .transform_values{nil})
+    @vouchers = Voucher.available_vouchers
+    render :new
+  end
+
+  def process_vouchers
+    return if params[:voucher_ids].nil?
+
+    selected_vouchers = Voucher.find_with_list_ids params[:voucher_ids]
+
+    @booking_field.vouchers = selected_vouchers
+  end
 
   def get_booking_field
     @booking_field = BookingField.find_by id: params[:id]

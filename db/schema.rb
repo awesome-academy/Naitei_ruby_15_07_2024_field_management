@@ -57,6 +57,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_08_20_040103) do
     t.integer "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "paymentStatus", default: 0
     t.index ["field_id"], name: "index_booking_fields_on_field_id"
     t.index ["user_id"], name: "index_booking_fields_on_user_id"
   end
@@ -118,7 +119,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_08_20_040103) do
 
   create_table "use_vouchers", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "voucher_id", null: false
-    t.datetime "used_at", null: false
     t.bigint "booking_field_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -148,6 +148,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_08_20_040103) do
     t.integer "quantity", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["code"], name: "index_vouchers_on_code", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

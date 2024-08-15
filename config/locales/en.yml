@@ -1,4 +1,7 @@
 en:
+  job:
+    check_payment_status:
+      not_found: "Can't not found BookingField with id: %{id}"
   activerecord:
     error:
       multiple_of_30_minutes: "Must be a multiple of 30 minutes"
@@ -151,12 +154,22 @@ en:
           blocks: "Block (Each block %{hour} hour)"
           total_price: "Total price"
           booking: "Booking"
+        total_error: "Total price can't be less than 0. Please adjust your selection."
+        general_error: "Please fill all form to submit"
+        available_voucher: "Available vouchers"
+        action: "Show"
       show_pay:
         payment: "Demo Payment"
         card_name: "Card name"
         card_number: "Card number"
         confirm_payment: "Pay"
         cancelled: "Cancel"
+    vouchers:
+      voucher:
+        code: "Code"
+        value: "Value"
+        expired_date: "Expired_date"
+        quantity: "Quantity"
   fields:
     index:
       soccer_field_title: "Soccer Fields List"
