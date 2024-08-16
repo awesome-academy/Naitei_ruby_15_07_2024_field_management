@@ -1,3 +1,7 @@
+require "faker"
+require "open-uri"
+
+# Create admin and regular user
 User.create!(
   name: "admin",
   email: "admin@test.com",
@@ -18,6 +22,7 @@ User.create!(
   activated_at: DateTime.now
 )
 
+# Create additional users
 users = 30.times.map do
   User.create!(
     name: Faker::Name.name,
@@ -30,9 +35,10 @@ users = 30.times.map do
   )
 end
 
+# Create fields with attached images
 fields = 20.times.map do
   field = Field.create!(
-    name: Faker::Sports::Football.team,
+    name: "#{Faker::Sports::Football.team} #{rand(100..999)}",
     price: Faker::Commerce.price(range: 50.0..200.0),
     grass: [:natural, :artificial].sample,
     capacity: [5, 7, 11].sample,
@@ -50,6 +56,7 @@ fields = 20.times.map do
   field
 end
 
+# Create vouchers
 5.times.map do
   Voucher.create!(
     code: Faker::Alphanumeric.unique.alpha(number: 10).upcase,
@@ -61,6 +68,24 @@ end
   )
 end
 
+# Helper method to generate random time in half-hour increments with a minimum duration of 1 hour and 30 minutes and a maximum of 3 hours
+def random_time_between(start_hour, end_hour)
+  start_minute = [0, 30].sample
+  start_time = DateTime.now.change({ hour: start_hour, min: start_minute })
+
+  end_time = start_time + (rand(3..6) * 30).minutes
+
+  while end_time.hour > 23 || (end_time.hour == 23 && end_time.minute > 30)
+    start_hour = rand(6..20)
+    start_minute = [0, 30].sample
+    start_time = DateTime.now.change({ hour: start_hour, min: start_minute })
+    end_time = start_time + (rand(3..6) * 30).minutes
+  end
+
+  [start_time, end_time]
+end
+
+# Assign addresses and create bookings and favorites for users
 users.each do |user|
   2.times do
     Address.create!(
@@ -72,12 +97,15 @@ users.each do |user|
   # 10 Booking Fields per User
   10.times do
     field = fields.sample
+    start_hour = rand(6..20)
+    start_time, end_time = random_time_between(start_hour, start_hour + 6)
+
     BookingField.create!(
       user: user,
       field: field,
       date: Faker::Date.forward(days: 30),
-      start_time: DateTime.now + rand(1..12).hours,
-      end_time: DateTime.now + rand(13..24).hours,
+      start_time: start_time,
+      end_time: end_time,
       total: field.price,
       status: [:pending, :approval, :canceled].sample
     )

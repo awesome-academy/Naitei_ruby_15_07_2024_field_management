@@ -8,6 +8,11 @@ Rails.application.routes.draw do
     namespace :admin do
       resources :users, only: [:index]
       resources :booking_fields, only: [:index, :update]
+      resources :fields, only: [] do
+        member do
+          get "status", to: "fields#status"
+        end
+      end
     end
 
     namespace :user do

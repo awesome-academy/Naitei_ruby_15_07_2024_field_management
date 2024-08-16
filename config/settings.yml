@@ -6,3 +6,12 @@ admin:
   booking_fields_pagy: 20
   time_format: "%H:%M"
   date_format: "%m-%d-%Y"
+calendar:
+  time_format: "%H:%M"
+  date_format: "%m-%d-%Y"
+  start_time: "06:00"
+  end_time: "23:30"
+  interval: 30
+  month_year_format: "%B, %Y"
+  change_week: 1
+  GMT: "GMT+07"

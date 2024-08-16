@@ -41,6 +41,15 @@ class BookingField < ApplicationRecord
   scope :sorted_by_date_and_start_time,
         ->{order(date: :desc, start_time: :desc)}
 
+  scope :by_date_range, lambda {|start_date, end_date|
+    if start_date.present? && end_date.present?
+      where(date: start_date..end_date)
+    end
+  }
+
+  scope :excluding_status,
+        ->(status){where.not(status:) if status.present?}
+
   def self.filtered params
     by_date(params[:date])
       .by_field_name(params[:field_name])

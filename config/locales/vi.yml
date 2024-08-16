@@ -57,6 +57,16 @@ vi:
       messages:
         success_change_status: "Cập nhật trạng thái thành công."
         error_change_status: "Lỗi cập nhật trạng thái."
+    fields:
+      status:
+        price: "Giá sân"
+        grass_type: "Loại cỏ"
+        capacity: "Loại sân"
+        open_time: "Thời gian mở cửa"
+        close_time: "Thời gian đóng cửa"
+        address: "Địa chỉ"
+      messages:
+        error_field_not_found: "Không tìm thấy sân."
   user:
     base:
       not_user: "Bạn cần phải sign in để truy cập trang này"
@@ -114,3 +124,26 @@ vi:
     comment:
       comment_text: "Bình luận"
       publish: "Đăng"
+  calendar:
+    days:
+      sunday: "CN"
+      monday: "T2"
+      tuesday: "T3"
+      wednesday: "T4"
+      thursday: "T5"
+      friday: "T6"
+      saturday: "T7"
+      today: "Hôm nay"
+    months:
+      january: "Tháng 1"
+      february: "Tháng 2"
+      march: "Tháng 3"
+      april: "Tháng 4"
+      may: "Tháng 5"
+      june: "Tháng 6"
+      july: "Tháng 7"
+      august: "Tháng 8"
+      september: "Tháng 9"
+      october: "Tháng 10"
+      november: "Tháng 11"
+      december: "Tháng 12"

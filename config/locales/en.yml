@@ -57,6 +57,16 @@ en:
       messages:
         success_change_status: "Booking field status updated successfully."
         error_change_status: "Failed to update booking field status."
+    fields:
+      status:
+        price: "Price"
+        grass_type: "Grass Type"
+        capacity: "Capacity"
+        open_time: "Open Time"
+        close_time: "Close Time"
+        address: "Address"
+      messages:
+        error_field_not_found: "Field not found."
   user:
     base:
       not_user: "You need to sign in to access this page."
@@ -114,3 +124,26 @@ en:
     comment:
       comment_text: "Comment"
       publish: "Publish"
+  calendar:
+    days:
+      sunday: "Sun"
+      monday: "Mon"
+      tuesday: "Tue"
+      wednesday: "Wed"
+      thursday: "Thu"
+      friday: "Fri"
+      saturday: "Sat"
+      today: "Today"
+    months:
+      january: "January"
+      february: "February"
+      march: "March"
+      april: "April"
+      may: "May"
+      june: "June"
+      july: "July"
+      august: "August"
+      september: "September"
+      october: "October"
+      november: "November"
+      december: "December"
