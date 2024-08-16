@@ -10,6 +10,7 @@
       <p><strong><%= t ".address" %>:</strong> <%= @field.address %></p>
     </div>
     <div class="col-md-8">
+      <%= link_to t(".edit_button"), edit_admin_field_path(@field), class: "btn btn-warning" %>
     </div>
   </div>
   <%= render_field_status_calendar @field, @date %>

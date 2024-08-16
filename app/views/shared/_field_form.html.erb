@@ -39,5 +39,6 @@
     <%= form.file_field :images, multiple: true, accept: Settings.image.file_type, class: "form-control" %>
     <div id="image-preview-container"></div>
     <%= form.hidden_field :image_storage, id: "image-storage-input" %>
+    <%= form.hidden_field :image_delete, id: "image-delete-input" %>
   </div>
 </div>
