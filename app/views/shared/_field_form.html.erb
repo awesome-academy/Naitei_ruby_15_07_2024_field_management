@@ -34,4 +34,10 @@
     <%= form.submit t(".submit"), class: "btn btn-primary" %>
   </div>
 
+  <div class="col-md-12 mb-4">
+    <%= form.label :images, t(".images") %>
+    <%= form.file_field :images, multiple: true, accept: Settings.image.file_type, class: "form-control" %>
+    <div id="image-preview-container"></div>
+    <%= form.hidden_field :image_storage, id: "image-storage-input" %>
+  </div>
 </div>
