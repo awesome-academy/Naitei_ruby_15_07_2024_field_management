@@ -140,6 +140,7 @@ en:
       grass_types:
         natural: "Natural"
         artificial: "Artificial"
+      images: "Images"
     comment:
       comment_text: "Comment"
       publish: "Publish"

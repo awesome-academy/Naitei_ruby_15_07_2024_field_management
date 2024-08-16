@@ -18,3 +18,5 @@ calendar:
 field:
   minute_step: 30
   price_step: 0.01
+image:
+  file_type: "image/png,image/gif,image/jpeg"

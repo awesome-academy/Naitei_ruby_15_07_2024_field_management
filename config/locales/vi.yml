@@ -139,6 +139,7 @@ vi:
       grass_types:
         natural: "Tự nhiên"
         artificial: "Nhân tạo"
+      images: "Hình ảnh"
     comment:
       comment_text: "Bình luận"
       publish: "Đăng"

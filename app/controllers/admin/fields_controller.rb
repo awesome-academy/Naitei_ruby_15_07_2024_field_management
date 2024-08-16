@@ -18,6 +18,7 @@ class Admin::FieldsController < Admin::BaseController
     @field = Field.new field_params
 
     if @field.save
+      attach_images if params[:field][:image_storage].present?
       flash[:success] = t ".success_message"
       redirect_to new_admin_field_path, status: :see_other
     else
@@ -39,5 +40,21 @@ class Admin::FieldsController < Admin::BaseController
             else
               Time.zone.today
             end
+  end
+
+  def attach_images
+    image_data = JSON.parse params[:field][:image_storage]
+    image_data.each do |base64_image|
+      decoded_image = Base64.decode64 base64_image.split(",").last
+      filename = "field_image_#{SecureRandom.hex}.png"
+      tempfile = Tempfile.new filename
+      tempfile.binmode
+      tempfile.write decoded_image
+      tempfile.rewind
+
+      @field.images.attach(io: tempfile, filename:)
+      tempfile.close
+      tempfile.unlink
+    end
   end
 end
