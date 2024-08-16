@@ -65,6 +65,11 @@ en:
         open_time: "Open Time"
         close_time: "Close Time"
         address: "Address"
+      new:
+        title: "New Field"
+      create:
+        success_message: "Field was successfully created."
+        failure_message: "There was an error creating the field. Please try again."
       messages:
         error_field_not_found: "Field not found."
   user:
@@ -107,6 +112,8 @@ en:
       currency: "VND"
     show:
       field_not_found: "Field not found!"
+    create:
+      create_field_button: "Add field"
   shared:
     field_infor:
       back_to_prev_page: "Back to prev page"
@@ -121,6 +128,18 @@ en:
       block_time: "Block time:"
       address: "Address:"
       people: "people"
+    field_form:
+      name: "Name"
+      price: "Price"
+      grass_type: "Grass Type"
+      capacity: "Capacity"
+      open_time: "Open Time"
+      close_time: "Close Time"
+      address: "Address"
+      submit: "Submit"
+      grass_types:
+        natural: "Natural"
+        artificial: "Artificial"
     comment:
       comment_text: "Comment"
       publish: "Publish"

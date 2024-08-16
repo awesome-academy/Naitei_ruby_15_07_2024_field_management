@@ -25,4 +25,11 @@ module FieldsHelper
       field_path field
     end
   end
+
+  def render_create_field_button
+    return unless current_user&.admin?
+
+    link_to I18n.t("fields.create.create_field_button"), new_admin_field_path,
+            class: "button"
+  end
 end

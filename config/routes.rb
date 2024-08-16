@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     namespace :admin do
       resources :users, only: [:index]
       resources :booking_fields, only: [:index, :update]
-      resources :fields, only: [] do
+      resources :fields, only: [:new, :create] do
         member do
           get "status", to: "fields#status"
         end
