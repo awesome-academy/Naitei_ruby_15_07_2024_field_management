@@ -8,31 +8,31 @@
       </div>
     </div>
 
-    <div class="row g-3">  
+    <div class="row g-3">
       <div class="col-md-3">
         <%= label_tag :price, t(".price.price_placeholder") %>
         <%= select_tag :price, options_for_select([
-                                  [t(".price.all"), ""], 
-                                  [t(".price.desc"), :DESC], 
-                                  [t(".price.asc"), :ASC]], 
+                                  [t(".price.all"), ""],
+                                  [t(".price.desc"), :DESC],
+                                  [t(".price.asc"), :ASC]],
                                   params[:price]), class: "form-control" %>
       </div>
 
       <div class="col-md-3">
         <%= label_tag :grass, t(".grass.grass_type") %>
         <%= select_tag :grass, options_for_select([
-                                  [t(".grass.all"), ""], 
-                                  [t(".grass.natural"), :natural], 
-                                  [t(".grass.artificial"), :artificial]], 
+                                  [t(".grass.all"), ""],
+                                  [t(".grass.natural"), :natural],
+                                  [t(".grass.artificial"), :artificial]],
                                   params[:grass]), class: "form-control" %>
       </div>
 
       <div class="col-md-3">
         <%= label_tag :capactity,t(".capacity.capacity_type") %>
         <%= select_tag :capactity, options_for_select([
-                                  [t(".capacity.all"), ""], 
-                                  [t(".capacity.five"), 5], 
-                                  [t(".capacity.seven"), 7], 
+                                  [t(".capacity.all"), ""],
+                                  [t(".capacity.five"), 5],
+                                  [t(".capacity.seven"), 7],
                                   [t(".capacity.eleven"), 11]],
                                   params[:grass]), class: "form-control" %>
       </div>
@@ -40,14 +40,15 @@
       <div class="col-md-3">
         <%= label_tag :rating, t(".rating.rating_placeholder") %>
         <%= select_tag :rating, options_for_select([
-                                  [t(".rating.all"), ""], 
-                                  [t(".rating.desc"), :DESC], 
-                                  [t(".rating.asc"), :ASC]], 
+                                  [t(".rating.all"), ""],
+                                  [t(".rating.desc"), :DESC],
+                                  [t(".rating.asc"), :ASC]],
                                   params[:rating]), class: "form-control" %>
       </div>
     </div>
-    <div class="row g-3"> 
-        <%= submit_tag t(".submit_button"), class: "button" %>
+    <div class="row g-3">
+      <%= submit_tag t(".submit_button"), class: "button" %>
+      <%= render_create_field_button %>
     </div>
   <% end %>
 

@@ -15,3 +15,6 @@ calendar:
   month_year_format: "%B, %Y"
   change_week: 1
   GMT: "GMT+07"
+field:
+  minute_step: 30
+  price_step: 0.01

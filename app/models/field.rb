@@ -1,4 +1,12 @@
 class Field < ApplicationRecord
+  PERMITTED_ATTRIBUTES = [:name,
+  :price,
+  :grass,
+  :capacity,
+  :open_time,
+  :close_time,
+  :address].freeze
+
   enum grass: {natural: 0, artificial: 1}
 
   scope :filter_by_name, lambda {|name|
@@ -28,4 +36,5 @@ class Field < ApplicationRecord
   has_many :comments, as: :commentable, dependent: :destroy
 
   validates :capacity, presence: true, inclusion: {in: [5, 7, 11]}
+  validates :price, presence: true
 end
