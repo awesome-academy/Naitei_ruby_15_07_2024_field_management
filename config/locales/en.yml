@@ -1,4 +1,9 @@
 en:
+  activerecord:
+    error:
+      multiple_of_30_minutes: "Must be a multiple of 30 minutes"
+      within_open_hour: "Booking times must be within field opening hours"
+      overlap_time: "Booking time overlaps with an existing booking"
   layouts:
     application:
       base_title: "Soccer Field App"
@@ -84,9 +89,43 @@ en:
         cannot_delete: "Cannot delete field with pending or approved bookings in the future."
       messages:
         error_field_not_found: "Field not found."
+  shared:
+    error_messages:
+      the_form_contains: "The form contains"
+      error: "error"
   user:
     base:
       not_user: "You need to sign in to access this page."
+    booking_fields:
+      booking_success: "Booking successfully!"
+      please_log_in: "Please log in!"
+      you_are_not_user: "You are not"
+      new:
+        back_to_prev_page: "Back to prev page"
+        booking_field: "Booking Field Information"
+        description: "Description"
+        rating: "Rating:"
+        price: "Price:"
+        grass: "Grass:"
+        capacity: "Capacity:"
+        open_time: "Open time:"
+        close_time: "Close time:"
+        block_time: "Block time:"
+        address: "Address:"
+        people: "people"
+        booking_infor:
+          date: "Date"
+          start_time: "Start time"
+          end_time: "End time"
+          blocks: "Block (Each block %{hour} hour)"
+          total_price: "Total price"
+          booking: "Booking"
+      show_pay:
+        payment: "Demo Payment"
+        card_name: "Card name"
+        card_number: "Card number"
+        confirm_payment: "Pay"
+        cancelled: "Cancel"
   fields:
     index:
       soccer_field_title: "Soccer Fields List"
@@ -179,3 +218,4 @@ en:
       october: "October"
       november: "November"
       december: "December"
+      publish: "Publish"    

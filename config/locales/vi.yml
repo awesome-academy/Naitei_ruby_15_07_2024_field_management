@@ -1,4 +1,9 @@
 vi:
+  activerecord:
+    error:
+      multiple_of_30_minutes: "Block phai la boi cua 30 phut"
+      within_open_hour: "Thoi gian dat phai nam trong khoang thoi gian mo san"
+      overlap_time: "Da co nguoi dat san nay"
   layouts:
     application:
       base_title: "Ứng dụng đặt sân"
@@ -84,9 +89,43 @@ vi:
         cannot_delete: "Không thể xóa sân có đơn đặt chỗ đang chờ xử lý hoặc đã được xác nhận trong tương lai."
       messages:
         error_field_not_found: "Không tìm thấy sân."
+  shared:
+    error_messages:
+      the_form_contains: "Form có"
+      error: "lỗi"
   user:
     base:
       not_user: "Bạn cần phải sign in để truy cập trang này"
+    booking_fields:
+      booking_success: "Đặt sân thanh cong!"
+      please_log_in: "Đăng nhập ngay!"
+      you_are_not_user: "Ban khong co"
+      new:
+        back_to_prev_page: "Quay lại danh sách"
+        booking_field: "Thông tin đặt sân"
+        description: "Mô tả"
+        rating: "Đánh giá:"
+        price: "Giá:"
+        grass: "Loại cỏ:"
+        capacity: "Capacity"
+        open_time: "Giờ mở cửa:"
+        close_time: "Giờ đóng cửa:"
+        block_time: "Thời gian chặn:"
+        address: "Địa chỉ:"
+        people: "người"
+        booking_infor:
+          date: "Ngay"
+          start_time: "Gio bat dau"
+          end_time: "Gio ket thuc"
+          blocks: "So blocks (Moi block la %{hour} gio)"
+          total_price: "Tong tien"
+          booking: "Đặt sân"
+      show_pay:
+        payment: "Thanh toan"
+        card_name: "Ten the"
+        card_number: "So the"
+        confirm_payment: "Thanh toan"
+        cancelled: "Huy dat san"
   fields:
     index:
       soccer_field_title: "Danh sách sân bóng"

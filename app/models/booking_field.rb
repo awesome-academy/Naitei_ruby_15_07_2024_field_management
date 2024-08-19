@@ -1,6 +1,11 @@
 class BookingField < ApplicationRecord
+  BOOKING_PARAMS = %I[field_id date start_time end_time total].freeze
   belongs_to :user
   belongs_to :field
+
+  before_save :start_time_must_be_multiple_of_30_minutes,
+              :start_time_and_end_time_within_opening_hours,
+              :booking_not_overlapping
 
   enum status: {pending: 0, approval: 1, canceled: 2}
 
@@ -10,7 +15,6 @@ class BookingField < ApplicationRecord
   validates :start_time, presence: true
   validates :end_time, presence: true
   validates :total, presence: true, numericality: {greater_than_or_equal_to: 0}
-  validates :status, presence: true
 
   scope :by_date, ->(date){where(date:) if date.present?}
 
@@ -53,6 +57,7 @@ class BookingField < ApplicationRecord
   scope :future_bookings, ->{where("date >= ?", Time.zone.today)}
 
   scope :pending_or_approved, ->{where(status: %w(pending approval))}
+  scope :existing_books, ->(field_id, date){where(field_id:, date:)}
 
   def self.filtered params
     by_date(params[:date])
@@ -63,5 +68,35 @@ class BookingField < ApplicationRecord
       .by_start_time(params[:start_time])
       .by_end_time(params[:end_time])
       .sorted_by_date_and_start_time
+  end
+
+  private
+
+  def start_time_must_be_multiple_of_30_minutes
+    return unless start_time.min % Settings.time_interval != 0
+
+    errors.add(:start_time,
+               I18n.t("activerecord.error.multiple_of_30_minutes"))
+    throw(:abort)
+  end
+
+  def start_time_and_end_time_within_opening_hours
+    field = Field.find(field_id)
+    return unless start_time < field.open_time || end_time > field.close_time
+
+    errors.add(:base,
+               I18n.t("activerecord.error.within_open_hour"))
+    throw(:abort)
+  end
+
+  def booking_not_overlapping
+    existing_bookings = BookingField.existing_books(field_id, date)
+    existing_bookings.each do |booking|
+      next unless start_time < booking.end_time && end_time > booking.start_time
+
+      errors.add(:base,
+                 I18n.t("activerecord.error.overlap_time"))
+      throw(:abort)
+    end
   end
 end
