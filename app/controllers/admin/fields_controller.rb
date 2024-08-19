@@ -1,6 +1,6 @@
 class Admin::FieldsController < Admin::BaseController
-  before_action :set_field, only: [:status, :edit, :update]
-  before_action :set_date, only: [:status]
+  before_action :set_field, except: %i(new create)
+  before_action :set_date, only: %i(status)
 
   def status; end
 
@@ -35,6 +35,16 @@ class Admin::FieldsController < Admin::BaseController
     else
       flash.now[:danger] = t ".failure_message"
       render :edit, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    if @field.destroy
+      flash[:success] = t ".success_message"
+      redirect_to fields_path, status: :see_other
+    else
+      flash[:danger] = t ".failure_message"
+      redirect_to admin_field_path @field, status: :see_other
     end
   end
 

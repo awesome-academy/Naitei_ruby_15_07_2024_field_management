@@ -65,6 +65,9 @@ vi:
         open_time: "Thời gian mở cửa"
         close_time: "Thời gian đóng cửa"
         address: "Địa chỉ"
+        edit_button: "Chỉnh sửa"
+        delete_button: "Xóa sân"
+        confirm_delete: "Bạn chắc chắn muốn xóa ?"
       new:
         title: "Thêm sân"
       create:
@@ -75,6 +78,9 @@ vi:
         failure_message: "Có lỗi xảy ra khi cập nhật sân bóng. Vui lòng thử lại."
       edit:
         title: "Chỉnh sửa thông tin sân"
+      destroy:
+        success_message: "Sân bóng đã được xóa thành công."
+        failure_message: "Có lỗi xảy ra khi xóa sân bóng. Vui lòng thử lại."
       messages:
         error_field_not_found: "Không tìm thấy sân."
   user:

@@ -65,6 +65,9 @@ en:
         open_time: "Open Time"
         close_time: "Close Time"
         address: "Address"
+        edit_button: "Edit"
+        delete_button: "Delete"
+        confirm_delete: "You sure ?"
       new:
         title: "New Field"
       create:
@@ -75,6 +78,9 @@ en:
         failure_message: "There was an error updating the field. Please try again."
       edit:
         title: "Edit field"
+      destroy:
+        success_message: "Field was successfully deleted."
+        failure_message: "There was an error deleting the field. Please try again."
       messages:
         error_field_not_found: "Field not found."
   user:
