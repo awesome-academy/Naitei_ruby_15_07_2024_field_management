@@ -1,0 +1,6 @@
+<% provide :title, @user.name %>
+<h1><%= @user.name %></h1>
+<p><strong><%= t ".email" %>:</strong> <%= @user.email %></p>
+<p><strong><%= t ".phone" %>:</strong> <%= @user.phone %></p>
+<p><strong><%= t ".activated" %>:</strong> <%= @user.activated ? "Yes" : "No" %></p>
+<p><%= gravatar_for @user %></p>

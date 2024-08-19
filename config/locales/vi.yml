@@ -89,10 +89,58 @@ vi:
         cannot_delete: "Không thể xóa sân có đơn đặt chỗ đang chờ xử lý hoặc đã được xác nhận trong tương lai."
       messages:
         error_field_not_found: "Không tìm thấy sân."
+    users:
+      index:
+        title: "Người dùng"
+        name: "Tên"
+        email: "Email"
+        phone: "Điện thoại"
+        activated: "Kích hoạt"
+        avatar: "Ảnh"
+        actions: "Hành động"
+        search: "Tìm kiếm"
+        search_by_name: "Tìm kiếm theo tên"
+      destroy:
+        success_message: "Người dùng đã được xóa thành công."
+        failure_message: "Có lỗi xảy ra khi xóa người dùng. Vui lòng thử lại."
+        cannot_delete: "Không thể xóa người dùng này."
+      button:
+        delete: "Xóa"
+        view: "Xem"
+        confirm_delete: "Bạn chắc chứ ?"
+      activate:
+        activated: "Đã kích hoạt"
+        not_activated: "Chưa kích hoạt"
+      messages:
+        error_user_not_found: "Không tìm thấy người dùng."
   shared:
     error_messages:
       the_form_contains: "Form có"
       error: "lỗi"
+    users:
+      index:
+        title: "Người dùng"
+        name: "Tên"
+        email: "Email"
+        phone: "Điện thoại"
+        activated: "Kích hoạt"
+        avatar: "Ảnh"
+        actions: "Hành động"
+        search: "Tìm kiếm"
+        search_by_name: "Tìm kiếm theo tên"
+      destroy:
+        success_message: "Người dùng đã được xóa thành công."
+        failure_message: "Có lỗi xảy ra khi xóa người dùng. Vui lòng thử lại."
+        cannot_delete: "Không thể xóa người dùng này."
+      button:
+        delete: "Xóa"
+        view: "Xem"
+        confirm_delete: "Bạn chắc chứ ?"
+      activate:
+        activated: "Đã kích hoạt"
+        not_activated: "Chưa kích hoạt"
+      messages:
+        error_user_not_found: "Không tìm thấy người dùng."
   user:
     base:
       not_user: "Bạn cần phải sign in để truy cập trang này"
@@ -165,6 +213,15 @@ vi:
       field_not_found: "Khong tim thay san nay!"
     create:
       create_field_button: "Thêm sân"
+  users:
+    show:
+      name: "Tên"
+      email: "Email"
+      phone: "Điện thoại"
+      activated: "Kích hoạt"
+      address: "Địa chỉ"
+    messages:
+      error_user_not_found: "Không tìm thấy người dùng."
   shared:
     field_infor:
       back_to_prev_page: "Quay lại danh sách"

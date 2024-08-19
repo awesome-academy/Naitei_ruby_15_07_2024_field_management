@@ -5,8 +5,10 @@ Rails.application.routes.draw do
     post "/signin", to: "sessions#create"
     get "/logout", to: "sessions#destroy"
 
+    resources :users, only: %i(show)
+
     namespace :admin do
-      resources :users, only: %i(index)
+      resources :users, only: %i(index destroy)
       resources :booking_fields, only: %i(index update)
       resources :fields, only: %i(new create edit update destroy) do
         member do
