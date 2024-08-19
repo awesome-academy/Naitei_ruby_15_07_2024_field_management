@@ -70,6 +70,11 @@ en:
       create:
         success_message: "Field was successfully created."
         failure_message: "There was an error creating the field. Please try again."
+      update:
+        success_message: "Field was successfully updated."
+        failure_message: "There was an error updating the field. Please try again."
+      edit:
+        title: "Edit field"
       messages:
         error_field_not_found: "Field not found."
   user:

@@ -1,0 +1,8 @@
+<% provide :title, t(".title") %>
+<h1><%= "#{t(".title")} #{@field.name}" %></h1>
+<div class="container mt-4">
+  <%= form_with model: @field, url: admin_field_path(@field), method: :patch, local: true do |form| %>
+    <%= render "shared/field_form", form: form %>
+    <%= render_existing_images_script @existing_images if @existing_images.present? %>
+  <% end %>
+</div>
