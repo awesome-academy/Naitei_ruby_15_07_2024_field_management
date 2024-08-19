@@ -50,6 +50,10 @@ class BookingField < ApplicationRecord
   scope :excluding_status,
         ->(status){where.not(status:) if status.present?}
 
+  scope :future_bookings, ->{where("date >= ?", Time.zone.today)}
+
+  scope :pending_or_approved, ->{where(status: %w(pending approval))}
+
   def self.filtered params
     by_date(params[:date])
       .by_field_name(params[:field_name])

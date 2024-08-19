@@ -1,6 +1,6 @@
 class Admin::FieldsController < Admin::BaseController
-  before_action :set_field, only: [:status, :edit, :update]
-  before_action :set_date, only: [:status]
+  before_action :set_field, except: %i(new create)
+  before_action :set_date, only: %i(status)
 
   def status; end
 
@@ -38,6 +38,21 @@ class Admin::FieldsController < Admin::BaseController
     end
   end
 
+  def destroy
+    unless can_destroy_field?
+      flash[:danger] = t ".cannot_delete"
+      return redirect_to admin_field_path @field, status: :see_other
+    end
+
+    if @field.destroy
+      flash[:success] = t ".success_message"
+      redirect_to fields_path, status: :see_other
+    else
+      flash[:danger] = t ".failure_message"
+      redirect_to admin_field_path @field, status: :see_other
+    end
+  end
+
   private
 
   def process_attachments
@@ -47,6 +62,13 @@ class Admin::FieldsController < Admin::BaseController
 
   def field_params
     params.require(:field).permit(Field::PERMITTED_ATTRIBUTES)
+  end
+
+  def can_destroy_field?
+    @field.booking_fields
+          .future_bookings
+          .pending_or_approved
+          .none?
   end
 
   def set_field
