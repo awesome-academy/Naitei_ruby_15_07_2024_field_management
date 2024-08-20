@@ -84,6 +84,12 @@ vi:
         pending: "Đang xử lý"
         approval: "Chấp nhận"
         canceled: "Đã từ chối"
+      mail:
+        subject: "Thay đổi trạng thái đặt sân"
+        title: "Cập nhật trạng thái đặt sân"
+        hello: "Xin chào, %{name}"
+        status_changed: "Đơn đặt sân của bạn đã được chuyển trạng thái thành %{status}."
+        thank_you: "Cảm ơn bản đã sử dụng dịch vụ !"
       messages:
         success_change_status: "Cập nhật trạng thái thành công."
         error_change_status: "Lỗi cập nhật trạng thái."

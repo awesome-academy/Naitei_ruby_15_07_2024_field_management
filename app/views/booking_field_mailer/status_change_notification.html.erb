@@ -1,0 +1,11 @@
+<h1><%= t "admin.booking_fields.mail.title" %></h1>
+
+<p><%= t "admin.booking_fields.mail.hello", name: @user.name %></p>
+
+<p>
+  <%= t("admin.booking_fields.mail.status_changed",
+         status: content_tag(:strong, t("admin.booking_fields.statuses.#{@booking_field.status}"))
+  ).html_safe %>
+</p>
+
+<p><%= t "admin.booking_fields.mail.thank_you" %></p>
