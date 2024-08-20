@@ -4,6 +4,16 @@ en:
       multiple_of_30_minutes: "Must be a multiple of 30 minutes"
       within_open_hour: "Booking times must be within field opening hours"
       overlap_time: "Booking time overlaps with an existing booking"
+      name:
+        too_short: "Name is too short (minimum is 8 characters)"
+      email:
+        taken: "Email has already been taken"
+      password:
+        too_short: "Password is too short (minimum is 8 characters)"
+        missing_lowercase: "Password must contain at least one lowercase letter"
+        missing_uppercase: "Password must contain at least one uppercase letter"
+        missing_digit: "Password must contain at least one digit"
+        missing_special_char: "Password must contain at least one special character (@$!%*?&)"
   layouts:
     application:
       base_title: "Soccer Field App"
@@ -108,39 +118,12 @@ en:
         activated: "Activated"
         not_activated: "Not Activated"
       messages:
+        check_email: "Check your mail !"
         error_user_not_found: "User not found."
       destroy:
         success_message: "User was successfully deleted."
         failure_message: "There was an error deleting the user. Please try again."
         cannot_delete: "Cannot delete the user."
-  shared:
-    error_messages:
-      the_form_contains: "The form contains"
-      error: "error"
-    users:
-      index:
-        title: "Users"
-        name: "Name"
-        email: "Email"
-        phone: "Phone"
-        activated: "Activated"
-        avatar: "Avatar"
-        actions: "Actions"
-        search: "Search"
-        search_by_name: "Search by name"
-      destroy:
-        success_message: "User was successfully deleted."
-        failure_message: "There was an error deleting the user. Please try again."
-        cannot_delete: "Cannot delete the user."
-      button:
-        delete: "Delete"
-        view: "View"
-        confirm_delete: "You sure ?"
-      activate:
-        activated: "Activated"
-        not_activated: "Not Activated"
-      messages:
-        error_user_not_found: "User not found."
   user:
     base:
       not_user: "You need to sign in to access this page."
@@ -220,8 +203,19 @@ en:
       phone: "Phone"
       activated: "Activated"
       address: "Address"
+    new:
+      title: "Sign up"
+      sign_in: "Sign in now !"
+      already_user?: "Already User?"
+    form:
+      name: "Name"
+      email: "Email"
+      password: "Password"
+      password_confirmation: "Password Confirmation"
+      submit_button: "Submit"
     messages:
       error_user_not_found: "User not found."
+      check_mail: "Check your mail !"
   shared:
     field_infor:
       back_to_prev_page: "Back to prev page"
@@ -252,6 +246,33 @@ en:
     comment:
       comment_text: "Comment"
       publish: "Publish"
+    error_messages:
+      the_form_contains: "The form contains"
+      error: "error"
+    users:
+      index:
+        title: "Users"
+        name: "Name"
+        email: "Email"
+        phone: "Phone"
+        activated: "Activated"
+        avatar: "Avatar"
+        actions: "Actions"
+        search: "Search"
+        search_by_name: "Search by name"
+      destroy:
+        success_message: "User was successfully deleted."
+        failure_message: "There was an error deleting the user. Please try again."
+        cannot_delete: "Cannot delete the user."
+      button:
+        delete: "Delete"
+        view: "View"
+        confirm_delete: "You sure ?"
+      activate:
+        activated: "Activated"
+        not_activated: "Not Activated"
+      messages:
+        error_user_not_found: "User not found."
   calendar:
     days:
       sunday: "Sun"
