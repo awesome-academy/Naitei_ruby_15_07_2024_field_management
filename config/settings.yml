@@ -22,3 +22,6 @@ image:
   file_type: "image/png,image/gif,image/jpeg"
 example_field_image: https://i.pinimg.com/564x/6f/11/db/6f11dbd25aa96cc6f699362839dc9d0b.jpg
 time_interval: 30
+users:
+  avatar_size_50: 50
+  pagy_10: 10

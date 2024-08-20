@@ -16,6 +16,10 @@ class User < ApplicationRecord
 
   has_secure_password
 
+  scope :search_by_name, lambda {|name|
+    where("name LIKE ?", "%#{name}%") if name.present?
+  }
+
   class << self
     def digest string
       cost = if ActiveModel::SecurePassword.min_cost
