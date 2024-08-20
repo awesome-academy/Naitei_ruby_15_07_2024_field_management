@@ -4,6 +4,16 @@ vi:
       multiple_of_30_minutes: "Block phai la boi cua 30 phut"
       within_open_hour: "Thoi gian dat phai nam trong khoang thoi gian mo san"
       overlap_time: "Da co nguoi dat san nay"
+      name:
+        too_short: "Tên quá ngắn (tối thiểu là 8 ký tự)"
+      email:
+        taken: "Email đã được sử dụng"
+      password:
+          too_short: "Mật khẩu quá ngắn (tối thiểu là 8 ký tự)"
+          missing_lowercase: "Mật khẩu phải chứa ít nhất một chữ cái thường"
+          missing_uppercase: "Mật khẩu phải chứa ít nhất một chữ cái hoa"
+          missing_digit: "Mật khẩu phải chứa ít nhất một chữ số"
+          missing_special_char: "Mật khẩu phải chứa ít nhất một ký tự đặc biệt (@$!%*?&)"
   layouts:
     application:
       base_title: "Ứng dụng đặt sân"
@@ -112,34 +122,7 @@ vi:
         activated: "Đã kích hoạt"
         not_activated: "Chưa kích hoạt"
       messages:
-        error_user_not_found: "Không tìm thấy người dùng."
-  shared:
-    error_messages:
-      the_form_contains: "Form có"
-      error: "lỗi"
-    users:
-      index:
-        title: "Người dùng"
-        name: "Tên"
-        email: "Email"
-        phone: "Điện thoại"
-        activated: "Kích hoạt"
-        avatar: "Ảnh"
-        actions: "Hành động"
-        search: "Tìm kiếm"
-        search_by_name: "Tìm kiếm theo tên"
-      destroy:
-        success_message: "Người dùng đã được xóa thành công."
-        failure_message: "Có lỗi xảy ra khi xóa người dùng. Vui lòng thử lại."
-        cannot_delete: "Không thể xóa người dùng này."
-      button:
-        delete: "Xóa"
-        view: "Xem"
-        confirm_delete: "Bạn chắc chứ ?"
-      activate:
-        activated: "Đã kích hoạt"
-        not_activated: "Chưa kích hoạt"
-      messages:
+        check_email: "Kiểm tra mail của bạn !"
         error_user_not_found: "Không tìm thấy người dùng."
   user:
     base:
@@ -220,8 +203,20 @@ vi:
       phone: "Điện thoại"
       activated: "Kích hoạt"
       address: "Địa chỉ"
+    new:
+      title: "Đăng nhập"
+      sign_in: "Đăng nhập ngay !"
+      already_user?: "Có tài khoản rồi?"
+    form:
+      name: "Tên"
+      email: "Email"
+      password: "Mật khẩu"
+      password_confirmation: "Xác thực mật khẩu"
+      sign_up: "Đăng ký"
+      submit_button: "Xác nhận"
     messages:
       error_user_not_found: "Không tìm thấy người dùng."
+      check_mail: "Kiểm tra mail của bạn !"
   shared:
     field_infor:
       back_to_prev_page: "Quay lại danh sách"
@@ -252,6 +247,33 @@ vi:
     comment:
       comment_text: "Bình luận"
       publish: "Đăng"
+    error_messages:
+      the_form_contains: "Form có"
+      error: "lỗi"
+    users:
+      index:
+        title: "Người dùng"
+        name: "Tên"
+        email: "Email"
+        phone: "Điện thoại"
+        activated: "Kích hoạt"
+        avatar: "Ảnh"
+        actions: "Hành động"
+        search: "Tìm kiếm"
+        search_by_name: "Tìm kiếm theo tên"
+      destroy:
+        success_message: "Người dùng đã được xóa thành công."
+        failure_message: "Có lỗi xảy ra khi xóa người dùng. Vui lòng thử lại."
+        cannot_delete: "Không thể xóa người dùng này."
+      button:
+        delete: "Xóa"
+        view: "Xem"
+        confirm_delete: "Bạn chắc chứ ?"
+      activate:
+        activated: "Đã kích hoạt"
+        not_activated: "Chưa kích hoạt"
+      messages:
+        error_user_not_found: "Không tìm thấy người dùng."
   calendar:
     days:
       sunday: "CN"

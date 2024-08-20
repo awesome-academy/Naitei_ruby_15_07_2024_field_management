@@ -25,3 +25,18 @@ time_interval: 30
 users:
   avatar_size_50: 50
   pagy_10: 10
+  email:
+    type: string
+    regex: \A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z
+    max_length: 255
+    min_length: 5
+  name:
+    type: string
+    max_length: 50
+    min_length: 5
+  password:
+    min_length: 8
+    lowercase: '[a-z]'
+    uppercase: '[A-Z]'
+    digit: '\d'
+    special_char: '[@$!%*?&]'
