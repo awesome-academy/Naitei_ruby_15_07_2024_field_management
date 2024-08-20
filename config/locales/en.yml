@@ -84,6 +84,8 @@ en:
         pending: "Pending"
         approval: "Approval"
         canceled: "Canceled"
+        paid: "Paid"
+        unpaid: "Unpaid"
       mail:
         subject: "Booking Field Status Changed"
         title: "Booking Field Status Update"
@@ -152,6 +154,10 @@ en:
       booking_success: "Booking successfully!"
       please_log_in: "Please log in!"
       you_are_not_user: "You are not"
+      actions: 
+        paid: "Paid"
+        cancel: "Cancel"
+      cancel_booking_successfull: "Cancel booking successfully"
       new:
         back_to_prev_page: "Back to prev page"
         booking_field: "Booking Field Information"
@@ -165,6 +171,7 @@ en:
         block_time: "Block time:"
         address: "Address:"
         people: "people"
+        calendar: "Calendar"
         booking_infor:
           date: "Date"
           start_time: "Start time"
@@ -176,12 +183,25 @@ en:
         general_error: "Please fill all form to submit"
         available_voucher: "Available vouchers"
         action: "Show"
+      index:
+        title: "History"
       show_pay:
         payment: "Demo Payment"
         card_name: "Card name"
         card_number: "Card number"
         confirm_payment: "Pay"
         cancelled: "Cancel"
+      filter: 
+        filter: "filter"
+        payment_status: "Payment status"
+        status: "Status"
+        date: "Date"
+        field_name: "Field name"
+        total_min: "Total min"
+        total_max: "Total max"
+        start_time: "Start time"
+        end_time: "End time"
+        all: "All"
     vouchers:
       voucher:
         code: "Code"

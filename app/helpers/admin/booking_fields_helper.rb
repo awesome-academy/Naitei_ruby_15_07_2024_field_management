@@ -1,11 +1,22 @@
 module Admin::BookingFieldsHelper
   def bootstrap_status_class status
-    case status
-    when "pending"
+    case status.to_sym
+    when :pending
       "status-pending"
-    when "approval"
+    when :approval
       "status-approval"
-    when "canceled"
+    when :canceled
+      "status-canceled"
+    else
+      "status-default"
+    end
+  end
+
+  def bootstrap_pay_status_class status
+    case status.to_sym
+    when :paid
+      "status-pending"
+    when :unpaid
       "status-canceled"
     else
       "status-default"
@@ -76,6 +87,14 @@ module Admin::BookingFieldsHelper
     status_text = I18n.t "admin.booking_fields.statuses.#{booking_field.status}"
     content_tag(:span, status_text,
                 class: "badge #{bootstrap_status_class booking_field.status}")
+  end
+
+  def payment_status_badge booking_field
+    status_text =
+      I18n.t "admin.booking_fields.statuses.#{booking_field.paymentStatus}"
+    content_tag(:span, status_text,
+                class: "badge
+                  #{bootstrap_pay_status_class booking_field.paymentStatus}")
   end
 
   def status_form booking_field

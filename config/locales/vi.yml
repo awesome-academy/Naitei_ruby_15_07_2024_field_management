@@ -1,12 +1,12 @@
 vi:
   job:
     check_payment_status:
-      not_found: "Don dat san với ID %{id} không tìm thấy."
+      not_found: "Đơn đặt sân với ID %{id} không tìm thấy."
   activerecord:
     error:
-      multiple_of_30_minutes: "Block phai la boi cua 30 phut"
-      within_open_hour: "Thoi gian dat phai nam trong khoang thoi gian mo san"
-      overlap_time: "Da co nguoi dat san nay"
+      multiple_of_30_minutes: "Block phải là bội của 30 phút"
+      within_open_hour: "Thời gian đặt phải nằm trong khoảng thời gian mở sân"
+      overlap_time: "Đã có người đặt sân này"
       name:
         too_short: "Tên quá ngắn (tối thiểu là 8 ký tự)"
       email:
@@ -19,8 +19,8 @@ vi:
           missing_special_char: "Mật khẩu phải chứa ít nhất một ký tự đặc biệt (@$!%*?&)"
   account_activations:
     edit:
-      account_activated: "Account activated!"
-      invalid_activation_link: "Invalid activation link"
+      account_activated: "Tài khoản đã được kích hoạt!"
+      invalid_activation_link: "Liên kết kích hoạt không hợp lệ"
   user_mailer:
     account_activation:
       subject: "Ứng dụng sân bóng đá"
@@ -51,10 +51,10 @@ vi:
       title: "Đăng nhập"
       sign_in: "Đăng nhập"
       password: "Mật khẩu"
-      new_user?: "Người đùng mới"
+      new_user?: "Người dùng mới?"
       sign_up_now!: "Đăng ký ngay"
     messages:
-      account_not_activated: "Tài khoản chưa kích hoạt !"
+      account_not_activated: "Tài khoản chưa kích hoạt!"
       invalid_params_sign_in: "Email / Mật khẩu không đúng"
   admin:
     base:
@@ -70,7 +70,6 @@ vi:
         total: "Tổng"
         status: "Trạng thái"
         change_status: "Thay đổi"
-        date: "Ngày"
       filter_form:
         filter: "Lọc"
         all: "Tất cả"
@@ -84,6 +83,8 @@ vi:
         pending: "Đang xử lý"
         approval: "Chấp nhận"
         canceled: "Đã từ chối"
+        paid: "Đã thanh toán"
+        unpaid: "Chưa thanh toán"
       mail:
         subject: "Thay đổi trạng thái đặt sân"
         title: "Cập nhật trạng thái đặt sân"
@@ -103,7 +104,7 @@ vi:
         address: "Địa chỉ"
         edit_button: "Chỉnh sửa"
         delete_button: "Xóa sân"
-        confirm_delete: "Bạn chắc chắn muốn xóa ?"
+        confirm_delete: "Bạn chắc chắn muốn xóa?"
       new:
         title: "Thêm sân"
       create:
@@ -138,20 +139,24 @@ vi:
       button:
         delete: "Xóa"
         view: "Xem"
-        confirm_delete: "Bạn chắc chứ ?"
+        confirm_delete: "Bạn chắc chứ?"
       activate:
         activated: "Đã kích hoạt"
         not_activated: "Chưa kích hoạt"
       messages:
-        check_email: "Kiểm tra mail của bạn !"
+        check_email: "Kiểm tra email của bạn!"
         error_user_not_found: "Không tìm thấy người dùng."
   user:
     base:
-      not_user: "Bạn cần phải sign in để truy cập trang này"
+      not_user: "Bạn cần phải đăng nhập để truy cập trang này"
     booking_fields:
-      booking_success: "Đặt sân thanh cong!"
+      booking_success: "Đặt sân thành công!"
       please_log_in: "Đăng nhập ngay!"
-      you_are_not_user: "Ban khong co"
+      you_are_not_user: "Bạn không có quyền"
+      actions:
+        paid: "Thanh toán"
+        cancel: "Hủy đơn"
+      cancel_booking_successfull: "Hủy sân thành công"
       new:
         back_to_prev_page: "Quay lại danh sách"
         booking_field: "Thông tin đặt sân"
@@ -159,35 +164,49 @@ vi:
         rating: "Đánh giá:"
         price: "Giá:"
         grass: "Loại cỏ:"
-        capacity: "Capacity"
+        capacity: "Sức chứa"
         open_time: "Giờ mở cửa:"
         close_time: "Giờ đóng cửa:"
         block_time: "Thời gian chặn:"
         address: "Địa chỉ:"
         people: "người"
+        calendar: "Lịch"
         booking_infor:
-          date: "Ngay"
-          start_time: "Gio bat dau"
-          end_time: "Gio ket thuc"
-          blocks: "So blocks (Moi block la %{hour} gio)"
-          total_price: "Tong tien"
+          date: "Ngày"
+          start_time: "Giờ bắt đầu"
+          end_time: "Giờ kết thúc"
+          blocks: "Số blocks (Mỗi block là %{hour} giờ)"
+          total_price: "Tổng tiền"
           booking: "Đặt sân"
-        total_error: "Tong tien khong the nho hon 0. Chon lai!"
-        general_error: "Hay dien het cac truong !"
-        available_voucher: "Vouchers"
-        action: "Show"
+        total_error: "Tổng tiền không thể nhỏ hơn 0. Chọn lại!"
+        general_error: "Hãy điền hết các trường!"
+        available_voucher: "Voucher khả dụng"
+        action: "Xem"
       show_pay:
-        payment: "Thanh toan"
-        card_name: "Ten the"
-        card_number: "So the"
-        confirm_payment: "Thanh toan"
-        cancelled: "Huy dat san"
+        payment: "Thanh toán"
+        card_name: "Tên thẻ"
+        card_number: "Số thẻ"
+        confirm_payment: "Xác nhận thanh toán"
+        cancelled: "Hủy đặt sân"
+      index:
+        title: "Lịch sử đặt sân"
+      filter:
+        filter: "Lọc"
+        payment_status: "Thanh toán"
+        status: "Trạng thái"
+        date: "Ngày đặt"
+        field_name: "Tên sân"
+        total_min: "Min"
+        total_max: "Max"
+        start_time: "Giờ bắt đầu"
+        end_time: "Giờ kết thúc"
+        all: "Tất cả"
     vouchers:
       voucher:
-        code: "Ma voucher"
-        value: "Gia tri"
-        expired_date: "Ngay het han"
-        quantity: "So luong"
+        code: "Mã voucher"
+        value: "Giá trị"
+        expired_date: "Ngày hết hạn"
+        quantity: "Số lượng"
   fields:
     index:
       soccer_field_title: "Danh sách sân bóng"
@@ -221,10 +240,10 @@ vi:
         grass: "Loại cỏ:"
         address: "Địa chỉ:"
         view_detail: "Xem chi tiết"
-      no_rating_yet: "Chua co rating"
+      no_rating_yet: "Chưa có đánh giá"
       currency: "VND"
     show:
-      field_not_found: "Khong tim thay san nay!"
+      field_not_found: "Không tìm thấy sân này!"
     create:
       create_field_button: "Thêm sân"
   users:
@@ -236,18 +255,18 @@ vi:
       address: "Địa chỉ"
     new:
       title: "Đăng nhập"
-      sign_in: "Đăng nhập ngay !"
+      sign_in: "Đăng nhập ngay!"
       already_user?: "Có tài khoản rồi?"
     form:
       name: "Tên"
       email: "Email"
       password: "Mật khẩu"
-      password_confirmation: "Xác thực mật khẩu"
+      password_confirmation: "Xác nhận mật khẩu"
       sign_up: "Đăng ký"
       submit_button: "Xác nhận"
     messages:
       error_user_not_found: "Không tìm thấy người dùng."
-      check_mail: "Kiểm tra mail của bạn để kích hoạt tài khoản."
+      check_mail: "Kiểm tra email của bạn để kích hoạt tài khoản."
   shared:
     field_infor:
       back_to_prev_page: "Quay lại danh sách"
@@ -256,7 +275,7 @@ vi:
       rating: "Đánh giá:"
       price: "Giá:"
       grass: "Loại cỏ:"
-      capacity: "Capacity"
+      capacity: "Sức chứa"
       open_time: "Giờ mở cửa:"
       close_time: "Giờ đóng cửa:"
       block_time: "Thời gian chặn:"
@@ -299,7 +318,7 @@ vi:
       button:
         delete: "Xóa"
         view: "Xem"
-        confirm_delete: "Bạn chắc chứ ?"
+        confirm_delete: "Bạn chắc chứ?"
       activate:
         activated: "Đã kích hoạt"
         not_activated: "Chưa kích hoạt"

@@ -1,0 +1,25 @@
+<tr>
+  <td><%= booking_field.field.name %></td>
+  <td><%= formatted_date booking_field.date %></td>
+  <td><%= formatted_time booking_field.start_time %></td>
+  <td><%= formatted_time booking_field.end_time %></td>
+  <td><%= booking_field.total %></td>
+  <td class="text-center"><%= status_badge booking_field %></td>
+  <td><%= payment_status_badge booking_field %></td>
+  <td class="text-center">
+  <%= form_with model: [:user, booking_field], method: :patch, local: true do |f| %>
+    <% if booking_field.pending? %>
+      <%= f.submit I18n.t("user.booking_fields.actions.cancel"), 
+            name: :canceled, 
+            value: :canceled, 
+            class: "btn btn-danger user-action-button" %>
+      <% if booking_field.unpaid? %>
+        <%= f.submit I18n.t("user.booking_fields.actions.paid"), 
+              name: :paid, 
+              value: :paid, 
+              class: "btn btn-success me-2 user-action-button" %>
+      <% end %>
+    <% end %>      
+  <% end %>
+  </td>
+</tr>

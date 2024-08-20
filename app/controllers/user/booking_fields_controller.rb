@@ -1,8 +1,18 @@
 class User::BookingFieldsController < ApplicationController
   before_action :logged_in, :login_as_user, only: %i(new create)
-  before_action :get_booking_field, only: %i(pay demo_payment)
+  before_action :get_booking_field, only: %i(pay demo_payment update)
+  before_action :set_field_and_date, only: :new
+  def index
+    @pagy, @booking_fields = pagy current_user.booking_fields.filtered(params),
+                                  limit: Settings.user.booking_fields_pagy
+  end
+
+  def update
+    process_canceled
+    process_paid
+  end
+
   def new
-    @field = Field.find_by id: params[:field_id]
     if @field.nil?
       flash[:danger] = t ".field_not_found"
       redirect_to fields_path
@@ -18,7 +28,7 @@ class User::BookingFieldsController < ApplicationController
     if @booking_field.save
       handle_success_save_booking
     else
-      handle_faile_save_booking
+      handle_fail_save_booking
     end
   end
 
@@ -27,27 +37,42 @@ class User::BookingFieldsController < ApplicationController
   end
 
   def demo_payment
+    @booking_field.approval!
+    @booking_field.paid!
     flash[:success] = t ".booking_success"
-    @booking_field.update_column(:status, :approval)
     redirect_to root_path
   end
 
   private
 
   def handle_success_save_booking
-    @booking_field.update_column(:status, :pending)
-    @booking_field.update_column(:paymentStatus, :unpaid)
-    # CheckPaymentJob.set(wait: 1.minute).perform_later(@booking_field.id)
+    @booking_field.pending!
+    @booking_field.unpaid!
 
     redirect_to pay_user_booking_field_path @booking_field
   end
 
-  def handle_faile_save_booking
+  def handle_fail_save_booking
     @field = Field.find_by id: params[:booking_field][:field_id]
     @booking_field.assign_attributes(@booking_field.attributes
                                         .transform_values{nil})
     @vouchers = Voucher.available_vouchers
+    @date = Time.zone.today
     render :new
+  end
+
+  def process_canceled
+    return if params[:canceled].blank?
+
+    @booking_field.canceled!
+    flash[:success] = t ".cancel_booking_successesfully"
+    redirect_to user_history_path
+  end
+
+  def process_paid
+    return if params[:paid].blank?
+
+    redirect_to pay_user_booking_field_path @booking_field
   end
 
   def process_vouchers
@@ -83,5 +108,14 @@ class User::BookingFieldsController < ApplicationController
 
     flash[:danger] = t ".you_are_not_user"
     redirect_to root_path
+  end
+
+  def set_field_and_date
+    @field = Field.find_by id: params[:field_id]
+    @date = if params[:date].presence
+              Date.parse(params[:date].to_s)
+            else
+              Time.zone.today
+            end
   end
 end
