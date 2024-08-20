@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
   def create
     user = find_user_by_email
     if user&.authenticate params[:session][:password]
-      handle_successful_login user
+      check_activation_status user
     else
       handle_failed_login
     end
@@ -19,6 +19,15 @@ class SessionsController < ApplicationController
 
   def find_user_by_email
     User.find_by email: params[:session][:email].downcase
+  end
+
+  def check_activation_status user
+    if user.activated?
+      handle_successful_login user
+    else
+      flash[:danger] = t ".messages.account_not_activated"
+      redirect_to root_url
+    end
   end
 
   def handle_successful_login user
