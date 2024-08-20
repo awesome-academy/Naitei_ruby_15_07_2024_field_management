@@ -11,7 +11,7 @@
             <strong><%= t ".rating" %></strong><span><%= @average_rating %></span> <%= Settings.rate %>
           </p>
           <p>
-            <strong><%= t ".price" %></strong><span id="price-per-block"><%= @field.price %></span> <%= t. ".unit_currency"%>
+            <strong><%= t ".price" %></strong><span id="price-per-block"><%= @field.price %></span> <%= t ".unit_currency" %>
           </p>
         </div>
         <div class="col-md-3 description-field des-booking-text">
@@ -54,9 +54,12 @@
           <div class="card-body">
             <%= form_for @booking_field, url: user_booking_fields_path, local: true, data: { turbo: false } do |f| %>
               <%= render "shared/error_messages", error_object: f.object %>
+              <div id="general-booking-alert" class="price-alert">
+                <p><%= t ".general_error" %></p>
+              </div>
               <div class="form-group">
                 <%= f.label :date, t(".booking_infor.date") %>
-                <%= f.date_field :date, value: params[:date], class: "form-control" %>
+                <%= f.date_field :date, value: params[:date], class: "form-control", id: "user-date-booking" %>
               </div>
               <div class="form-group mt-3">
                 <label for="blocks"><%= t ".booking_infor.blocks", hour: @field.block_time %></label>
@@ -74,9 +77,22 @@
                 <%= f.label :total, t(".booking_infor.total_price") %>
                 <%= f.number_field :total, value: params[:total], class: "form-control", readonly: true, id: "total_price" %>
               </div>
+              <div id="price-alert" class="price-alert">
+                <p><%= t ".total_error" %></p>
+              </div>
               <%= f.hidden_field :field_id, value: @field.id %>
               <div class="text-center mt-4">
-                <%= f.submit t(".booking_infor.booking"), class: "btn btn-success btn-block" %>
+                <%= f.submit t(".booking_infor.booking"), class: "btn btn-success btn-block ", id: "submit_button_booking" %>
+              </div>
+              <div class="vouchers-show-area">
+                <h3> <%= t ".available_voucher" %></h3>
+                <div id="showModal" class="btn btn-success mb-3"><%= t ".action" %></div>
+              </div>
+              <div id="myModal">
+                <div class="modal-content">
+                  <span class="close">&times;</span>
+                  <%= render @vouchers %>
+                </div>
               </div>
             <% end %>
           </div>

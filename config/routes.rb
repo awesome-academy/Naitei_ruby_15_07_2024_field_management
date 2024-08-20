@@ -19,7 +19,7 @@ Rails.application.routes.draw do
 
     namespace :user do
       resource :profile, only: %i(show)
-      resources :booking_fields, only: [:new, :create, :pay] do
+      resources :booking_fields, only: %i(new create pay) do
         member do
           get :pay
           get :demo_payment
