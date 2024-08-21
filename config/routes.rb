@@ -21,12 +21,13 @@ Rails.application.routes.draw do
 
     namespace :user do
       resource :profile, only: %i(show)
-      resources :booking_fields, only: %i(new create pay) do
+      resources :booking_fields, only: %i(new create pay update) do
         member do
           get :pay
           get :demo_payment
         end
       end
+      get "/history", to: "booking_fields#index"
     end
 
     root "fields#index"

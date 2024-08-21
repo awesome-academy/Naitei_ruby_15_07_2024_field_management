@@ -68,7 +68,7 @@ module CalendarHelper
         booking.date == day &&
         booking.start_time.strftime(Settings.calendar.time_format) <=
           time.strftime(Settings.calendar.time_format) &&
-        booking.end_time.strftime(Settings.calendar.time_format) >=
+        booking.end_time.strftime(Settings.calendar.time_format) >
           time.strftime(Settings.calendar.time_format)
     end
   end

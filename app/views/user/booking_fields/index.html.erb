@@ -1,0 +1,23 @@
+<% provide :title, t(".title") %>
+<h1><%= t ".title" %></h1>
+
+<%= render "filter" %>
+<%== pagy_bootstrap_nav @pagy %>
+
+<table class="table table-striped table-bordered">
+  <thead class="thead-dark">
+    <tr>
+      <th><%= t ".field_name" %></th>
+      <th><%= t ".date" %></th>
+      <th><%= t ".from" %></th>
+      <th><%= t ".to" %></th>
+      <th><%= t ".total" %></th>
+      <th><%= t ".status" %></th>
+      <th><%= t ".paid_status" %></th>
+      <th><%= t ".change_status" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @booking_fields %>
+  </tbody>
+</table>

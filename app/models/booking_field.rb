@@ -35,6 +35,9 @@ class BookingField < ApplicationRecord
   }
 
   scope :by_status, ->(status){where(status:) if status.present?}
+  scope :by_paymentStatus, lambda {|status|
+                             where(paymentStatus: status) if status.present?
+                           }
 
   scope :by_start_time, lambda {|start_time|
     where("start_time >= ?", start_time) if start_time.present?
@@ -59,7 +62,9 @@ class BookingField < ApplicationRecord
   scope :future_bookings, ->{where("date >= ?", Time.zone.today)}
 
   scope :pending_or_approved, ->{where(status: %w(pending approval))}
-  scope :existing_books, ->(field_id, date){where(field_id:, date:)}
+  scope :existing_books, lambda {|field_id, date, current_id|
+                           where(field_id:, date:).where.not(id: current_id)
+                         }
 
   def self.filtered params
     by_date(params[:date])
@@ -67,6 +72,7 @@ class BookingField < ApplicationRecord
       .by_total_min(params[:total_min])
       .by_total_max(params[:total_max])
       .by_status(params[:status])
+      .by_paymentStatus(params[:paymentStatus])
       .by_start_time(params[:start_time])
       .by_end_time(params[:end_time])
       .sorted_by_date_and_start_time
@@ -92,7 +98,7 @@ class BookingField < ApplicationRecord
   end
 
   def booking_not_overlapping
-    existing_bookings = BookingField.existing_books(field_id, date)
+    existing_bookings = BookingField.existing_books(field_id, date, id)
     existing_bookings.each do |booking|
       next unless start_time < booking.end_time && end_time > booking.start_time
 

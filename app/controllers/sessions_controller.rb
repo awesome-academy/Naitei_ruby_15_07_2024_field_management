@@ -31,9 +31,10 @@ class SessionsController < ApplicationController
   end
 
   def handle_successful_login user
+    forwarding_url = session[:forwarding_url]
     reset_session
     log_in user
-    redirect_user user
+    redirect_user user || forwarding_url
   end
 
   def handle_failed_login
