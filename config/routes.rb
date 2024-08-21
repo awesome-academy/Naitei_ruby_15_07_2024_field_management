@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
     resources :users, only: %i(show create new)
 
+    resources :account_activations, only: %i(edit)
+
     namespace :admin do
       resources :users, only: %i(index destroy)
       resources :booking_fields, only: %i(index update)

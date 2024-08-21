@@ -10,8 +10,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new user_params
     if @user.save
+      UserMailer.account_activation(@user).deliver_now
       flash[:info] = t ".messages.check_mail"
-      redirect_to root_path, status: :see_other
+      redirect_to root_url, status: :see_other
     else
       render :new, status: :unprocessable_entity
     end

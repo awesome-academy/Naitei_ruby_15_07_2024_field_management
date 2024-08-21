@@ -17,6 +17,17 @@ vi:
           missing_uppercase: "Mật khẩu phải chứa ít nhất một chữ cái hoa"
           missing_digit: "Mật khẩu phải chứa ít nhất một chữ số"
           missing_special_char: "Mật khẩu phải chứa ít nhất một ký tự đặc biệt (@$!%*?&)"
+  account_activations:
+    edit:
+      account_activated: "Account activated!"
+      invalid_activation_link: "Invalid activation link"
+  user_mailer:
+    account_activation:
+      subject: "Ứng dụng sân bóng đá"
+      greeting: "Chào %{name},"
+      welcome_message: "Chào mừng bạn đến với Ứng dụng sân bóng đá! Nhấp vào liên kết dưới đây để kích hoạt tài khoản của bạn:"
+      activate_link_text: "Kích hoạt"
+      subject_mail: "Kích hoạt tài khoản"
   layouts:
     application:
       base_title: "Ứng dụng đặt sân"
@@ -41,9 +52,10 @@ vi:
       sign_in: "Đăng nhập"
       password: "Mật khẩu"
       new_user?: "Người đùng mới"
-      sign_up_now!: "Đăng nhập ngay"
+      sign_up_now!: "Đăng ký ngay"
     messages:
-      invalid_params_sign_in: "Email / Tài khoản không đúng"
+      account_not_activated: "Tài khoản chưa kích hoạt !"
+      invalid_params_sign_in: "Email / Mật khẩu không đúng"
   admin:
     base:
       not_admin: "Bạn cần phải có quyền để truy cập trang này"
@@ -229,7 +241,7 @@ vi:
       submit_button: "Xác nhận"
     messages:
       error_user_not_found: "Không tìm thấy người dùng."
-      check_mail: "Kiểm tra mail của bạn !"
+      check_mail: "Kiểm tra mail của bạn để kích hoạt tài khoản."
   shared:
     field_infor:
       back_to_prev_page: "Quay lại danh sách"

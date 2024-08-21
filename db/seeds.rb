@@ -30,7 +30,7 @@ users = 30.times.map do
     phone: Faker::PhoneNumber.cell_phone_in_e164,
     password: "123456",
     role: :user,
-    activated: true,
+    activated: Time.zone.now,
     activated_at: DateTime.now
   )
 end

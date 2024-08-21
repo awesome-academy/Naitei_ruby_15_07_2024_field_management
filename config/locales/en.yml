@@ -17,6 +17,17 @@ en:
         missing_uppercase: "Password must contain at least one uppercase letter"
         missing_digit: "Password must contain at least one digit"
         missing_special_char: "Password must contain at least one special character (@$!%*?&)"
+  account_activations:
+    edit:
+      account_activated: "Tài khoản đã được kích hoạt!"
+      invalid_activation_link: "Liên kết kích hoạt không hợp lệ"
+  user_mailer:
+    account_activation:
+      subject: "Soccer field app"
+      greeting: "Hi %{name},"
+      welcome_message: "Welcome to the Soccer Field App! Click on the link below to activate your account:"
+      activate_link_text: "Activate"
+      subject_mail: "Account activation"
   layouts:
     application:
       base_title: "Soccer Field App"
@@ -43,6 +54,7 @@ en:
       new_user?: "New user?"
       sign_up_now!: "Sign up now!"
     messages:
+      account_not_activated: "Account not activated !"
       invalid_params_sign_in: "Invalid email/password combination"
   admin:
     base:
@@ -228,7 +240,7 @@ en:
       submit_button: "Submit"
     messages:
       error_user_not_found: "User not found."
-      check_mail: "Check your mail !"
+      check_mail: "Please check your email to activate your account."
   shared:
     field_infor:
       back_to_prev_page: "Back to prev page"

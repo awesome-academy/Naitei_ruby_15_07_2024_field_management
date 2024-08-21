@@ -6,6 +6,11 @@ class User < ApplicationRecord
 
   VALID_EMAIL_REGEX = Regexp.new(Settings.users.email.regex)
 
+  attr_accessor :activation_token
+
+  before_save :downcase_email
+  before_create :create_activation_digest
+
   enum role: {user: 0, admin: 1}
 
   has_many :addresses, dependent: :destroy
@@ -46,9 +51,37 @@ class User < ApplicationRecord
              end
       BCrypt::Password.create string, cost:
     end
+
+    def new_token
+      SecureRandom.urlsafe_base64
+    end
+  end
+
+  def send_activation_email
+    UserMailer.account_activation(self).deliver_now
+  end
+
+  def activate
+    update_columns activated: true, activated_at: Time.zone.now
+  end
+
+  def authenticated? attribute, token
+    digest = send "#{attribute}_digest"
+    return false if digest.nil?
+
+    BCrypt::Password.new(digest).is_password? token
   end
 
   private
+
+  def downcase_email
+    email.downcase!
+  end
+
+  def create_activation_digest
+    self.activation_token  = User.new_token
+    self.activation_digest = User.digest activation_token
+  end
 
   def password_complexity
     return if password.blank?
