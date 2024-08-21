@@ -27,30 +27,30 @@
     <div class="row">
       <div class="col-md-6 description-field">
         <p>
-          <strong><%= t ".rating" %></strong><%= @average_rating %> /5
+          <strong><%= t ".rating" %> </strong><%= @average_rating %> /5
         </p>
         <p>
-          <strong><%= t ".price" %></strong><%= @field.price %> VND
+          <strong><%= t ".price" %> </strong><%= @field.price %> VND
         </p>
         <p>
-          <strong><%= t ".grass" %></strong> <%= @field.grass %>
+          <strong><%= t ".grass" %> </strong> <%= @field.grass %>
         </p>
         <p>
-          <strong><%= t ".capacity" %></strong> <%= @field.capacity %> <%= t ".people" %>
+          <strong><%= t ".capacity" %> </strong> <%= @field.capacity %> <%= t ".people" %>
         </p>
       </div>
       <div class="col-md-6 text-start">
         <p>
-          <strong><%= t ".open_time" %></strong> <%= @field.open_time.strftime Settings.format_date %>
+          <strong><%= t ".open_time" %> </strong> <%= @field.open_time.strftime Settings.format_date %>
         </p>
         <p>
-          <strong><%= t ".close_time" %></strong> <%= @field.close_time.strftime Settings.format_date %>
+          <strong><%= t ".close_time" %> </strong> <%= @field.close_time.strftime Settings.format_date %>
         </p>
         <p>
-          <strong><%= t ".block_time" %></strong> <%= @field.block_time %>
+          <strong><%= t ".block_time" %> </strong> <%= @field.block_time %>
         </p>
         <p>
-          <strong><%= t ".address" %></strong> <%= @field.address %>
+          <strong><%= t ".address" %> </strong> <%= @field.address %>
         </p>
       </div>
     </div>

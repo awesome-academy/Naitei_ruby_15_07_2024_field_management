@@ -37,6 +37,7 @@ en:
     header:
       soccer_field_app: "Soccer Field App"
       home: "Home"
+      bookings: "Bookings"
       fields: "Fields"
       users: "Users"
       vouchers: "Vouchers"
@@ -47,6 +48,17 @@ en:
       history: "History"
       timeline: "Timeline"
       sign_in: "Sign in"
+    footer:
+      about_us: "About Us"
+      about_us_text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante."
+      contact: "Contact"
+      email: "Email: example@example.com"
+      phone: "Phone: +123456789"
+      follow_us: "Follow Us"
+      facebook: "Facebook"
+      twitter: "Twitter"
+      instagram: "Instagram"
+      copyright: "2024 Soccer Field App. All Rights Reserved."
   static_pages:
     field_list:
       title: "Fields"
@@ -74,7 +86,6 @@ en:
         total: "Total"
         status: "Status"
         change_status: "Change status"
-        date: "Date"
       filter_form:
         filter: "Filter"
         all: "All"
@@ -184,7 +195,7 @@ en:
       booking_success: "Booking successfully!"
       please_log_in: "Please log in!"
       you_are_not_user: "You are not user"
-      actions: 
+      actions:
         paid: "Paid"
         cancel: "Cancel"
       cancel_booking_successfully: "Cancel booking successfully!"
@@ -217,6 +228,14 @@ en:
         action: "Show"
       index:
         title: "History"
+        date: "Date"
+        from: "From"
+        to: "To"
+        field_name: "Field Name"
+        user_name: "User"
+        total: "Total"
+        status: "Status"
+        change_status: "Change status"
       show_pay:
         payment: "Demo Payment"
         card_name: "Card name"
@@ -232,7 +251,7 @@ en:
         field_name: "Field name"
         later_pay: "Pay later"
       filter:
-        filter: "filter"
+        filter: "Filter"
         payment_status: "Payment status"
         status: "Status"
         date: "Date"
@@ -309,14 +328,16 @@ en:
         desc: "Descending"
         asc: "Ascending"
       submit_button: "Submit"
-      field_detail:
-        rating: "Rating"
-        price: "Price"
-        grass: "Grass"
-        address: "Address"
-        view_detail: "View detail"
+    field_detail:
+      rating: "Rating:"
+      price: "Price: "
+      grass: "Grass: "
+      address: "Address: "
+      view_detail: "View detail"
       no_rating_yet: "No rating yet"
       currency: "VND"
+      artificial: "Artificial"
+      natural: "Natural"
     show:
       field_not_found: "Field not found!"
     create:

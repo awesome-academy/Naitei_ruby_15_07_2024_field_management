@@ -30,7 +30,7 @@ module FieldsHelper
     return unless current_user&.admin?
 
     link_to I18n.t("fields.create.create_field_button"), new_admin_field_path,
-            class: "button"
+            class: "btn btn-success"
   end
 
   def render_favorite_button_if_user field

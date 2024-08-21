@@ -95,45 +95,21 @@ users.each do |user|
   end
 
   # 10 Booking Fields per User
-  # Assuming 'fields' and 'user' are already defined earlier in your seeds.rb
+  # 10.times do
+  #   field = fields.sample
+  #   start_hour = rand(6..20)
+  #   start_time, end_time = random_time_between(start_hour, start_hour + 6)
 
-# Function to generate a random time with 30-minute intervals
-def random_time_between(start_hour, end_hour)
-  start_minute = [0, 30].sample
-  start_time = Time.now.change(hour: start_hour, min: start_minute)
-  
-  end_time = start_time + 1.hour
-  [start_time, end_time]
-end
-
-# Seed BookingField data
-10.times do
-  field = fields.sample
-  date = 2.weeks.from_now.to_date + rand(0..13).days # Random date within 2 weeks from now
-
-  start_hour = rand(10..14) # Random start hour between 10am and 2pm to ensure 1-hour block ends by 3pm
-  start_time, end_time = random_time_between(start_hour, start_hour + 1)
-
-  # Ensure no overlapping bookings unless the existing booking is canceled
-  existing_bookings = BookingField.existing_books(field.id, date, nil)
-  overlap = existing_bookings.any? do |booking|
-    !booking.canceled? && start_time < booking.end_time && end_time > booking.start_time
-  end
-
-  next if overlap # Skip this booking if it overlaps with a non-canceled booking
-
-  BookingField.create!(
-    user: user,
-    field: field,
-    date: date,
-    start_time: start_time,
-    end_time: end_time,
-    total: field.price,
-    status: [:pending, :approval, :canceled].sample
-  )
-end
-
-  end
+  #   BookingField.create!(
+  #     user: user,
+  #     field: field,
+  #     date: Faker::Date.forward(days: 30),
+  #     start_time: start_time,
+  #     end_time: end_time,
+  #     total: field.price,
+  #     status: [:pending, :approval, :canceled].sample
+  #   )
+  # end
 
   # 5 Favorited Fields per User
   5.times do
