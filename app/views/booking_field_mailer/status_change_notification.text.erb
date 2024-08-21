@@ -1,0 +1,9 @@
+<%= t "admin.booking_fields.mail.title" %>
+
+<%= t "admin.booking_fields.mail.hello", name: @user.name %>
+
+<%= t("admin.booking_fields.mail.status_changed",
+       status: "**#{t("admin.booking_fields.statuses.#{@booking_field.status}")}**"
+) %>
+
+<%= t "admin.booking_fields.mail.thank_you" %>

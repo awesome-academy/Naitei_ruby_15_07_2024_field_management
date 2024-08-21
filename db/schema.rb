@@ -57,7 +57,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_08_20_065251) do
     t.integer "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "paymentStatus", default: 0
+    t.integer "paymentStatus", default: 1
     t.index ["field_id"], name: "index_booking_fields_on_field_id"
     t.index ["user_id"], name: "index_booking_fields_on_user_id"
   end

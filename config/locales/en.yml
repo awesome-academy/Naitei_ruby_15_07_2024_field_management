@@ -84,6 +84,12 @@ en:
         pending: "Pending"
         approval: "Approval"
         canceled: "Canceled"
+      mail:
+        subject: "Booking Field Status Changed"
+        title: "Booking Field Status Update"
+        hello: "Hello, %{name}"
+        status_changed: "Your booking field status has been changed to %{status}."
+        thank_you: "Thank you for using our service !"
       messages:
         success_change_status: "Booking field status updated successfully."
         error_change_status: "Failed to update booking field status."
