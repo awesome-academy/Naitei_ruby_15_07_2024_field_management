@@ -17,6 +17,7 @@ Rails.application.routes.draw do
           get "status", to: "fields#status"
         end
       end
+      resources :vouchers, only: %i(index new create)
     end
 
     namespace :user do
