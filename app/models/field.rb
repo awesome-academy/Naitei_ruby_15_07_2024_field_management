@@ -28,6 +28,14 @@ class Field < ApplicationRecord
     .group("fields.id")
                         }
 
+  scope :favorited_by, lambda {|user, favorites_param|
+    if favorites_param.present? && user.present?
+      joins(:favorites).where(favorites: {user_id: user.id})
+    else
+      all
+    end
+  }
+
   has_many_attached :images
   has_many :booking_fields, dependent: :destroy
   has_many :users, through: :booking_fields

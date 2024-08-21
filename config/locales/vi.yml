@@ -227,6 +227,7 @@ vi:
         quantity: "Số lượng"
   fields:
     index:
+      filter_favorites: "Hiển thị các sân yêu thích"
       soccer_field_title: "Danh sách sân bóng"
       search_by_name: "Tìm kiếm theo tên"
       enter_field_name: "Nhập tên sân bóng"
@@ -264,6 +265,14 @@ vi:
       field_not_found: "Không tìm thấy sân này!"
     create:
       create_field_button: "Thêm sân"
+    favorites:
+      unfavorite: "Bỏ thích"
+      favorite: "Thích"
+      favorite_added: "Đã thích"
+      favorite_failed: "Lỗi"
+      favorite_removed: "Đã bỏ thích"
+      favorite_remove_failed: "Lỗi"
+      field_not_found: "Không tìm thấy sân"
   users:
     show:
       name: "Tên"

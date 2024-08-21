@@ -228,6 +228,7 @@ en:
         quantity: "Quantity"
   fields:
     index:
+      filter_favorites: "Show only my favorite fields"
       soccer_field_title: "Soccer Fields List"
       search_by_name: "Search by name"
       enter_field_name: "Enter field name"
@@ -265,6 +266,14 @@ en:
       field_not_found: "Field not found!"
     create:
       create_field_button: "Add field"
+    favorites:
+      unfavorite: "Unfavorite"
+      favorite: "Favorite"
+      favorite_added: "Favorite added"
+      favorite_failed: "Favorite failed"
+      favorite_removed: "Favorite removed"
+      favorite_remove_failed: "Favorite remove failed"
+      field_not_found: "Field not found"
   users:
     show:
       name: "Name"

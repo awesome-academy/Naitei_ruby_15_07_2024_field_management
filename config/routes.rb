@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   scope "(:locale)", locale: /en|vi/ do
-    resources :fields, only: %i(index show)
+    resources :fields, only: %i(index show) do
+      member do
+        get :favorite
+        get :unfavorite
+      end
+    end
     get "/signin", to: "sessions#new"
     post "/signin", to: "sessions#create"
     get "/logout", to: "sessions#destroy"
