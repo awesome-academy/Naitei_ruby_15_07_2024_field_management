@@ -95,21 +95,21 @@ users.each do |user|
   end
 
   # 10 Booking Fields per User
-  10.times do
-    field = fields.sample
-    start_hour = rand(6..20)
-    start_time, end_time = random_time_between(start_hour, start_hour + 6)
+  # 10.times do
+  #   field = fields.sample
+  #   start_hour = rand(6..20)
+  #   start_time, end_time = random_time_between(start_hour, start_hour + 6)
 
-    BookingField.create!(
-      user: user,
-      field: field,
-      date: Faker::Date.forward(days: 30),
-      start_time: start_time,
-      end_time: end_time,
-      total: field.price,
-      status: [:pending, :approval, :canceled].sample
-    )
-  end
+  #   BookingField.create!(
+  #     user: user,
+  #     field: field,
+  #     date: Faker::Date.forward(days: 30),
+  #     start_time: start_time,
+  #     end_time: end_time,
+  #     total: field.price,
+  #     status: [:pending, :approval, :canceled].sample
+  #   )
+  # end
 
   # 5 Favorited Fields per User
   5.times do

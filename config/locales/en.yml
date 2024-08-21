@@ -226,6 +226,31 @@ en:
         value: "Value"
         expired_date: "Expired_date"
         quantity: "Quantity"
+    comments:
+      create:
+        message:
+          success: "Comment successfully"
+          fail: "There was an error posting your comment."
+    ratings:
+      create:
+        message:
+          success: "Rating successfully"
+          fail: "There was an error posting your rating."
+      destroy:
+        message:
+          success: "Delete comment successfully"
+          fail: "There was an error deleting your comment."
+      my_comment:
+        place_holder: "Write your content hear"
+        publish: "Publish"
+  ratings:
+    rating:
+      place_holder: "Write your content hear"
+      submit: "Submit"
+      rating: "Comment"
+  turbo:
+    message:
+      confirm: "You sure?"
   fields:
     index:
       filter_favorites: "Show only my favorite fields"

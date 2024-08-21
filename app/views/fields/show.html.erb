@@ -1,5 +1,7 @@
 <div class="field-container">
   <%= render "shared/field_infor" %>
-  <div class="row-seperate"></div>
-  <%= render "shared/comment" %>
+  <div class="section bg-transparent">
+    <h2><strong><%= t ".comment_text" %></strong></h2>
+    <%= render "user/ratings/review" %>
+  </div>
 </div>

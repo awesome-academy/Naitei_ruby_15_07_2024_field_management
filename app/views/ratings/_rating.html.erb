@@ -1,0 +1,50 @@
+<div class="row comment-container"></div>
+<div class="comment">
+  <div class="sub-comment">
+    <img src="<%= Settings.comment_example_avatar %>" class="comment-avatar" alt="Avatar" />
+    <div>
+      <h3><strong><%= rating.user.name %></strong></h3>
+      <%= display_rating_star rating.rating %>
+      <h4><%= rating.comment.content %></h4>
+      <div class="reply-link reply-button" data-target="reply-form-<%= rating.comment.id %>">
+       Reply
+      </div>
+      <% @rating = rating %>
+      <div id="reply-form-<%= rating.comment.id %>" class="reply-form" style="display:none;">
+        <%= form_with(model: [@rating, Comment.new], url: user_rating_comments_path(@rating, parent_id: rating.comment.id), local: false) do |form| %>
+          <div class="sub-comment">
+            <div class="form-group">
+              <%= form.text_area :content, placeholder: t(".place_holder"), class: "text-subcomment" %>
+            </div>
+            <div class="form-group">
+              <%= form.submit t(".submit"), class: "btn btn-success sub-reply-button" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <% if rating.comment.replies.any? %>
+        <div class="replies">
+          <% rating.comment.replies.each do |reply| %>
+            <div class="reply" >
+              <h5><%= reply.content %></h5>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+
+    <% if current_user == rating.user %>
+    <div class="trash-container">
+      <%= link_to user_field_rating_path(rating.field, rating),
+        data: { 
+          "turbo-method": :delete, 
+          turbo_confirm: t("turbo.message.confirm"), 
+          turbo_frame: "ratings" 
+        },
+        class: "btn btn-danger btn-sm d-flex align-items-center" do %>
+        <i class="fas fa-trash "></i>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
+</div>

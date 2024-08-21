@@ -283,13 +283,15 @@ textarea {
 }
 
 .rating-star {
-  font-size: medium;
-  color: #ffdc6c
+  font-size: medium; 
+  color: $rating-star;
 }
 
 .comment-container {
+  border-bottom: $button-active;
+  padding-bottom: $button-text;
+  box-shadow: 0 10px 20px $shadow;
   height: 3px;
-  background-color: $background
 }
 
 .empty-star {
@@ -395,4 +397,50 @@ textarea {
 
 .user-action-button {
   margin: 5px;
+}
+
+// RATING
+
+#rating .fa {
+  color: $white; 
+  cursor: pointer;
+}
+
+#rating .fa.selected,
+#rating .fa.hover {
+  color: $star-rating-color;
+}
+
+.replies {
+  padding-left: 10px;  
+}
+
+.reply {
+  border-bottom: 1px solid $button-border-bottom;
+  width: 1000%
+}
+
+.reply-button {
+  padding: 5px;
+  border-radius: 5px;
+  background-color: $button-active;
+  color: $white;
+  font-size: 11px;
+  text-decoration: none;
+  max-width: 50px;
+}
+
+.text-comment {
+  height: 70px;
+  margin-right: 10px;
+}
+
+.text-subcomment {
+  width: 800px;
+  margin: 10px;
+}
+
+.trash-container{
+  margin-left: auto;
+  padding-right: 30px ;
 }

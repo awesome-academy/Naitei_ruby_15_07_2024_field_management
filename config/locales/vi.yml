@@ -225,6 +225,30 @@ vi:
         value: "Giá trị"
         expired_date: "Ngày hết hạn"
         quantity: "Số lượng"
+    comments:
+      create:
+        message:
+          success: "Bình luận thành công"
+          fail: "Có lỗi xảy ra khi gửi bình luận của bạn."
+    ratings:
+      create:
+        message:
+          success: "Đánh giá thành công"
+          fail: "Có lỗi xảy ra khi gửi đánh giá của bạn."
+      destroy:
+        essage:
+          success: "Xóa bình luận thành công"
+          fail: "Có lỗi xảy ra khi xóa bình luận của bạn."
+      my_comment:
+        place_holder: "Viết nội dung của bạn ở đây"
+        publish: "Đăng"
+  ratings:
+    rating:
+      place_holder: "Viết nội dung của bạn ở đây"
+      submit: "Gửi"
+      rating: "Bình luận"
+      message:
+        confirm: "Bạn có chắc không?"
   fields:
     index:
       filter_favorites: "Hiển thị các sân yêu thích"

@@ -1,0 +1,17 @@
+
+<%= form_for [@field, @rating], url: user_field_ratings_path(@field), data: { turbo: false }, method: :post, local: true do |f| %>
+  <div class="row rating">
+  <div id="rating">
+    <i class="fa fa-star" data-value="1"></i>
+    <i class="fa fa-star" data-value="2"></i>
+    <i class="fa fa-star" data-value="3"></i>
+    <i class="fa fa-star" data-value="4"></i>
+    <i class="fa fa-star" data-value="5"></i>
+  </div>
+  <%= f.hidden_field :rating, id: "rating-value" %>
+  <%= f.fields_for :comment do |form_comment| %>
+    <%= form_comment.text_field :content, class: "form-control text-comment", placeholder: t(".place_holder") %>
+  <% end %>
+  <%= f.submit t(".publish"), class: "btn btn-success" %>
+  </div>
+<% end %>
