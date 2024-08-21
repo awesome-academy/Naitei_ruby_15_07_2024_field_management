@@ -172,7 +172,7 @@ en:
       booking_success: "Booking successfully!"
       please_log_in: "Please log in!"
       you_are_not_user: "You are not"
-      actions: 
+      actions:
         paid: "Paid"
         cancel: "Cancel"
       cancel_booking_successfull: "Cancel booking successfully"
@@ -209,7 +209,7 @@ en:
         card_number: "Card number"
         confirm_payment: "Pay"
         cancelled: "Cancel"
-      filter: 
+      filter:
         filter: "filter"
         payment_status: "Payment status"
         status: "Status"
@@ -228,6 +228,7 @@ en:
         quantity: "Quantity"
   fields:
     index:
+      filter_favorites: "Show only my favorite fields"
       soccer_field_title: "Soccer Fields List"
       search_by_name: "Search by name"
       enter_field_name: "Enter field name"
@@ -265,6 +266,14 @@ en:
       field_not_found: "Field not found!"
     create:
       create_field_button: "Add field"
+    favorites:
+      unfavorite: "Unfavorite"
+      favorite: "Favorite"
+      favorite_added: "Favorite added"
+      favorite_failed: "Favorite failed"
+      favorite_removed: "Favorite removed"
+      favorite_remove_failed: "Favorite remove failed"
+      field_not_found: "Field not found"
   users:
     show:
       name: "Name"
