@@ -32,4 +32,12 @@ module FieldsHelper
     link_to I18n.t("fields.create.create_field_button"), new_admin_field_path,
             class: "button"
   end
+
+  def render_favorite_button_if_user field
+    return unless current_user&.user?
+
+    content_tag :div, id: "favorite_button_#{field.id}" do
+      render "favorite_button", field:
+    end
+  end
 end

@@ -45,6 +45,13 @@
                                   [t(".rating.asc"), :ASC]],
                                   params[:rating]), class: "form-control" %>
       </div>
+
+      <div class="row g-3">
+        <div class="col-md-12">
+          <%= check_box_tag :favorites, "1", params[:favorites].present?, class: "form-check-input" %>
+          <%= label_tag :favorites, t(".filter_favorites"), class: "form-check-label" %>
+        </div>
+      </div>
     </div>
     <div class="row g-3">
       <%= submit_tag t(".submit_button"), class: "button" %>

@@ -1,0 +1,5 @@
+<% if current_user.favorited_fields.include?(@field) %>
+  <%= link_to I18n.t("fields.favorites.unfavorite"), unfavorite_field_path(@field), method: :delete, remote: true, class: "btn btn-danger text-white rounded-pill w-100" %>
+<% else %>
+  <%= link_to I18n.t("fields.favorites.favorite"), favorite_field_path(@field), method: :post, remote: true, class: "btn btn-primary text-white rounded-pill w-100" %>
+<% end %>
