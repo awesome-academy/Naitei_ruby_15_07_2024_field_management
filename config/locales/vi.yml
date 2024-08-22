@@ -4,6 +4,9 @@ vi:
       not_found: "Đơn đặt sân với ID %{id} không tìm thấy."
   activerecord:
     error:
+      two_week_booking: "Phải trong vòng hai tuần tới"
+      booking_in_past: "Đặt sân không thể ở quá khứ"
+      voucher_error: "Một số mã giảm giá không thể kết hợp với các mã khác."
       multiple_of_30_minutes: "Block phải là bội của 30 phút"
       within_open_hour: "Thời gian đặt phải nằm trong khoảng thời gian mở sân"
       overlap_time: "Đã có người đặt sân này"
@@ -165,6 +168,15 @@ vi:
         created_successfully: "Voucher đã được tạo thành công."
         creation_failed: "Có lỗi xảy ra khi tạo Voucher. Vui lòng thử lại."
   user:
+    users:
+      message:
+        updated: "Cập nhật hồ sơ thành công!"
+        save_fail: "Có lỗi xảy ra khi chỉnh sửa hồ sơ của bạn!"
+        not_found: "Không thể tìm thấy người dùng"
+        not_correct_user: "Bạn không thể chỉnh sửa hồ sơ này"
+      edit:
+        title: "Chỉnh sửa hồ sơ"
+        submit_button: "Gửi"
     base:
       not_user: "Bạn cần phải đăng nhập để truy cập trang này"
     booking_fields:
@@ -174,7 +186,9 @@ vi:
       actions:
         paid: "Thanh toán"
         cancel: "Hủy đơn"
-      cancel_booking_successfull: "Hủy sân thành công"
+      cancel_booking_successfully: "Hủy đặt sân thành công!"
+      booking_field_not_found: "Không thể tìm thấy đơn đặt sân này!"
+      field_not_found: "Không thể tìm thấy sân!"
       new:
         back_to_prev_page: "Quay lại danh sách"
         booking_field: "Thông tin đặt sân"
@@ -206,6 +220,14 @@ vi:
         card_number: "Số thẻ"
         confirm_payment: "Xác nhận thanh toán"
         cancelled: "Hủy đặt sân"
+        date: "Ngày"
+        start_time: "Giờ bắt đầu"
+        end_time: "Giờ kết thúc"
+        apply_vouchers: "Áp dụng mã giảm giá"
+        no_apply_vouchers: "Không có mã giảm giá nào được áp dụng"
+        total_price: "Tổng giá"
+        field_name: "Tên sân"
+        later_pay: "Thanh toán sau"
       index:
         title: "Lịch sử đặt sân"
       filter:
@@ -225,6 +247,9 @@ vi:
         value: "Giá trị"
         expired_date: "Ngày hết hạn"
         quantity: "Số lượng"
+        can_be_used: "Dùng với mã khác?"
+        be_used: "Có"
+        not_be_used: "Không"
     comments:
       create:
         message:
@@ -318,6 +343,10 @@ vi:
     messages:
       error_user_not_found: "Không tìm thấy người dùng."
       check_mail: "Kiểm tra email của bạn để kích hoạt tài khoản."
+    form_edit:
+      title: "Chỉnh sửa hồ sơ"
+      submit_button: "Gửi"
+      change: "Thay đổi"
   shared:
     field_infor:
       back_to_prev_page: "Quay lại danh sách"

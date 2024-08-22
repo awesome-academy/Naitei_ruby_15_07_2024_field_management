@@ -1,0 +1,14 @@
+<%= form_for @user, url: user_user_path(@user), data: { turbo: false }, method: :patch, local:true do |f| %>
+  <%= render "shared/error_messages" , error_object: @user %>
+  <%= f.label :name, class: "edit_profile_data" %>
+  <%= f.text_field :name, class: "form-control" %>
+  <%= f.label :email, class: "edit_profile_data" %>
+  <%= f.email_field :email, class: "form-control" %>
+  <%= f.label :password, class: "edit_profile_data" %>
+  <%= f.password_field :password, class: "form-control" %>
+  <%= f.label :password_confirmation, t(".confirmation"), class: "edit_profile_data" %>
+  <%= f.password_field :password_confirmation, class: "form-control" %>
+  <div class="justify-content-center">
+    <%= f.submit yield(:button_text), class: "btn btn-success" %>
+  </div>
+<% end %>

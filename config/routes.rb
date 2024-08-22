@@ -26,7 +26,7 @@ Rails.application.routes.draw do
     end
 
     namespace :user do
-      resource :profile, only: %i(show)
+      resources :users, only: %i(show update edit)
       resources :booking_fields, only: %i(new create pay update) do
         member do
           get :pay
