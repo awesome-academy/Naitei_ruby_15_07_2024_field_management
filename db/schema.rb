@@ -63,16 +63,13 @@ ActiveRecord::Schema[7.0].define(version: 2024_08_20_065251) do
   end
 
   create_table "comments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.bigint "user_id", null: false
+    t.bigint "rating_id", null: false
     t.string "content"
     t.integer "parent_id"
     t.boolean "isHidden", default: false
-    t.string "commentable_type", null: false
-    t.bigint "commentable_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable"
-    t.index ["user_id"], name: "index_comments_on_user_id"
+    t.index ["rating_id"], name: "index_comments_on_rating_id"
   end
 
   create_table "favorites", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -101,7 +98,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_08_20_065251) do
   create_table "ratings", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "field_id", null: false
-    t.integer "comment_id"
     t.integer "rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -158,7 +154,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_08_20_065251) do
   add_foreign_key "addresses", "users"
   add_foreign_key "booking_fields", "fields"
   add_foreign_key "booking_fields", "users"
-  add_foreign_key "comments", "users"
+  add_foreign_key "comments", "ratings"
   add_foreign_key "favorites", "users"
   add_foreign_key "ratings", "fields"
   add_foreign_key "ratings", "users"

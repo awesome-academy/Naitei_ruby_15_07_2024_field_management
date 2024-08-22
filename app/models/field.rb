@@ -39,7 +39,6 @@ class Field < ApplicationRecord
   has_many :users, through: :booking_fields
   has_many :favorites, as: :favoritable, dependent: :destroy
   has_many :ratings, dependent: :destroy
-  has_many :comments, as: :commentable, dependent: :destroy
 
   validates :capacity, presence: true, inclusion: {in: [5, 7, 11]}
   validates :price, presence: true

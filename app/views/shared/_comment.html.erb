@@ -1,13 +1,15 @@
 <div class="section bg-transparent">
   <h2><strong><%= t ".comment_text" %></strong></h2>
   <div class="row rating">
-    <div class="star-rating">
-      <i class="fa fa-star" data-index="1"></i>
-      <i class="fa fa-star" data-index="2"></i>
-      <i class="fa fa-star" data-index="3"></i>
-      <i class="fa fa-star" data-index="4"></i>
-      <i class="fa fa-star" data-index="5"></i>
+     <div id="rating">
+        <i class="fa fa-star" data-value="1"></i>
+        <i class="fa fa-star" data-value="2"></i>
+        <i class="fa fa-star" data-value="3"></i>
+        <i class="fa fa-star" data-value="4"></i>
+        <i class="fa fa-star" data-value="5"></i>
     </div>
+    <input type="hidden" id="rating-value" name="rating" value="0">
+
     <input
       type="text"
       name="name"

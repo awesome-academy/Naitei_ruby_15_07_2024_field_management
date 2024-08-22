@@ -34,6 +34,14 @@ Rails.application.routes.draw do
         end
       end
       get "/history", to: "booking_fields#index"
+
+      resources :ratings, only: %i(create destroy) do
+        resources :comments, only: :create
+      end
+
+      resources :fields, only: %i(show) do
+        resources :ratings, only: %i(create destroy) 
+      end
     end
 
     root "fields#index"

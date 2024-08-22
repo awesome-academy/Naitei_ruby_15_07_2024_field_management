@@ -9,15 +9,11 @@ class FieldsController < ApplicationController
   end
 
   def show
-    if @field.nil?
-      flash[:danger] = t ".field_not_found"
-      redirect_to fields_path
-    else
-      @average_rating = @field.ratings.average(:rating).to_f
-      @images = @field.images
+    @rating = @field.ratings.build comment: Comment.new
+    @average_rating = @field.ratings.average(:rating).to_f
+    @images = @field.images
 
-      @pagy, @images = pagy @images, limit: Settings.image_field_in_field_detail
-    end
+    @pagy, @images = pagy @images, limit: Settings.image_field_in_field_detail
   end
 
   def favorite
