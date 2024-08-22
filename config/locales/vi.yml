@@ -36,6 +36,7 @@ vi:
       home: "Trang chủ"
       fields: "Các sân"
       users: "Người dùng"
+      vouchers: "Mã KM"
       statistics: "Thống kê"
       logout: "Đăng xuất"
       account: "Tài khoản"
@@ -146,6 +147,23 @@ vi:
       messages:
         check_email: "Kiểm tra email của bạn!"
         error_user_not_found: "Không tìm thấy người dùng."
+    vouchers:
+      title: "Mã khuyến mãi"
+      code: "Mã Voucher"
+      name: "Tên"
+      value: "Giá trị"
+      quantity: "Số lượng"
+      expired_date: "Ngày hết hạn"
+      status: "Trạng thái"
+      new_voucher: "Voucher Mới"
+      new_voucher_title: "Tạo Voucher Mới"
+      create_voucher: "Tạo Voucher"
+      statuses:
+        available: "Có sẵn"
+        expired: "Đã hết hạn"
+      messages:
+        created_successfully: "Voucher đã được tạo thành công."
+        creation_failed: "Có lỗi xảy ra khi tạo Voucher. Vui lòng thử lại."
   user:
     base:
       not_user: "Bạn cần phải đăng nhập để truy cập trang này"

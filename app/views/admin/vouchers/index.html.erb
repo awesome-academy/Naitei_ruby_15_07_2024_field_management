@@ -1,0 +1,20 @@
+<% provide :title, t("admin.vouchers.title") %>
+<h1><%= t "admin.vouchers.title" %></h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th><%= t "admin.vouchers.code" %></th>
+      <th><%= t "admin.vouchers.name" %></th>
+      <th><%= t "admin.vouchers.value" %></th>
+      <th><%= t "admin.vouchers.quantity" %></th>
+      <th><%= t "admin.vouchers.expired_date" %></th>
+      <th><%= t "admin.vouchers.status" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render_voucher_rows @vouchers %>
+  </tbody>
+</table>
+
+<%= link_to t("admin.vouchers.new_voucher"), new_admin_voucher_path, class: "btn btn-primary" %>

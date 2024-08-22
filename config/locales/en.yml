@@ -36,6 +36,7 @@ en:
       home: "Home"
       fields: "Fields"
       users: "Users"
+      vouchers: "Vouchers"
       statistics: "Statistics"
       logout: "Logout"
       account: "Account"
@@ -147,6 +148,23 @@ en:
         success_message: "User was successfully deleted."
         failure_message: "There was an error deleting the user. Please try again."
         cannot_delete: "Cannot delete the user."
+    vouchers:
+      title: "Vouchers"
+      code: "Code"
+      name: "Name"
+      value: "Value"
+      quantity: "Quantity"
+      expired_date: "Expired Date"
+      status: "Status"
+      new_voucher: "New Voucher"
+      new_voucher_title: "Create New Voucher"
+      create_voucher: "Create Voucher"
+      statuses:
+        available: "Available"
+        expired: "Expired"
+      messages:
+        created_successfully: "Voucher was successfully created."
+        creation_failed: "There was an error creating the voucher. Please try again."
   user:
     base:
       not_user: "You need to sign in to access this page."
