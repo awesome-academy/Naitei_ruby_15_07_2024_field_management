@@ -15,8 +15,7 @@ class Voucher < ApplicationRecord
   has_many :use_vouchers, dependent: :destroy
   after_save :check_status
 
-  scope :available_vouchers,
-        ->{available.where("expired_date >= ?", Date.current)}
+  scope :available_vouchers, ->{where(status: :available).limit(Settings.items)}
 
   def decrement_quantity
     return unless quantity.positive?

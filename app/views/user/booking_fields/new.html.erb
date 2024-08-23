@@ -8,34 +8,34 @@
       <div class="row">
         <div class="col-md-3 description-field des-booking-text">
           <p>
-            <strong><%= t ".rating" %></strong><span><%= @average_rating %></span> <%= Settings.rate %>
+            <strong><%= t ".rating" %></strong> <span><%= @average_rating.present? ? @average_rating.round(1) : t(".no_rating_yet") %></span>
           </p>
           <p>
-            <strong><%= t ".price" %></strong><span id="price-per-block"><%= @field.price %></span> <%= t ".unit_currency" %>
-          </p>
-        </div>
-        <div class="col-md-3 description-field des-booking-text">
-          <p>
-            <strong><%= t ".grass" %></strong><span><%= @field.grass %></span>
-          </p>
-          <p>
-            <strong><%= t ".capacity" %></strong><span><%= @field.capacity %></span> <%= t ".people" %>
+            <strong><%= t ".price" %></strong> <span id="price-per-block"><%= @field.price %></span> <%= t ".unit_currency" %>
           </p>
         </div>
         <div class="col-md-3 description-field des-booking-text">
           <p>
-            <strong><%= t ".open_time" %></strong><span id="open-time"><%= @field.open_time.strftime Settings.format_date %></span>
+            <strong><%= t ".grass" %></strong> <span><%= @field.grass %></span>
           </p>
           <p>
-            <strong><%= t ".close_time" %></strong><span id="close-time"><%= @field.close_time.strftime Settings.format_date %></span>
+            <strong><%= t ".capacity" %></strong> <span><%= @field.capacity %></span> <%= t ".people" %>
           </p>
         </div>
         <div class="col-md-3 description-field des-booking-text">
           <p>
-            <strong><%= t ".block_time" %></strong><span id="block-time"><%= @field.block_time %></span>
+            <strong><%= t ".open_time" %></strong> <span id="open-time"><%= @field.open_time.strftime Settings.format_date %></span>
           </p>
           <p>
-            <strong><%= t ".address" %></strong><span><%= @field.address %></span>
+            <strong><%= t ".close_time" %></strong> <span id="close-time"><%= @field.close_time.strftime Settings.format_date %></span>
+          </p>
+        </div>
+        <div class="col-md-3 description-field des-booking-text">
+          <p>
+            <strong><%= t ".block_time" %></strong> <span id="block-time"><%= @field.block_time %></span>
+          </p>
+          <p>
+            <strong><%= t ".address" %></strong> <span><%= @field.address %></span>
           </p>
         </div>
       </div>

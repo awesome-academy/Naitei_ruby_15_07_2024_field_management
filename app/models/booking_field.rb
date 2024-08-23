@@ -3,9 +3,11 @@ class BookingField < ApplicationRecord
   belongs_to :user
   belongs_to :field
 
-  before_save :start_time_must_be_multiple_of_30_minutes,
-              :start_time_and_end_time_within_opening_hours,
-              :booking_not_overlapping
+  validate :start_time_must_be_multiple_of_30_minutes,
+           :start_time_and_end_time_within_opening_hours,
+           :booking_not_overlapping,
+           :date_cannot_be_in_the_past,
+           :date_must_be_within_two_weeks
 
   enum status: {pending: 0, approval: 1, canceled: 2}
   enum paymentStatus: {paid: 0, unpaid: 1}
@@ -78,6 +80,18 @@ class BookingField < ApplicationRecord
       .sorted_by_date_and_start_time
   end
 
+  def check_vouchers vouchers
+    if vouchers&.any? do |voucher|
+         !voucher.used_with_other
+       end && vouchers.count > 1
+      errors.add(:base,
+                 I18n.t("activerecord.error.voucher_error"))
+      false
+    else
+      true
+    end
+  end
+
   private
 
   def start_time_must_be_multiple_of_30_minutes
@@ -100,11 +114,26 @@ class BookingField < ApplicationRecord
   def booking_not_overlapping
     existing_bookings = BookingField.existing_books(field_id, date, id)
     existing_bookings.each do |booking|
-      next unless start_time < booking.end_time && end_time > booking.start_time
+      next if booking.canceled?
 
-      errors.add(:base,
-                 I18n.t("activerecord.error.overlap_time"))
-      throw(:abort)
+      if start_time < booking.end_time && end_time > booking.start_time
+        errors.add(:base, I18n.t("activerecord.error.overlap_time"))
+        throw(:abort)
+      end
     end
+  end
+
+  def date_cannot_be_in_the_past
+    return unless date.present? && date < Time.zone.today
+
+    errors.add(:date, I18n.t("activerecord.error.booking_in_past"))
+    throw(:abort)
+  end
+
+  def date_must_be_within_two_weeks
+    return unless date.present? && date > Settings.two.weeks.from_now.to_date
+
+    errors.add(:date, I18n.t("activerecord.error.two_week_booking"))
+    throw(:abort)
   end
 end
