@@ -202,6 +202,7 @@ en:
       booking_field_not_found: "Can't found this booking!"
       field_not_found: "Field not found"
       new:
+        apply: "Apply"
         back_to_prev_page: "Back to prev page"
         booking_field: "Booking Field Information"
         description: "Description"
@@ -275,6 +276,8 @@ en:
         message:
           success: "Comment successfully"
           fail: "There was an error posting your comment."
+        please_log_in: "Please log in!"
+        you_are_not_user: "You are not user"
     ratings:
       create:
         message:
@@ -292,6 +295,7 @@ en:
         not_found_field: "Field not founded"
       please_log_in: "Please log in!"
       you_are_not_user: "You are not user"
+      not_booking_not_rating: "You've not yet booked this field"
   ratings:
     rating:
       place_holder: "Write your content hear"
@@ -384,6 +388,8 @@ en:
       block_time: "Block time:"
       address: "Address:"
       people: "people"
+      currency: "VND"
+      hour: "hour"
     field_form:
       name: "Name"
       price: "Price"

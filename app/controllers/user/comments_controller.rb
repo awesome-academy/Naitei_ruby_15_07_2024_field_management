@@ -1,11 +1,12 @@
 class User::CommentsController < ApplicationController
-  before_action :get_parent_comment, only: :create
-  before_action :get_rating, only: :create
+  before_action :logged_in, :login_as_user, :get_parent_comment, :get_rating,
+                only: :create
 
   def create
     @comment = Comment.new comment_params
     @comment.rating = @rating
     @comment.parent = @parent_comment
+    @comment.user = current_user
 
     if @comment.save
       flash[:success] = t ".create.message.success"
@@ -38,5 +39,20 @@ class User::CommentsController < ApplicationController
 
   def comment_params
     params.require(:comment).permit Comment::COMMENT_PARAMS
+  end
+
+  def logged_in
+    return if logged_in?
+
+    store_location
+    flash[:danger] = t ".please_log_in"
+    redirect_to signin_url
+  end
+
+  def login_as_user
+    return if current_user.user?
+
+    flash[:danger] = t ".you_are_not_user"
+    redirect_to root_path
   end
 end

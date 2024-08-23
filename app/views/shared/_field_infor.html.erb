@@ -27,10 +27,10 @@
     <div class="row">
       <div class="col-md-6 description-field">
         <p>
-          <strong><%= t ".rating" %> </strong><%= @average_rating %> /5
+          <strong><%= t ".rating" %> </strong><%= @average_rating.present? ? @average_rating.round(1) : t(".no_rating_yet") %>
         </p>
         <p>
-          <strong><%= t ".price" %> </strong><%= @field.price %> VND
+          <strong><%= t ".price" %> </strong><%= @field.price %> <%= t(".currency") %>
         </p>
         <p>
           <strong><%= t ".grass" %> </strong> <%= @field.grass %>
@@ -47,7 +47,7 @@
           <strong><%= t ".close_time" %> </strong> <%= @field.close_time.strftime Settings.format_date %>
         </p>
         <p>
-          <strong><%= t ".block_time" %> </strong> <%= @field.block_time %>
+          <strong><%= t ".block_time" %> </strong> <%= @field.block_time %> <%= t(".hour") %>
         </p>
         <p>
           <strong><%= t ".address" %> </strong> <%= @field.address %>

@@ -1,37 +1,37 @@
 <div class="row g-3">
 
   <div class="col-md-4 mb-4">
-    <%= form.label :grass, t(".grass_type") %>
-    <%= form.select :grass, options_for_select([[t(".grass_types.natural"), "natural"], [t(".grass_types.artificial"), "artificial"]]), class: "form-control" %>
+    <%= form.label :grass, t(".grass_type") %> <span class="text-danger">(*)</span>
+    <%= form.select :grass, options_for_select([[t(".grass_types.natural"), "natural"], [t(".grass_types.artificial"), "artificial"]]), class: "form-control", required: true %>
   </div>
 
   <div class="col-md-4 mb-4">
-    <%= form.label :open_time, t(".open_time") %>
-    <%= form.time_select :open_time, minute_step: Settings.field.minute_step, class: "form-control" %>
+    <%= form.label :open_time, t(".open_time") %> <span class="text-danger">(*)</span>
+    <%= form.time_select :open_time, minute_step: Settings.field.minute_step, class: "form-control", required: true %>
   </div>
 
   <div class="col-md-4 mb-4">
-    <%= form.label :close_time, t(".close_time") %>
-    <%= form.time_select :close_time, minute_step: Settings.field.minute_step, class: "form-control" %>
+    <%= form.label :close_time, t(".close_time") %> <span class="text-danger">(*)</span>
+    <%= form.time_select :close_time, minute_step: Settings.field.minute_step, class: "form-control", required: true %>
   </div>
 
   <div class="col-md-6 mb-4">
-    <%= form.label :name, t(".name") %>
-    <%= form.text_field :name, class: "form-control" %>
+    <%= form.label :name, t(".name") %> <span class="text-danger">(*)</span>
+    <%= form.text_field :name, class: "form-control", required: true %>
   </div>
 
   <div class="col-md-6 mb-4">
-    <%= form.label :price, t(".price") %>
-    <%= form.number_field :price, step: Settings.field.price_step, class: "form-control" %>
+    <%= form.label :price, t(".price") %> <span class="text-danger">(*)</span>
+    <%= form.number_field :price, step: Settings.field.price_step, class: "form-control", required: true %>
   </div>
 
   <div class="col-md-12 mb-4">
-    <%= form.label :address, t(".address") %>
-    <%= form.text_area :address, class: "form-control", rows: 3 %>
+    <%= form.label :address, t(".address") %> <span class="text-danger">(*)</span>
+    <%= form.text_area :address, class: "form-control", rows: 3, required: true %>
   </div>
 
   <div class="col-md-12 text-right mt-4">
-    <%= form.submit t(".submit"), class: "btn btn-primary" %>
+    <%= form.submit t(".submit"), class: "btn btn-primary", required: true %>
   </div>
 
   <div class="col-md-12 mb-4">
