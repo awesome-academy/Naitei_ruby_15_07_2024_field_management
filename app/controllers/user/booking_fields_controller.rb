@@ -25,7 +25,8 @@ class User::BookingFieldsController < ApplicationController
   def create
     @booking_field = current_user.booking_fields.build booking_params
     process_vouchers
-    if @booking_field.save
+
+    if @booking_field.check_vouchers(@vouchers) && @booking_field.save
       handle_success_save_booking
     else
       handle_fail_save_booking
@@ -79,9 +80,8 @@ class User::BookingFieldsController < ApplicationController
   def process_vouchers
     return if params[:voucher_ids].nil?
 
-    selected_vouchers = Voucher.find_with_list_ids params[:voucher_ids]
-
-    @booking_field.vouchers = selected_vouchers
+    @vouchers = Voucher.find_with_list_ids params[:voucher_ids]
+    @booking_field.vouchers = @vouchers
   end
 
   def get_booking_field

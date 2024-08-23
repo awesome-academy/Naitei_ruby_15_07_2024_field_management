@@ -1,13 +1,21 @@
-<div class="row-md-4 voucher-container" >
-  <div class="card h-100 shadow-sm border-0 voucher-pick">
+<div class="row-md-4 card h-100 shadow-sm border-0 user-voucher-container" >
+  <div class="voucher-pick">
     <div class="card-body voucher-body">
       <input type="checkbox" id="voucher_<%= voucher.id %>" class="me-3" name="voucher_ids[]" 
              value="<%= voucher.id %>" data-price="<%= voucher.value %>">
              
       <p class="mb-0 me-3"><strong><%= voucher.name %></strong></p>
-      <p class="mb-0 me-3"><strong><%= t ".code" %>:</strong> <%= voucher.code %></p>
-      <p class="mb-0 me-3"><strong><%= t ".value" %>:</strong> <%= voucher.value %></p>
-      <p class="mb-0"><strong><%= t ".expired_date" %>:</strong> <%= voucher.expired_date %></p>
+      <p class="mb-0 me-3"><strong><%= t ".code" %>:<br/></strong> <%= voucher.code %></p>
+      <p class="mb-0 me-3"><strong><%= t ".value" %>:<br/></strong> <%= voucher.value %></p>
+      <p class="mb-0 me-3"><strong><%= t ".quantity" %>:<br/></strong> <%= voucher.quantity %></p>
+      <p class="mb-0"><strong><%= t ".expired_date" %>:<br/></strong> <%= voucher.expired_date %></p>
+      <p class="mb-0 float-left"><strong><%= t ".can_be_used" %><br/></strong> 
+       <% if voucher.used_with_other %> 
+        <%= t ".be_used" %>
+      <% else %>
+        <%= t ".not_be_used" %>
+      <% end %>
+      </p>
     </div>
   </div>
 </div>

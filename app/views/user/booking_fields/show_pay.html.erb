@@ -1,21 +1,54 @@
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-md-6">
-      <h1 class="text-center mt-5"><%= t ".payment" %></h1>
-        <form action="/payments" method="post" class="mt-4">
-          <div class="mb-3">
-            <label for="name" class="form-label"><%= t ".card_name" %></label>
-            <input type="text" id="name" name="name" class="form-control" required>
-          </div>
-          <div class="mb-3">
-            <label for="card_number" class="form-label"><%= t ".card_number" %></label>
-            <input type="text" id="card_number" name="card_number" class="form-control" required maxlength="16" pattern="[0-9]{16}">
-          </div>
-          <div class="d-grid">
-            <%= link_to t(".confirm_payment"), demo_payment_user_booking_field_path(@booking_field) , class: "btn btn-success" %>
-            <%= link_to t(".cancelled"), "#" , class: "btn btn-success" %>
-          </div>
-        </form>
+<div class="container mt-5">
+  <div class="card">
+    <div class="card-header text-white demo-payment">
+      <h3><%= t ".payment" %></h3>
+    </div>
+    <div class="card-body">
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <h5><strong><%= t ".field_name" %>:</strong></h5>
+          <p class="lead"><%= @booking_field.field.name %></p>
+        </div>
+        <div class="col-md-6">
+          <h5><strong><%= t ".date" %>:</strong></h5>
+          <p class="lead"><%= @booking_field.date %></p>
+        </div>
+      </div>
+      
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <h5><strong><%= t ".start_time" %>:</strong></h5>
+          <p class="lead"><%= @booking_field.start_time.strftime Settings.format_date %></p>
+        </div>
+        <div class="col-md-6">
+          <h5><strong><%= t ".end_time" %>:</strong></h5>
+          <p class="lead"><%= @booking_field.end_time.strftime Settings.format_date %></p>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-md-12">
+          <h5><strong><%= t ".apply_vouchers" %>:</strong></h5>
+          <ul class="list-group mar-10">
+            <% if @booking_field.vouchers.any? %>
+              <% @booking_field.vouchers.each do |voucher| %>
+                <li class="list-group-item"><%= voucher.name %> - <%= voucher.value %></li>
+              <% end %>
+            <% else %>
+              <li class="list-group-item"><%= t ".no_apply_vouchers" %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <h5><strong><%= t ".total_price" %>:</strong></h5>
+          <p class="lead text-success"><%= @booking_field.total %></p>
+        </div>
       </div>
     </div>
+    <div class="d-grid justify-content-center">
+      <%= link_to t(".confirm_payment"), demo_payment_user_booking_field_path(@booking_field) , class: "btn btn-success width-30 mar-10" %>
+      <%= link_to t(".later_pay"), "#" , class: "btn btn-success width-30 mar-10" %>
+    </div>
+  </div>
 </div>
