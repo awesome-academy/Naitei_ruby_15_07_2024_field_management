@@ -37,6 +37,7 @@ vi:
     header:
       soccer_field_app: "Ứng dụng đặt sân"
       home: "Trang chủ"
+      bookings: "Đơn đặt"
       fields: "Các sân"
       users: "Người dùng"
       vouchers: "Mã KM"
@@ -47,6 +48,17 @@ vi:
       history: "Lịch sử thuê"
       timeline: "Hoạt động"
       sign_in: "Đăng nhập"
+    footer:
+      about_us: "Về chúng tôi"
+      about_us_text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante."
+      contact: "Liên hệ"
+      email: "Email: example@example.com"
+      phone: "Điện thoại: +123456789"
+      follow_us: "Theo dõi chúng tôi"
+      facebook: "Facebook"
+      twitter: "Twitter"
+      instagram: "Instagram"
+      copyright: "2024 Soccer Field App. Bản quyền đã được bảo hộ."
   static_pages:
     field_list:
       title: "Các sân"
@@ -230,6 +242,14 @@ vi:
         later_pay: "Thanh toán sau"
       index:
         title: "Lịch sử đặt sân"
+        date: "Ngày"
+        from: "Từ"
+        to: "Đến"
+        field_name: "Tên sân"
+        user_name: "Người đặt"
+        total: "Tổng"
+        status: "Trạng thái"
+        change_status: "Thay đổi"
       filter:
         filter: "Lọc"
         payment_status: "Thanh toán"
@@ -302,14 +322,16 @@ vi:
         desc: "Từ cao đến thấp"
         asc: "Từ thấp đến cao"
       submit_button: "Tìm kiếm"
-      field_detail:
-        rating: "Đánh giá:"
-        price: "Giá:"
-        grass: "Loại cỏ:"
-        address: "Địa chỉ:"
-        view_detail: "Xem chi tiết"
+    field_detail:
+      rating: "Đánh giá: "
+      price: "Giá: "
+      grass: "Loại cỏ: "
+      address: "Địa chỉ: "
+      view_detail: "Xem chi tiết"
       no_rating_yet: "Chưa có đánh giá"
       currency: "VND"
+      artificial: "Nhân tạo"
+      natural: "Tự nhiên"
     show:
       field_not_found: "Không tìm thấy sân này!"
     create:

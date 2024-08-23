@@ -9,6 +9,9 @@
         <% if logged_in? %>
           <% if current_user.admin? %>
             <li class="nav-item">
+              <%= link_to t(".bookings"), admin_booking_fields_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
               <%= link_to t(".fields"), fields_path, class: "nav-link" %>
             </li>
             <li class="nav-item">

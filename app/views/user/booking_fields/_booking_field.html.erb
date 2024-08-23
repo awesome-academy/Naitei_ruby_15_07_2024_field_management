@@ -9,21 +9,21 @@
   <td class="text-center">
   <%= form_with model: [:user, booking_field], method: :patch, local: true do |f| %>
     <% if booking_field.pending? %>
-      <%= f.submit I18n.t("user.booking_fields.actions.cancel"), 
-            name: :canceled, 
-            value: :canceled, 
+      <%= f.submit I18n.t("user.booking_fields.actions.cancel"),
+            name: :canceled,
+            value: :canceled,
             class: "btn btn-danger user-action-button",
              data: {
                     "turbo-method": :delete,
                     turbo_confirm: t("turbo.message.confirm")
                    } %>
       <% if booking_field.unpaid? %>
-        <%= f.submit I18n.t("user.booking_fields.actions.paid"), 
-              name: :paid, 
-              value: :paid, 
+        <%= f.submit I18n.t("user.booking_fields.actions.paid"),
+              name: :paid,
+              value: :paid,
               class: "btn btn-success me-2 user-action-button" %>
       <% end %>
-    <% end %>      
+    <% end %>
   <% end %>
   </td>
 </tr>

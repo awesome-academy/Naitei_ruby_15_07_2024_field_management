@@ -6,15 +6,19 @@
         <%= link_to field.name, field_link(field) %>
       </h5>
       <p class="card-text">
-        <strong><%= t ".field_detail.rating" %></strong><%= field.average_rating.present? ? field.average_rating.round(1) : t(".no_rating_yet") %><br />
-        <strong><%= t ".field_detail.price" %></strong><%= number_to_currency(field.price, unit: t(".currency")) %><br />
-        <strong><%= t ".field_detail.grass" %></strong><%= field.grass %><br/>
-        <strong><%= t ".field_detail.address" %></strong><%= field.address %>
+        <strong><%= t "fields.field_detail.rating" %></strong>
+          <%= field.average_rating.present? ? field.average_rating.round(1) : t("fields.field_detail.no_rating_yet") %><br />
+        <strong><%= t "fields.field_detail.price" %></strong>
+          <%= number_to_currency(field.price, unit: t("fields.field_detail.currency")) %><br />
+        <strong><%= t "fields.field_detail.grass" %></strong>
+          <%= field.grass == "artificial" ? t("fields.field_detail.artificial") : t("fields.field_detail.natural") %><br/>
+        <strong><%= t "fields.field_detail.address" %></strong>
+          <%= field.address %>
       </p>
     </div>
 
     <div class="card-footer bg-transparent border-0 text-center">
-      <%= link_to t(".field_detail.view_detail"), field_path(field), class: "btn btn-success view-detail-btn w-100" %>
+      <%= link_to t("fields.field_detail.view_detail"), field_path(field), class: "btn btn-success view-detail-btn w-100" %>
     </div>
   </div>
 </div>

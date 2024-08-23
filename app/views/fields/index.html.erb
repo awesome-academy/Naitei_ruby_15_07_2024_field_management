@@ -1,14 +1,13 @@
 <div class="container mt-4">
   <h1 class="mb-4"><%= t ".soccer_field_title" %></h1>
   <%= form_with url: fields_path, method: :get, local: true do %>
-    <div class="row g-3">
+    <div class="row g-3 filter-margin">
       <div class="col-md-12">
         <%= label_tag :name, t(".search_by_name") %>
         <%= text_field_tag :name, params[:name], class: "form-control", placeholder: t(".enter_field_name") %>
       </div>
     </div>
-
-    <div class="row g-3">
+    <div class="row g-3 filter-margin">
       <div class="col-md-3">
         <%= label_tag :price, t(".price.price_placeholder") %>
         <%= select_tag :price, options_for_select([
@@ -46,16 +45,18 @@
                                   params[:rating]), class: "form-control" %>
       </div>
 
-      <div class="row g-3">
-        <div class="col-md-12">
-          <%= check_box_tag :favorites, "1", params[:favorites].present?, class: "form-check-input" %>
-          <%= label_tag :favorites, t(".filter_favorites"), class: "form-check-label" %>
-        </div>
+    </div>
+    <div class="row g-3 filter-margin">
+      <div class="col-md-12">
+        <%= check_box_tag :favorites, "1", params[:favorites].present?, class: "form-check-input" %>
+        <%= label_tag :favorites, t(".filter_favorites"), class: "form-check-label" %>
       </div>
     </div>
     <div class="row g-3">
-      <%= submit_tag t(".submit_button"), class: "button" %>
-      <%= render_create_field_button %>
+      <div class="col-md-12">
+        <%= submit_tag t(".submit_button"), class: "btn btn-success" %>
+        <%= render_create_field_button %>
+      </div>
     </div>
   <% end %>
 
