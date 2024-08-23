@@ -5,5 +5,6 @@ import 'bootstrap'
 import './custom/menu'
 import './custom/calendar'
 import './custom/image'
-import './custom/booking'
 import './custom/rating'
+import './custom/booking'
+
