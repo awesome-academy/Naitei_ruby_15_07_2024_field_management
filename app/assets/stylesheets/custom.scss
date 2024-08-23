@@ -24,7 +24,7 @@
   background-color: $footer-background;
   color: $footer-text;
   padding: 20px 0;
-  margin-top: auto;
+  margin-top: 40px;
 }
 .footer .container {
   display: flex;
@@ -65,7 +65,7 @@
 
 /* universal */
 html, body {
-  padding-top: 60px;
+  padding-top: 30px;
   height: 100%;
 }
 section {
@@ -257,8 +257,8 @@ textarea {
 .detail-info {
   position: absolute;
   width: 100%;
-  height: 100%;
-  z-index: 2;
+  height: 30%;
+  z-index: 1;
   padding: 40px 50px;
   padding-bottom: 0px;
 }
