@@ -65,7 +65,8 @@ class User::BookingFieldsController < ApplicationController
     return if params[:canceled].blank?
 
     @booking_field.canceled!
-    flash[:success] = t ".cancel_booking_successesfully"
+    BookingFieldMailer.status_change_notification(@booking_field).deliver_now
+    flash[:success] = t ".cancel_booking_successfully"
     redirect_to user_history_path
   end
 

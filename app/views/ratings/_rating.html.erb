@@ -36,10 +36,10 @@
     <% if current_user == rating.user %>
     <div class="trash-container">
       <%= link_to user_field_rating_path(rating.field, rating),
-        data: { 
-          "turbo-method": :delete, 
-          turbo_confirm: t("turbo.message.confirm"), 
-          turbo_frame: "ratings" 
+        data: {
+          "turbo-method": :delete,
+          turbo_confirm: t("turbo.message.confirm"),
+          turbo_frame: "ratings"
         },
         class: "btn btn-danger btn-sm d-flex align-items-center" do %>
         <i class="fas fa-trash "></i>

@@ -186,7 +186,7 @@ textarea {
   display: flex;
   align-items: center;
   padding-top: 30px;
-  z-index: 100;
+  z-index: 3;
 }
 
 .detail-img {
@@ -334,8 +334,10 @@ textarea {
   color: $red;
 }
 
-.voucher-container {
+.user-voucher-container {
+  height: 70px;
   width: 100%;
+  padding-bottom: 3px;
 }
 
 .voucher-body {
@@ -347,6 +349,7 @@ textarea {
 
 .voucher-body p {
   font-size: 15px;
+  width: 150px;
 }
 
 .voucher-button-order {
@@ -356,24 +359,26 @@ textarea {
 #myModal {
   display: none;
   position: fixed;
-  z-index: 1;
+  z-index: 5;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  overflow: auto;
+  overflow: hidden;
   background-color: $popup-background;
 }
 
 .modal-content {
   background-color: $white;
-  margin: 15% auto;
+  margin: 10% auto;
   padding: 20px;
   border: 1px solid $gray;
   width: 80%;
-  max-width: 900px;
+  max-width: 1000px;
+  height: fit-content;
   text-align: center;
   border-radius: 5px;
+  overflow: auto;
 }
 
 .close {
@@ -392,7 +397,6 @@ textarea {
 
 .voucher-pick {
   display: flex;
-  align-items: center;
 }
 
 .user-action-button {
@@ -443,4 +447,37 @@ textarea {
 .trash-container{
   margin-left: auto;
   padding-right: 30px ;
+}
+
+// Edit Profile
+.edit_profile {
+  padding-top: 20px;
+}
+
+.edit_profile_data {
+  padding-top: 10px;
+}
+
+.justify-content-center {
+  display: flex;
+  justify-content: center;
+}
+
+.float-left {
+  float: left;
+}
+
+.width-30 {
+  width: 150px;
+}
+
+.mar-10 {
+  margin: 10px;
+}
+
+.demo-payment {
+  padding: 20px;
+  margin-left: 30px;
+  color: $background;
+  font-weight: bold;
 }

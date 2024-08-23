@@ -44,3 +44,5 @@ rate: "/5"
 vouchers_limit_page: 3
 user:
   booking_fields_pagy: 10
+items: 5
+two: 2

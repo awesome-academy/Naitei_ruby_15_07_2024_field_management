@@ -4,6 +4,9 @@ en:
       not_found: "Can't not found BookingField with id: %{id}"
   activerecord:
     error:
+      two_week_booking: "must be within the next two weeks"
+      booking_in_past: "Booking cannot be in the past"
+      voucher_error: "Some vouchers cannot be combined with others."
       multiple_of_30_minutes: "Must be a multiple of 30 minutes"
       within_open_hour: "Booking times must be within field opening hours"
       overlap_time: "Booking time overlaps with an existing booking"
@@ -166,16 +169,27 @@ en:
         created_successfully: "Voucher was successfully created."
         creation_failed: "There was an error creating the voucher. Please try again."
   user:
+    users:
+      message:
+        updated: "Successfully update profile!"
+        save_fail: "Something wrong when edit your profile!"
+        not_found: "Can't not found the user"
+        not_correct_user: "You can't not edit this profile "
+      edit:
+        title: "Edit your profile"
+        submit_button: "Submit"
     base:
       not_user: "You need to sign in to access this page."
     booking_fields:
       booking_success: "Booking successfully!"
       please_log_in: "Please log in!"
-      you_are_not_user: "You are not"
-      actions:
+      you_are_not_user: "You are not user"
+      actions: 
         paid: "Paid"
         cancel: "Cancel"
-      cancel_booking_successfull: "Cancel booking successfully"
+      cancel_booking_successfully: "Cancel booking successfully!"
+      booking_field_not_found: "Can't found this booking!"
+      field_not_found: "Field not found"
       new:
         back_to_prev_page: "Back to prev page"
         booking_field: "Booking Field Information"
@@ -209,6 +223,14 @@ en:
         card_number: "Card number"
         confirm_payment: "Pay"
         cancelled: "Cancel"
+        date: "Date"
+        start_time: "Start time"
+        end_time: "End time"
+        apply_vouchers: "Apply vouchers"
+        no_apply_vouchers: "No vouchers applied"
+        total_price: "Total Price"
+        field_name: "Field name"
+        later_pay: "Pay later"
       filter:
         filter: "filter"
         payment_status: "Payment status"
@@ -226,6 +248,9 @@ en:
         value: "Value"
         expired_date: "Expired_date"
         quantity: "Quantity"
+        can_be_used: "With others?"
+        be_used: "Yes"
+        not_be_used: "No"
     comments:
       create:
         message:
@@ -243,6 +268,11 @@ en:
       my_comment:
         place_holder: "Write your content hear"
         publish: "Publish"
+      message:
+        not_found_rating: "Rating error"
+        not_found_field: "Field not founded"
+      please_log_in: "Please log in!"
+      you_are_not_user: "You are not user"
   ratings:
     rating:
       place_holder: "Write your content hear"

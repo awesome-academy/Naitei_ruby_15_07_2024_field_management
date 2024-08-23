@@ -30,7 +30,7 @@
                 <b class="caret"></b>
               </a>
               <ul class="dropdown-menu" aria-labelledby="account">
-                <li><%= link_to t(".profile"), user_profile_path, class: "dropdown-item" %></li>
+                <li><%= link_to t(".profile"), current_user, class: "dropdown-item" %></li>
                 <li><%= link_to t(".history"), user_history_path, class: "dropdown-item" %></li>
                 <li><%= link_to t(".timeline"), root_path, class: "dropdown-item" %></li>
                 <li><hr class="dropdown-divider"></li>
