@@ -1,8 +1,11 @@
-<nav class="navbar navbar-fixed-top navbar-inverse">
-  <div class="container-fluid">
-    <%= link_to t(".soccer_field_app"), root_path, id: "logo" %>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <div class="container-fluid d-flex justify-content-between align-items-center">
+    <%= link_to t(".soccer_field_app"), root_path, id: "logo", class: "navbar-brand" %>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="nav navbar-nav navbar-right">
+      <ul class="navbar-nav ms-auto d-flex align-items-center">
         <li class="nav-item">
           <%= link_to t(".home"), root_path, class: "nav-link" %>
         </li>
@@ -23,14 +26,13 @@
             <li class="nav-item">
               <%= link_to t(".statistics"), root_path, class: "nav-link" %>
             </li>
-            <li>
-              <%= link_to t(".logout"), logout_path, method: :delete, class: "dropdown-item" %>
+            <li class="nav-item">
+              <%= link_to t(".logout"), logout_path, method: :delete, class: "nav-link" %>
             </li>
           <% else %>
             <li class="nav-item dropdown">
               <a href="#" id="account" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <%= t(".account") %>
-                <b class="caret"></b>
               </a>
               <ul class="dropdown-menu" aria-labelledby="account">
                 <li><%= link_to t(".profile"), current_user, class: "dropdown-item" %></li>
@@ -46,8 +48,12 @@
             <%= link_to t(".sign_in"), signin_path, class: "nav-link" %>
           </li>
         <% end %>
-        <%= link_to "English", locale: :en %>
-        <%= link_to "Vietnamese", locale: :vi %>
+        <li class="nav-item">
+          <%= link_to "English", locale: :en, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Vietnamese", locale: :vi, class: "nav-link" %>
+        </li>
       </ul>
     </div>
   </div>

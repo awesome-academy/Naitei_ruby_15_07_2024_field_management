@@ -370,6 +370,10 @@ vi:
       submit_button: "Gửi"
       change: "Thay đổi"
   shared:
+    toast:
+      success: "Thành công"
+      error: "Lỗi"
+      info: "Thông báo"
     field_infor:
       back_to_prev_page: "Quay lại danh sách"
       booking_field: "Đặt sân"

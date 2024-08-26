@@ -1,22 +1,65 @@
-@import 'bootstrap-sprockets';
 @import 'bootstrap';
 @import 'color';
 @import 'font-awesome';
 
 /* header */
+.navbar {
+  background-color: $navbar-background-color;
+  padding: 10px 20px;
+  box-shadow: 0 4px 8px $navbar-background-box-shadow;
+}
+nav.navbar {
+  margin-top: 0;
+  padding-top: 0;
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+html {
+  margin: 0;
+  padding: 0;
+}
 #logo {
-  float: left;
-  margin-right: 10px;
-  font-size: 1.7em;
-  color: $white;
-  text-transform: uppercase;
-  letter-spacing: -1px;
-  padding-top: 9px;
+  color: $logo-color;
   font-weight: bold;
+  font-size: 1.5em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 #logo:hover {
-  color: $white;
+  color: $logo-color-hover;
   text-decoration: none;
+}
+.navbar-nav .nav-item .nav-link {
+  color: $navbar-item;
+  font-size: 1.1em;
+  padding: 8px 15px;
+}
+.navbar-nav .nav-item .nav-link:hover {
+  color: $nabar-item-hover;
+  background-color: transparent;
+  border-bottom: 2px solid $nabar-item-border-bottom;
+}
+.navbar-nav .nav-item {
+  margin-right: 15px;
+}
+.navbar-nav .nav-item:last-child {
+  margin-right: 0;
+}
+.navbar-nav .dropdown-menu {
+  background-color: $drop-down-menu;
+  border: none;
+}
+.navbar-nav .dropdown-item {
+  color: $drop-down-item;
+}
+.navbar-nav .dropdown-item:hover {
+  color: $drop-down-item-hover;
+  background-color: transparent;
+}
+.caret {
+  border-top: 4px solid $caret;
 }
 
 /* footer */
@@ -362,7 +405,7 @@ textarea {
 }
 
 .field_with_errors {
-  @extend .has-error;
+  @extend .has-error !optional;
 
   .form-control {
     color: $state-danger-text;

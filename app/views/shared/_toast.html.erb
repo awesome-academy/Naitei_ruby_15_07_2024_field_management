@@ -1,0 +1,17 @@
+<% flash.each do |message_type, message| %>
+  <div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 1050;">
+    <% if message_type == "success" %>
+      <%= render "shared/toast_success", msg: message %>
+    <% elsif message_type == "danger" %>
+      <% if message.is_a?(Array) %>
+        <% message.each do |msg| %>
+          <%= render "shared/toast_error", msg: msg %>
+        <% end %>
+      <% else %>
+        <%= render "shared/toast_error", msg: message %>
+      <% end %>
+    <% elsif message_type == "info" %>
+      <%= render "shared/toast_info", msg: message %>
+    <% end %>
+  </div>
+<% end %>
