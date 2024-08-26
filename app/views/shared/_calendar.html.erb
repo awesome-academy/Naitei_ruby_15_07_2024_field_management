@@ -7,6 +7,24 @@
   </div>
 </div>
 
+<div class="calendar-legend">
+  <h3><%= t "calendar.notes.note" %></h3>
+  <ul class="list-unstyled">
+    <li>
+      <span class="badge booked-3"><%= t "calendar.notes.close" %></span> - <%= t "calendar.notes.close_time" %>
+    </li>
+    <li>
+      <span class="badge booked"><%= t "calendar.notes.open" %></span> - <%= t "calendar.notes.open_time" %>
+    </li>
+    <li>
+      <span class="badge booked-0"><%= t "calendar.notes.pending" %></span> - <%= t "calendar.notes.pending" %>
+    </li>
+    <li>
+      <span class="badge booked-1"><%= t "calendar.notes.approval" %></span> - <%= t "calendar.notes.approval" %>
+    </li>
+  </ul>
+</div>
+
 <div class="calendar">
   <%= days_row %>
   <% @time_slots.each do |time| %>

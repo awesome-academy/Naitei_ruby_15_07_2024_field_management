@@ -93,7 +93,7 @@ module CalendarHelper
 
     content_tag :div, class: "day-slot #{css_classes}" do
       bookings.each do |booking|
-        concat content_tag(:div, booking.user.name)
+        concat content_tag(:div, booking.user.name) if current_user&.admin?
       end
     end
   end

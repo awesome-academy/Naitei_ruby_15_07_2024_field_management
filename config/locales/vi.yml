@@ -449,3 +449,11 @@ vi:
       october: "Tháng 10"
       november: "Tháng 11"
       december: "Tháng 12"
+    notes:
+      note: "Ghi chú"
+      close: "Đóng"
+      open: "Mở"
+      pending: "Đang đợi"
+      approval: "Chấp nhận"
+      close_time: "Thời gian đóng cửa"
+      open_time: "Thời gian mở cửa"

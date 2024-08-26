@@ -451,3 +451,11 @@ en:
       november: "November"
       december: "December"
       publish: "Publish"
+    notes:
+      note: "Note"
+      close: "Close"
+      open: "Open"
+      pending: "Pending"
+      approval: "Approval"
+      close_time: "Closed time"
+      open_time: "Open time"
