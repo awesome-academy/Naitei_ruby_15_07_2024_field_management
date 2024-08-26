@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_08_22_064138) do
+ActiveRecord::Schema[7.0].define(version: 2024_08_26_031313) do
   create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -58,6 +58,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_08_22_064138) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "paymentStatus", default: 1
+    t.text "cancellation_reason"
     t.index ["field_id"], name: "index_booking_fields_on_field_id"
     t.index ["user_id"], name: "index_booking_fields_on_user_id"
   end
