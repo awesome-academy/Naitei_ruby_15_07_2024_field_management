@@ -1,7 +1,8 @@
-class User::BookingFieldsController < ApplicationController
+class User::BookingFieldsController < User::BaseController
   before_action :logged_in, :login_as_user, only: %i(new create)
   before_action :get_booking_field, only: %i(pay demo_payment update)
   before_action :set_field_and_date, only: :new
+
   def index
     @q = current_user.booking_fields.ransack(params[:q])
     @booking_fields = @q.result.includes(:field)

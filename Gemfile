@@ -7,6 +7,7 @@ gem "active_storage_validations", "0.9.8"
 gem "bcrypt", "3.1.18"
 gem "bootsnap", require: false
 gem "bootstrap", "~> 5.2.0"
+gem "cancancan"
 gem "config"
 gem "faker", "2.21.0"
 gem "figaro"

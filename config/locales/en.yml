@@ -380,6 +380,7 @@ en:
       success: "Success"
       error: "Error"
       info: "Information"
+      alert: "Alert"
     field_infor:
       back_to_prev_page: "Back to prev page"
       booking_field: "Booking"
