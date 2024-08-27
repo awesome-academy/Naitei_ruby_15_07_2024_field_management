@@ -371,6 +371,10 @@ en:
       error_user_not_found: "User not found."
       check_mail: "Please check your email to activate your account."
   shared:
+    toast:
+      success: "Success"
+      error: "Error"
+      info: "Information"
     field_infor:
       back_to_prev_page: "Back to prev page"
       booking_field: "Booking"

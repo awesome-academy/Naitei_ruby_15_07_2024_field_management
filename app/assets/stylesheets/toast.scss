@@ -1,0 +1,22 @@
+@import 'bootstrap';
+@import 'toast_color';
+@import 'font-awesome';
+
+
+.toast {
+  background-color: $toast-background-color;
+  color: $toast-color;
+  opacity: 1 !important;
+  display: block !important;
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+.toast-header {
+  background-color: $toast-header-background-color;
+  color: $toast-header-color;
+}
+.toast-body {
+  font-size: 1rem;
+}
+.toast.hide {
+  display: none !important;
+}
