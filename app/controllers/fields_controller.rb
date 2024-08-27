@@ -2,10 +2,9 @@ class FieldsController < ApplicationController
   before_action :find_field, only: %i(show favorite unfavorite)
 
   def index
-    @fields = Field.with_ave_rate
-
-    filter
-    @pagy, @fields = pagy @fields, limit: Settings.field_in_field_list
+    @q = Field.ransack(params[:q])
+    @fields = @q.result(distinct: true).with_ave_rate
+    @pagy, @fields = pagy(@fields, limit: Settings.field_in_field_list)
   end
 
   def show

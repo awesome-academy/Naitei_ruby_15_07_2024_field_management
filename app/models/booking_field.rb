@@ -72,6 +72,14 @@ class BookingField < ApplicationRecord
     where(field_id:).with_status(:approval) if field_id.present?
   }
 
+  def self.ransackable_attributes _auth_object = nil
+    %w(date total start_time end_time status paymentStatus)
+  end
+
+  def self.ransackable_associations _auth_object = nil
+    %w(field)
+  end
+
   def self.filtered params
     by_date(params[:date])
       .by_field_name(params[:field_name])

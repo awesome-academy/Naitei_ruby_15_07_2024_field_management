@@ -1,60 +1,53 @@
 <div class="container mt-4">
   <h1 class="mb-4"><%= t ".soccer_field_title" %></h1>
-  <%= form_with url: fields_path, method: :get, local: true do %>
+  <%= search_form_for @q, url: fields_path, method: :post, local: true do |f| %>
     <div class="row g-3 filter-margin">
       <div class="col-md-12">
-        <%= label_tag :name, t(".search_by_name") %>
-        <%= text_field_tag :name, params[:name], class: "form-control", placeholder: t(".enter_field_name") %>
+        <%= f.label :name_cont, t(".search_by_name") %>
+        <%= f.text_field :name_cont, class: "form-control", placeholder: t(".enter_field_name") %>
       </div>
     </div>
     <div class="row g-3 filter-margin">
       <div class="col-md-3">
-        <%= label_tag :price, t(".price.price_placeholder") %>
-        <%= select_tag :price, options_for_select([
-                                  [t(".price.all"), ""],
-                                  [t(".price.desc"), :DESC],
-                                  [t(".price.asc"), :ASC]],
-                                  params[:price]), class: "form-control" %>
+        <%= f.label :price_gteq, t(".price.price_placeholder") %>
+        <%= f.select :s, options_for_select([
+                              [t(".price.all"), ""],
+                              [t(".price.desc"), "price desc"],
+                              [t(".price.asc"), "price asc"]],
+                              ), class: "form-control" %>
       </div>
 
       <div class="col-md-3">
-        <%= label_tag :grass, t(".grass.grass_type") %>
-        <%= select_tag :grass, options_for_select([
-                                  [t(".grass.all"), ""],
-                                  [t(".grass.natural"), :natural],
-                                  [t(".grass.artificial"), :artificial]],
-                                  params[:grass]), class: "form-control" %>
+        <%= f.label :grass_eq, t(".grass.grass_type") %>
+        <%= f.select :grass_eq, options_for_select([
+                              [t(".grass.all"), ""],
+                              [t(".grass.natural"), 0],
+                              [t(".grass.artificial"), 1]],
+                              ), class: "form-control" %>
       </div>
 
       <div class="col-md-3">
-        <%= label_tag :capactity,t(".capacity.capacity_type") %>
-        <%= select_tag :capactity, options_for_select([
-                                  [t(".capacity.all"), ""],
-                                  [t(".capacity.five"), 5],
-                                  [t(".capacity.seven"), 7],
-                                  [t(".capacity.eleven"), 11]],
-                                  params[:grass]), class: "form-control" %>
+        <%= f.label :capacity_eq, t(".capacity.capacity_type") %>
+        <%= f.select :capacity_eq, options_for_select([
+                              [t(".capacity.all"), ""],
+                              [t(".capacity.five"), 5],
+                              [t(".capacity.seven"), 7],
+                              [t(".capacity.eleven"), 11]],
+                              ), class: "form-control" %>
       </div>
 
       <div class="col-md-3">
-        <%= label_tag :rating, t(".rating.rating_placeholder") %>
-        <%= select_tag :rating, options_for_select([
-                                  [t(".rating.all"), ""],
-                                  [t(".rating.desc"), :DESC],
-                                  [t(".rating.asc"), :ASC]],
-                                  params[:rating]), class: "form-control" %>
-      </div>
-
-    </div>
-    <div class="row g-3 filter-margin">
-      <div class="col-md-12">
-        <%= check_box_tag :favorites, "1", params[:favorites].present?, class: "form-check-input" %>
-        <%= label_tag :favorites, t(".filter_favorites"), class: "form-check-label" %>
+        <%= f.label :average_rating_gteq, t(".rating.rating_placeholder") %>
+        <%= f.select :s, options_for_select([
+                            [t(".rating.all"), ""],
+                            [t(".rating.desc"), "average_rating desc"],
+                            [t(".rating.asc"), "average_rating asc"]],
+                            ), class: "form-control" %>
       </div>
     </div>
     <div class="row g-3">
       <div class="col-md-12">
-        <%= submit_tag t(".submit_button"), class: "btn btn-success" %>
+        <%= submit_tag t(".submit_button"), class: "btn btn-success filter-fields-button" %>
         <%= render_create_field_button %>
       </div>
     </div>

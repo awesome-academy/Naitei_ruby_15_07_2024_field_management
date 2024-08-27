@@ -147,7 +147,8 @@ en:
         avatar: "Avatar"
         actions: "Actions"
         search: "Search"
-        search_by_name: "Search by name"
+        search_by_name_or_email: "Search by name or email"
+        search_by_phone: "Search by phone"
       button:
         delete: "Delete"
         view: "View"
