@@ -89,9 +89,9 @@
                 <div id="showModal" class="btn btn-success mb-3"><%= t ".action" %></div>
               </div>
               <div id="myModal">
-                <div class="modal-content">
-                  <span class="close">&times;</span>
+                <div class="modal-content">    
                   <%= render @vouchers %>
+                  <div class="btn btn-success justify-content-center"><span class="close"><%= t ".apply" %></span></div>
                 </div>
               </div>
             <% end %>

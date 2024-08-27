@@ -67,6 +67,10 @@ class BookingField < ApplicationRecord
   scope :existing_books, lambda {|field_id, date, current_id|
                            where(field_id:, date:).where.not(id: current_id)
                          }
+  scope :with_status, ->(status){where(status:)}
+  scope :yet_book?, lambda {|field_id|
+    where(field_id:).with_status(:approval) if field_id.present?
+  }
 
   def self.filtered params
     by_date(params[:date])

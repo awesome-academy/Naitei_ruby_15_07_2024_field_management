@@ -1,12 +1,12 @@
 class User::RatingsController < ApplicationController
-  before_action :logged_in, :login_as_user, only: %i(create)
+  before_action :logged_in, :login_as_user, :check_booking, only: %i(create)
   before_action :get_field
   before_action :get_rating, only: :destroy
 
   def create
-    @rating = @field.ratings.build rating_params
     @rating = current_user.ratings.build rating_params
     @rating.field = @field
+    @rating.comment.user = current_user
 
     if @rating.save
       flash[:success] = t ".create.message.success"
@@ -28,6 +28,13 @@ class User::RatingsController < ApplicationController
   end
 
   private
+
+  def check_booking
+    return if current_user.booking_fields.yet_book?(params[:field_id]).present?
+
+    flash[:danger] = t ".not_booking_not_rating"
+    redirect_to root_path
+  end
 
   def render_turbo_rating
     respond_to do |format|

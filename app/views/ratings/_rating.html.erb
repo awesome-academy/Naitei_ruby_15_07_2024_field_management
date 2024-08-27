@@ -26,6 +26,7 @@
         <div class="replies">
           <% rating.comment.replies.each do |reply| %>
             <div class="reply" >
+              <h4><%= reply.user.name %></h4>
               <h5><%= reply.content %></h5>
             </div>
           <% end %>

@@ -202,6 +202,7 @@ vi:
       booking_field_not_found: "Không thể tìm thấy đơn đặt sân này!"
       field_not_found: "Không thể tìm thấy sân!"
       new:
+        apply: "Áp dụng"
         back_to_prev_page: "Quay lại danh sách"
         booking_field: "Thông tin đặt sân"
         description: "Mô tả"
@@ -275,18 +276,26 @@ vi:
         message:
           success: "Bình luận thành công"
           fail: "Có lỗi xảy ra khi gửi bình luận của bạn."
+        please_log_in: "Đăng nhập ngay!"
+        you_are_not_user: "Bạn không có quyền"
     ratings:
       create:
         message:
           success: "Đánh giá thành công"
           fail: "Có lỗi xảy ra khi gửi đánh giá của bạn."
       destroy:
-        essage:
+        message:
           success: "Xóa bình luận thành công"
           fail: "Có lỗi xảy ra khi xóa bình luận của bạn."
       my_comment:
         place_holder: "Viết nội dung của bạn ở đây"
         publish: "Đăng"
+      message:
+        not_found_rating: "Lỗi đánh giá"
+        not_found_field: "Không tìm thấy sân"
+      please_log_in: "Vui lòng đăng nhập!"
+      you_are_not_user: "Bạn không phải là người dùng"
+      not_booking_not_rating: "Bạn chưa đặt sân này nên không thể đánh giá"
   ratings:
     rating:
       place_holder: "Viết nội dung của bạn ở đây"
@@ -387,6 +396,8 @@ vi:
       block_time: "Thời gian chặn:"
       address: "Địa chỉ:"
       people: "người"
+      currency: "VND"
+      hour: "gio"
     field_form:
       name: "Tên sân"
       price: "Giá"
