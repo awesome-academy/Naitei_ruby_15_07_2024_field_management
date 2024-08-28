@@ -1,4 +1,4 @@
-class User::RatingsController < ApplicationController
+class User::RatingsController < User::BaseController
   before_action :logged_in, :login_as_user, :check_booking, only: %i(create)
   before_action :get_field
   before_action :get_rating, only: :destroy

@@ -1,4 +1,4 @@
-class User::UsersController < ApplicationController
+class User::UsersController < User::BaseController
   before_action :load_user
   before_action :correct_user, only: %i(edit update)
   def edit; end

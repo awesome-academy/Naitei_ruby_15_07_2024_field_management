@@ -1,4 +1,9 @@
 class ApplicationController < ActionController::Base
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to root_url
+    flash[:alert] = exception.message
+  end
+
   protect_from_forgery with: :exception
   include SessionsHelper
   include Pagy::Backend

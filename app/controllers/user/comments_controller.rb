@@ -1,4 +1,4 @@
-class User::CommentsController < ApplicationController
+class User::CommentsController < User::BaseController
   before_action :logged_in, :login_as_user, :get_parent_comment, :get_rating,
                 only: :create
 

@@ -1,5 +1,7 @@
 class FieldsController < ApplicationController
   before_action :find_field, only: %i(show favorite unfavorite)
+  before_action :authorize_favorite, only: %i(favorite)
+  before_action :authorize_unfavorite, only: %i(unfavorite)
 
   def index
     @q = Field.ransack(params[:q])
@@ -76,5 +78,13 @@ class FieldsController < ApplicationController
       format.turbo_stream
       format.html{redirect_back fallback_location: field_path(@field)}
     end
+  end
+
+  def authorize_favorite
+    authorize! :favorite, @field
+  end
+
+  def authorize_unfavorite
+    authorize! :unfavorite, @field
   end
 end
