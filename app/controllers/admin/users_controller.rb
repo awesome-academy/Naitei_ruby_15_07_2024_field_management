@@ -2,7 +2,10 @@ class Admin::UsersController < Admin::BaseController
   before_action :set_user, only: %i(destroy)
 
   def index
-    @pagy, @users = pagy User.search_by_name(params[:name]),
+    @q = User.ransack(params[:q].try(:merge, m: "or"),
+                      auth_object: set_ransack_auth_object)
+    @users = @q.result(distinct: true)
+    @pagy, @users = pagy @users,
                          limit: Settings.users.pagy_10
   end
 
@@ -17,6 +20,10 @@ class Admin::UsersController < Admin::BaseController
   end
 
   private
+
+  def set_ransack_auth_object
+    current_user.admin? ? :admin : nil
+  end
 
   def set_user
     @user = User.find_by id: params[:id]

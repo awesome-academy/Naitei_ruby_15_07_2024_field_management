@@ -34,6 +34,25 @@ class Field < ApplicationRecord
     joins(:favorites).where(favorites: {user_id: user.id})
   }
 
+  ransacker :average_rating do |_parent|
+    Arel.sql('( SELECT AVG(ratings.rating)
+                FROM ratings
+                WHERE ratings.field_id = fields.id
+              )')
+  end
+
+  def self.ransackable_attributes _auth_object = nil
+    %w(name price grass capacity average_rating)
+  end
+
+  def self.ransackable_scopes _auth_object = nil
+    %i(with_ave_rate)
+  end
+
+  def self.ransackable_associations _auth_object = nil
+    %w(ratings)
+  end
+
   has_many_attached :images
   has_many :booking_fields, dependent: :destroy
   has_many :users, through: :booking_fields

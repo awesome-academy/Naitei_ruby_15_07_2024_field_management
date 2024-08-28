@@ -3,7 +3,9 @@ class User::BookingFieldsController < ApplicationController
   before_action :get_booking_field, only: %i(pay demo_payment update)
   before_action :set_field_and_date, only: :new
   def index
-    @pagy, @booking_fields = pagy current_user.booking_fields.filtered(params),
+    @q = current_user.booking_fields.ransack(params[:q])
+    @booking_fields = @q.result.includes(:field)
+    @pagy, @booking_fields = pagy @booking_fields,
                                   limit: Settings.user.booking_fields_pagy
   end
 

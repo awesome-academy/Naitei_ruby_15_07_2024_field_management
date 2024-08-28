@@ -205,6 +205,10 @@ GEM
       zeitwerk (~> 2.5)
     rainbow (3.1.1)
     rake (13.0.6)
+    ransack (4.2.1)
+      activerecord (>= 6.1.5)
+      activesupport (>= 6.1.5)
+      i18n
     redis-client (0.22.2)
       connection_pool
     regexp_parser (2.8.1)
@@ -329,6 +333,7 @@ DEPENDENCIES
   pagy
   puma (~> 5.0)
   rails (~> 7.0.5)
+  ransack
   rspec-rails (~> 4.0.1)
   rubocop (~> 1.26)
   rubocop-checkstyle_formatter

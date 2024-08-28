@@ -1,42 +1,42 @@
-<%= form_with url: user_history_path, method: :get, local: true do |f| %>
+<%= search_form_for @q, url: user_history_path, method: :get, class: "form-inline" do |f| %>
   <div class="row g-3 filter-margin">
     <div class="col-md-2">
-      <%= f.label :date, t(".date") %>
-      <%= f.date_field :date, value: params[:date], class: "form-control" %>
+      <%= f.label :date_eq, t(".date") %>
+      <%= f.date_field :date_eq, class: "form-control" %>
     </div>
     <div class="col-md-2">
-      <%= f.label :field_name, t(".field_name") %>
-      <%= f.text_field :field_name, value: params[:field_name], class: "form-control" %>
+      <%= f.label :field_name_cont, t(".field_name") %>
+      <%= f.text_field :field_name_cont, class: "form-control" %>
     </div>
     <div class="col-md-2">
-      <%= f.label :total_min, t(".total_min") %>
-      <%= f.number_field :total_min, value: params[:total_min], class: "form-control" %>
+      <%= f.label :total_gteq, t(".total_min") %>
+      <%= f.number_field :total_gteq, class: "form-control" %>
     </div>
     <div class="col-md-2">
-      <%= f.label :total_max, t(".total_max") %>
-      <%= f.number_field :total_max, value: params[:total_max], class: "form-control" %>
+      <%= f.label :total_lteq, t(".total_max") %>
+      <%= f.number_field :total_lteq, class: "form-control" %>
     </div>
     <div class="col-md-2">
-      <%= f.label :start_time, t(".start_time") %>
-      <%= f.time_field :start_time, value: params[:start_time], class: "form-control" %>
+      <%= f.label :start_time_eq, t(".start_time") %>
+      <%= f.time_field :start_time_eq, class: "form-control" %>
     </div>
     <div class="col-md-2">
-      <%= f.label :end_time, t(".end_time") %>
-      <%= f.time_field :end_time, value: params[:end_time], class: "form-control" %>
+      <%= f.label :end_time_eq, t(".end_time") %>
+      <%= f.time_field :end_time_eq, class: "form-control" %>
     </div>
   </div>
   <div class="row g-3 filter-margin">
     <div class="col-md-3">
-      <%= f.label :status, t(".status") %>
-      <%= f.select :status, select_status_booking , include_blank: true, class: "form-select" %>
+      <%= f.label :status_eq, t(".status") %>
+      <%= f.select :status_eq, select_status_booking, include_blank: true, class: "form-select" %>
     </div>
     <div class="col-md-3">
-      <%= f.label :paymentStatus, t(".payment_status") %>
-      <%= f.select :paymentStatus, select_payment_status_booking , include_blank: true, class: "form-select" %>
+      <%= f.label :paymentStatus_eq, t(".payment_status") %>
+      <%= f.select :paymentStatus_eq, select_payment_status_booking, include_blank: true, class: "form-select" %>
     </div>
   </div>
   <div class="row g-3 filter-margin">
-      <div class="col-md-2">
+    <div class="col-md-2">
       <%= f.submit t(".filter"), class: "btn btn-success" %>
       <%= link_to t(".all"), user_history_path, class: "btn btn-success" %>
     </div>
