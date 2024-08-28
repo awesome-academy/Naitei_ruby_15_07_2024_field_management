@@ -1,5 +1,6 @@
 class Admin::BookingFieldsController < Admin::BaseController
   def index
+    authorize! :manage, BookingField
     @q = current_user.booking_fields.ransack(params[:q])
     @booking_fields = @q.result.includes(:field)
     @pagy, @booking_fields = pagy @booking_fields,

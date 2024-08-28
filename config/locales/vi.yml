@@ -488,3 +488,19 @@ vi:
       approval: "Chấp nhận"
       close_time: "Thời gian đóng cửa"
       open_time: "Thời gian mở cửa"
+  devise:
+    sessions:
+      new:
+        title: "Đăng nhập"
+        email: "Địa chỉ Email"
+        password: "Mật khẩu"
+        remember_me: "Nhớ mật khẩu"
+        submit: "Đăng nhập"
+    shared:
+      links:
+        login: "Đăng nhập"
+        sign_up: "Đăng ký"
+        forgot_password: "Quên mật khẩu?"
+        resend_confirmation: "Không nhận được hướng dẫn xác nhận?"
+        resend_unlock: "Không nhận được hướng dẫn mở khóa?"
+        sign_in_with: "Đăng nhập bằng %{provider}"

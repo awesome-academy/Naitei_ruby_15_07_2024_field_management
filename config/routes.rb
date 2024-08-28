@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
   scope "(:locale)", locale: /en|vi/ do
     mount Sidekiq::Web => '/sidekiq'
+    devise_for :users, controllers: {
+      sessions: "users/sessions",
+      registrations: "users/registrations",
+    }
+
+    resources :users, only: %i(show)
 
     resources :fields, only: %i(index show) do
       member do
@@ -8,11 +14,6 @@ Rails.application.routes.draw do
         get :unfavorite
       end
     end
-    get "/signin", to: "sessions#new"
-    post "/signin", to: "sessions#create"
-    get "/logout", to: "sessions#destroy"
-
-    resources :users, only: %i(show create new)
 
     resources :account_activations, only: %i(edit)
 
@@ -48,7 +49,7 @@ Rails.application.routes.draw do
       end
 
       resources :fields, only: %i(show) do
-        resources :ratings, only: %i(create destroy) 
+        resources :ratings, only: %i(create destroy)
       end
     end
 
