@@ -2,6 +2,17 @@ en:
   job:
     check_payment_status:
       not_found: "Can't not found BookingField with id: %{id}"
+    export:
+      begin_export: "Beginning export"
+      percent: "Downloading %{percent} %"
+      success: "Export excel successfully!"
+      field_name: "Field name"
+      date: "Date"
+      start_time: "Start time"
+      end_time: "End time"
+      total_price: "Total price"
+      status: "Status"
+      payment_status: "Payment status"
   activerecord:
     error:
       two_week_booking: "must be within the next two weeks"
@@ -86,6 +97,7 @@ en:
         total: "Total"
         status: "Status"
         change_status: "Change status"
+        export: "Export to excel file"
       filter_form:
         filter: "Filter"
         all: "All"
@@ -238,6 +250,8 @@ en:
         total: "Total"
         status: "Status"
         change_status: "Change status"
+        paid_status: "Payment status"
+        export: "Export to excel file"
       show_pay:
         payment: "Demo Payment"
         card_name: "Card name"

@@ -19,5 +19,9 @@
   </thead>
   <tbody>
     <%= render @booking_fields %>
+    <div data-controller="export-booking" class="mb-4">
+     <button class="btn btn-primary" data-action="click->export-booking#export"><%= t ".export" %></button>
+      <div class="export-status" data-export-booking-target="status"></div>
+    </div>
   </tbody>
 </table>

@@ -1,5 +1,6 @@
 class User::BookingFieldsController < User::BaseController
-  before_action :logged_in, :login_as_user, only: %i(new create)
+  before_action :logged_in, :login_as_user,
+                only: %i(new create pay demo_payment export)
   before_action :get_booking_field, only: %i(pay demo_payment update)
   before_action :set_field_and_date, only: :new
 
@@ -47,12 +48,48 @@ class User::BookingFieldsController < User::BaseController
     redirect_to root_path
   end
 
+  def export
+    @q = current_user.booking_fields.ransack(params[:q])
+    @bookings_export = @q.result(distance: true).includes(:field)
+    respond_to do |format|
+      format.json do
+        @job_id = ExportBookingJob.perform_async(@bookings_export.as_json(
+                                                   include: [:field]
+                                                 ))
+        render json: {
+          jid: @job_id
+        }
+      end
+    end
+  end
+
+  def export_status
+    respond_to do |format|
+      format.json do
+        job_id = params[:job_id]
+        job_status = Sidekiq::Status.get_all(job_id).symbolize_keys
+        percent = Sidekiq::Status.pct_complete job_id
+        render json: {
+          status: job_status[:status],
+          percentage: percent
+        }
+      end
+    end
+  end
+
+  def export_download
+    job_id = params[:job_id]
+
+    respond_to do |format|
+      format.xlsx do
+        send_file Rails.root.join("public", "data", "bookings_#{job_id}.xlsx")
+      end
+    end
+  end
+
   private
 
   def handle_success_save_booking
-    @booking_field.pending!
-    @booking_field.unpaid!
-
     redirect_to pay_user_booking_field_path @booking_field
   end
 

@@ -2,6 +2,17 @@ vi:
   job:
     check_payment_status:
       not_found: "Đơn đặt sân với ID %{id} không tìm thấy."
+    export:
+      begin_export: "Bắt đầu xuất dữ liệu"
+      percent: "Đang tải %{percent} %"
+      success: "Xuất Excel thành công!"
+      field_name: "Tên sân"
+      date: "Ngày"
+      start_time: "Thời gian bắt đầu"
+      end_time: "Thời gian kết thúc"
+      total_price: "Tổng giá"
+      status: "Trạng thái"
+      payment_status: "Trạng thái thanh toán"
   activerecord:
     error:
       two_week_booking: "Phải trong vòng hai tuần tới"
@@ -86,6 +97,7 @@ vi:
         total: "Tổng"
         status: "Trạng thái"
         change_status: "Thay đổi"
+        export: "Xuất ra tệp Excel"
       filter_form:
         filter: "Lọc"
         all: "Tất cả"
@@ -251,6 +263,8 @@ vi:
         total: "Tổng"
         status: "Trạng thái"
         change_status: "Thay đổi"
+        paid_status: "Trạng thái thanh toán"
+        export: "Xuất ra tệp Excel"
       filter:
         filter: "Lọc"
         payment_status: "Thanh toán"
