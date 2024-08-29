@@ -3,6 +3,12 @@ class BookingField < ApplicationRecord
   belongs_to :user
   belongs_to :field
 
+  include PublicActivity::Model
+  tracked owner: proc{|controller, _model|
+                   controller.current_user if controller.current_user&.user?
+                 }, only: [:create]
+  before_update :track_status_change
+
   validate :start_time_must_be_multiple_of_30_minutes,
            :start_time_and_end_time_within_opening_hours,
            :booking_not_overlapping,
@@ -105,6 +111,14 @@ class BookingField < ApplicationRecord
   end
 
   private
+
+  def track_status_change
+    if status_changed? && canceled?
+      create_activity(:canceled)
+    elsif paymentStatus_changed? && paid?
+      create_activity(:paid)
+    end
+  end
 
   def start_time_must_be_multiple_of_30_minutes
     return unless start_time.min % Settings.time_interval != 0

@@ -42,7 +42,7 @@ Rails.application.routes.draw do
         end
       end
       get "/history", to: "booking_fields#index"
-      get "/timeline", to: "dashboards#index"
+      get "/timeline", to: "activities#index"
 
       resources :ratings, only: %i(create destroy) do
         resources :comments, only: :create
