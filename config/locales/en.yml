@@ -520,3 +520,26 @@ en:
         resend_confirmation: "Didn't receive confirmation instructions?"
         resend_unlock: "Didn't receive unlock instructions?"
         sign_in_with: "Sign in with %{provider}"
+    registrations:
+      new:
+        title: "Sign up"
+        name: "Name"
+        email: "Email"
+        password: "Password"
+        password_confirmation: "Password confirmation"
+        submit: "Sign up"
+        characters_minimum: "characters minimum"
+      edit:
+        title: "Edit Profile"
+        submit: "Update"
+        currently_waiting: "Currently waiting confirmation for: "
+      signed_up: "Your account has been successfully created."
+      signed_up_but_unconfirmed: "Please check your email to activate your account."
+    mailer:
+      confirmation_instructions:
+        greeting: "Hello %{name}"
+        welcome_message: "Welcome to our platform! Please confirm your account by clicking the link below:"
+        confirmation_instructions: "To confirm your account, please click the link below:"
+        confirm_my_account: "Confirm my account"
+        thanks: "Thank you"
+        team: "The Team"
