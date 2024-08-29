@@ -485,3 +485,19 @@ en:
       approval: "Approval"
       close_time: "Closed time"
       open_time: "Open time"
+  devise:
+    sessions:
+      new:
+        title: "Sign in"
+        email: "Email Address"
+        password: "Password"
+        remember_me: "Remember me"
+        submit: "Sign in"
+    shared:
+      links:
+        login: "Sign in"
+        sign_up: "Sign up"
+        forgot_password: "Forgot your password?"
+        resend_confirmation: "Didn't receive confirmation instructions?"
+        resend_unlock: "Didn't receive unlock instructions?"
+        sign_in_with: "Sign in with %{provider}"

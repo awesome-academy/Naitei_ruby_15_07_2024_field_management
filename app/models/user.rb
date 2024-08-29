@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
+
   PERMITTED_ATTRIBUTES = [:name,
                           :email,
                           :password,
@@ -25,8 +28,6 @@ class User < ApplicationRecord
   has_many :ratings, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :timelines, dependent: :destroy
-
-  has_secure_password
 
   scope :search_by_name, lambda {|name|
     where("name LIKE ?", "%#{name}%") if name.present?
