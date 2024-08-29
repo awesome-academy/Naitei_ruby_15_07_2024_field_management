@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   scope "(:locale)", locale: /en|vi/ do
+    mount Sidekiq::Web => '/sidekiq'
+
     resources :fields, only: %i(index show) do
       member do
         get :favorite
@@ -32,8 +34,14 @@ Rails.application.routes.draw do
           get :pay
           get :demo_payment
         end
+        collection do
+          get :export
+          get :export_status
+          get :export_download
+        end
       end
       get "/history", to: "booking_fields#index"
+      get "/timeline", to: "dashboards#index"
 
       resources :ratings, only: %i(create destroy) do
         resources :comments, only: :create

@@ -1,7 +1,9 @@
 class Admin::BookingFieldsController < Admin::BaseController
   def index
-    @pagy, @booking_fields = pagy BookingField.filtered(params),
-                                  limit: Settings.admin.booking_fields_pagy
+    @q = current_user.booking_fields.ransack(params[:q])
+    @booking_fields = @q.result.includes(:field)
+    @pagy, @booking_fields = pagy @booking_fields,
+                                  limit: Settings.user.booking_fields_pagy
   end
 
   def update
