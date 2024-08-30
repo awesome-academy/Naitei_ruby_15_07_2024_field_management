@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
-         :confirmable
+         :confirmable, :lockable
 
   PERMITTED_ATTRIBUTES = [:name,
                           :email,
@@ -130,12 +130,18 @@ class User < ApplicationRecord
   end
 
   def validate_password_not_same_as_old
-    return unless encrypted_password.present? &&
-                  BCrypt::Password.new(encrypted_password_was)
-                                  .is_password?(password)
+    return unless encrypted_password.present? && encrypted_password_was.present?
 
-    errors.add(:password,
-               I18n.t("activerecord.error.password.same_as_old"))
+    begin
+      old_password = BCrypt::Password.new(encrypted_password_was)
+      if old_password.is_password?(password)
+        errors.add(:password,
+                   I18n.t("activerecord.error.password.same_as_old"))
+      end
+    rescue BCrypt::Errors::InvalidHash
+      errors.add(:password,
+                 I18n.t("activerecord.error.password.invalid_old_hash"))
+    end
   end
 
   def validate_password_not_same_as_name_or_email

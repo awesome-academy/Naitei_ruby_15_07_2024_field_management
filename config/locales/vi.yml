@@ -593,6 +593,15 @@ vi:
         password_confirmation: "Xác nhận mật khẩu mới"
         password_min_length: "ký tự trở lên"
         submit: "Thay đổi mật khẩu của tôi"
+      signed_up: "Tài khoản của bạn đã được tạo thành công."
+      signed_up_but_unconfirmed: "Vui lòng kiểm tra email của bạn để kích hoạt tài khoản."
+    unlocks:
+      new:
+        title: "Gửi lại hướng dẫn mở khóa"
+        email: "Địa chỉ email"
+        submit: "Gửi lại hướng dẫn mở khóa"
+      signed_up: "Tài khoản của bạn đã được tạo thành công."
+      signed_up_but_unconfirmed: "Vui lòng kiểm tra email của bạn để kích hoạt tài khoản."
     mailer:
       confirmation_instructions:
         greeting: "Xin chào %{name}"
@@ -607,3 +616,8 @@ vi:
         change_password: "Thay đổi mật khẩu của tôi"
         ignore: "Nếu bạn không yêu cầu điều này, vui lòng bỏ qua email này."
         notice: "Mật khẩu của bạn sẽ không thay đổi cho đến khi bạn truy cập vào liên kết ở trên và tạo một mật khẩu mới."
+      unlock_instructions:
+        greeting: "Xin chào %{email}!"
+        account_locked: "Tài khoản của bạn đã bị khóa do số lần đăng nhập không thành công vượt quá giới hạn."
+        unlock_instructions: "Nhấn vào liên kết dưới đây để mở khóa tài khoản của bạn:"
+        unlock_my_account: "Mở khóa tài khoản của tôi"

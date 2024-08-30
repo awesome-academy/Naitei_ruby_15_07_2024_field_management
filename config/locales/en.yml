@@ -590,6 +590,15 @@ en:
         password_confirmation: "Confirm new password"
         password_min_length: "characters minimum"
         submit: "Change my password"
+      signed_up: "Your account has been successfully created."
+      signed_up_but_unconfirmed: "Please check your email to activate your account."
+    unlocks:
+      new:
+        title: "Resend unlock instructions"
+        email: "Email address"
+        submit: "Resend unlock instructions"
+      signed_up: "Your account has been successfully created."
+      signed_up_but_unconfirmed: "Please check your email to activate your account."
     mailer:
       confirmation_instructions:
         greeting: "Hello %{name}"
@@ -604,3 +613,8 @@ en:
         change_password: "Change my password"
         ignore: "If you didn't request this, please ignore this email."
         notice: "Your password won't change until you access the link above and create a new one."
+      unlock_instructions:
+        greeting: "Hello %{email}!"
+        account_locked: "Your account has been locked due to an excessive number of unsuccessful sign in attempts."
+        unlock_instructions: "Click the link below to unlock your account:"
+        unlock_my_account: "Unlock my account"
