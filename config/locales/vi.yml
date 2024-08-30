@@ -26,11 +26,14 @@ vi:
       email:
         taken: "Email đã được sử dụng"
       password:
-          too_short: "Mật khẩu quá ngắn (tối thiểu là 8 ký tự)"
-          missing_lowercase: "Mật khẩu phải chứa ít nhất một chữ cái thường"
-          missing_uppercase: "Mật khẩu phải chứa ít nhất một chữ cái hoa"
-          missing_digit: "Mật khẩu phải chứa ít nhất một chữ số"
-          missing_special_char: "Mật khẩu phải chứa ít nhất một ký tự đặc biệt (@$!%*?&)"
+        too_short: "Mật khẩu quá ngắn (tối thiểu là 8 ký tự)"
+        missing_lowercase: "Mật khẩu phải chứa ít nhất một chữ cái thường"
+        missing_uppercase: "Mật khẩu phải chứa ít nhất một chữ cái hoa"
+        missing_digit: "Mật khẩu phải chứa ít nhất một chữ số"
+        missing_special_char: "Mật khẩu phải chứa ít nhất một ký tự đặc biệt (@$!%*?&)"
+        same_as_old: "Mật khẩu mới không được trùng với mật khẩu cũ."
+        same_as_name: "Mật khẩu không được chứa tên của bạn."
+        same_as_email: "Mật khẩu không được chứa một phần của email."
   account_activations:
     edit:
       account_activated: "Tài khoản đã được kích hoạt!"
@@ -277,7 +280,7 @@ vi:
         end_time: "Giờ kết thúc"
         all: "Tất cả"
     activities:
-      index: 
+      index:
         title: "Dòng thời gian"
         your_timeline: "Dòng thời gian của bạn"
       helper:
@@ -536,6 +539,9 @@ vi:
         title: "Chỉnh sửa thông tin"
         submit: "Cập nhật"
         currently_waiting: "Đang đợi xác nhận từ: "
+        current_password: "Mật khẩu hiện tại"
+        required_for_changes: "Yêu cầu thay đổi"
+        leave_blank: "Để trống"
       signed_up: "Tài khoản của bạn đã được tạo thành công."
       signed_up_but_unconfirmed: "Vui lòng kiểm tra email của bạn để kích hoạt tài khoản."
     passwords:

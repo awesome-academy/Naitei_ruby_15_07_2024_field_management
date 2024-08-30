@@ -3,7 +3,7 @@
 <p><%= gravatar_for @user %></p>
 <p><strong><%= t ".email" %>:</strong> <%= @user.email %></p>
 <p><strong><%= t ".phone" %>:</strong> <%= @user.phone %></p>
-<p><strong><%= t ".activated" %>:</strong> <%= @user.activated ? "Yes" : "No" %></p>
-<% if current_user.nil? %>
-  <%= link_to t(".edit"), edit_user_user_path(current_user), local: true, class: "btn btn-success edit-button" %>
+<p><strong><%= t ".activated" %>:</strong> <%= @user.confirmed? ? t(".yes") : t(".no") %></p>
+<% if current_user&.id == @user.id %>
+  <%= link_to t(".edit"), edit_user_registration_path, local: true, class: "btn btn-success edit-button" %>
 <% end %>

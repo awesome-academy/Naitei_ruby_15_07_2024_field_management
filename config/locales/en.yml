@@ -31,6 +31,9 @@ en:
         missing_uppercase: "Password must contain at least one uppercase letter"
         missing_digit: "Password must contain at least one digit"
         missing_special_char: "Password must contain at least one special character (@$!%*?&)"
+        same_as_old: "New password cannot be the same as the old password."
+        same_as_name: "Password cannot contain your name."
+        same_as_email: "Password cannot contain part of your email."
   account_activations:
     edit:
       account_activated: "Tài khoản đã được kích hoạt!"
@@ -278,7 +281,7 @@ en:
         end_time: "End time"
         all: "All"
     activities:
-      index: 
+      index:
         title: "Timeline"
         your_timeline: "Your timeline"
       helper:
@@ -533,6 +536,9 @@ en:
         title: "Edit Profile"
         submit: "Update"
         currently_waiting: "Currently waiting confirmation for: "
+        current_password: "Current password"
+        required_for_changes: "Required for changes"
+        leave_blank: "Leave blank"
       signed_up: "Your account has been successfully created."
       signed_up_but_unconfirmed: "Please check your email to activate your account."
     passwords:

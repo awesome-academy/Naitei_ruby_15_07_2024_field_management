@@ -2,39 +2,56 @@
 <div class="container mt-4">
   <h1 class="mb-4"><%= t "devise.registrations.edit.title" %></h1>
 
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-    <%= render "shared/error_messages", resource: resource %>
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: "form-horizontal" }) do |f| %>
+        <%= render "shared/error_messages", error_object: resource %>
 
-    <div class="field">
-      <%= f.label :email, t("devise.registrations.new.email") %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-    </div>
+        <div class="form-group">
+          <%= f.label :email, t("devise.registrations.new.email"), class: "control-label" %>
+          <div class="col-md-12">
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+          </div>
+        </div>
 
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <div><%= t "devise.registrations.new.currently_waiting" %><%= resource.unconfirmed_email %></div>
-    <% end %>
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <div class="alert alert-warning">
+            <%= t "devise.registrations.new.currently_waiting", unconfirmed_email: resource.unconfirmed_email %>
+          </div>
+        <% end %>
 
-    <div class="field">
-      <%= f.label :password, t("devise.registrations.new.password") %> <i>(<%= t "devise.registrations.edit.leave_blank" %>)</i><br />
-      <%= f.password_field :password, autocomplete: "new-password" %>
-      <% if @minimum_password_length %>
-        <br />
-        <em><%= @minimum_password_length %><%= t "devise.registrations.new.characters_minimum" %>)</em>
+        <div class="form-group">
+          <%= f.label :password, t("devise.registrations.new.password"), class: "control-label" %> <i>(<%= t "devise.registrations.edit.required_for_changes" %>)</i><br />
+          <div class="col-md-12">
+            <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
+            <% if @minimum_password_length %>
+              <small class="form-text text-muted">
+                <%= @minimum_password_length %> (<%= t "devise.registrations.new.characters_minimum" %>)
+              </small>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :password_confirmation, t("devise.registrations.new.password_confirmation"), class: "control-label" %><br />
+          <div class="col-md-12">
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :current_password, t("devise.registrations.edit.current_password"), class: "control-label" %> <i>(<%= t "devise.registrations.edit.required_for_changes" %>)</i><br />
+          <div class="col-md-12">
+            <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-md-12">
+            <%= f.submit t("devise.registrations.edit.submit"), class: "custom-btn w-100" %>
+          </div>
+        </div>
       <% end %>
     </div>
-
-    <div class="field">
-      <%= f.label :password_confirmation, t("devise.registrations.new.password_confirmation") %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-    </div>
-
-    <div class="field">
-      <%= f.label :current_password, t("devise.registrations.edit.current_password") %> <i>(<%= t "devise.registrations.edit.required_for_changes" %>)</i><br />
-      <%= f.password_field :current_password, autocomplete: "current-password" %>
-    </div>
-
-    <div class="actions">
-      <%= f.submit t("devise.registrations.edit.submit") %>
-    </div>
-  <% end %>
+  </div>
 </div>
