@@ -538,6 +538,18 @@ vi:
         currently_waiting: "Đang đợi xác nhận từ: "
       signed_up: "Tài khoản của bạn đã được tạo thành công."
       signed_up_but_unconfirmed: "Vui lòng kiểm tra email của bạn để kích hoạt tài khoản."
+    passwords:
+      instruction: "Vui lòng kiểm tra email của bạn để nhận hướng dẫn đặt lại mật khẩu."
+      new:
+        title: "Quên mật khẩu?"
+        email: "Địa chỉ Email"
+        submit: "Gửi hướng dẫn đặt lại mật khẩu"
+      edit:
+        title: "Thay đổi mật khẩu của bạn"
+        password: "Mật khẩu mới"
+        password_confirmation: "Xác nhận mật khẩu mới"
+        password_min_length: "ký tự trở lên"
+        submit: "Thay đổi mật khẩu của tôi"
     mailer:
       confirmation_instructions:
         greeting: "Xin chào %{name}"
@@ -546,3 +558,9 @@ vi:
         confirm_my_account: "Xác nhận tài khoản của tôi"
         thanks: "Cảm ơn"
         team: "Đội ngũ"
+      reset_password_instructions:
+        greeting: "Xin chào %{email}!"
+        instruction: "Có ai đó đã yêu cầu một liên kết để thay đổi mật khẩu của bạn. Bạn có thể làm điều này thông qua liên kết dưới đây."
+        change_password: "Thay đổi mật khẩu của tôi"
+        ignore: "Nếu bạn không yêu cầu điều này, vui lòng bỏ qua email này."
+        notice: "Mật khẩu của bạn sẽ không thay đổi cho đến khi bạn truy cập vào liên kết ở trên và tạo một mật khẩu mới."

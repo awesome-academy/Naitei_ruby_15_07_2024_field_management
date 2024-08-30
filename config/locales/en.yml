@@ -535,6 +535,18 @@ en:
         currently_waiting: "Currently waiting confirmation for: "
       signed_up: "Your account has been successfully created."
       signed_up_but_unconfirmed: "Please check your email to activate your account."
+    passwords:
+      instruction: "Please check your email for instructions on how to reset your password."
+      new:
+        title: "Forgot your password?"
+        email: "Email Address"
+        submit: "Send me reset password instructions"
+      edit:
+        title: "Change your password"
+        password: "New password"
+        password_confirmation: "Confirm new password"
+        password_min_length: "characters minimum"
+        submit: "Change my password"
     mailer:
       confirmation_instructions:
         greeting: "Hello %{name}"
@@ -543,3 +555,9 @@ en:
         confirm_my_account: "Confirm my account"
         thanks: "Thank you"
         team: "The Team"
+      reset_password_instructions:
+        greeting: "Hello %{email}!"
+        instruction: "Someone has requested a link to change your password. You can do this through the link below."
+        change_password: "Change my password"
+        ignore: "If you didn't request this, please ignore this email."
+        notice: "Your password won't change until you access the link above and create a new one."
