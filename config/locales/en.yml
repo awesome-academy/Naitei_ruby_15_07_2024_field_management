@@ -232,6 +232,18 @@ en:
       messages:
         created_successfully: "Voucher was successfully created."
         creation_failed: "There was an error creating the voucher. Please try again."
+      form:
+        title: "Vouchers"
+        code: "Voucher Code"
+        name: "Voucher Name"
+        value: "Value"
+        quantity: "Quantity"
+        expired_date: "Expired Date"
+        status: "Status"
+        filter: "Filter"
+        statuses:
+          available: "Available"
+          expired: "Expired"
   user:
     users:
       message:
@@ -599,6 +611,18 @@ en:
         submit: "Resend unlock instructions"
       signed_up: "Your account has been successfully created."
       signed_up_but_unconfirmed: "Please check your email to activate your account."
+    passwords:
+      instruction: "Please check your email for instructions on how to reset your password."
+      new:
+        title: "Forgot your password?"
+        email: "Email Address"
+        submit: "Send me reset password instructions"
+      edit:
+        title: "Change your password"
+        password: "New password"
+        password_confirmation: "Confirm new password"
+        password_min_length: "characters minimum"
+        submit: "Change my password"
     mailer:
       confirmation_instructions:
         greeting: "Hello %{name}"

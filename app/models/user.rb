@@ -56,6 +56,14 @@ class User < ApplicationRecord
     end
   end
 
+  def self.ransackable_attributes auth_object = nil
+    auth_object == :admin ? %w(name email phone) : []
+  end
+
+  def self.ransackable_associations _auth_object = nil
+    []
+  end
+
   private
 
   def downcase_email

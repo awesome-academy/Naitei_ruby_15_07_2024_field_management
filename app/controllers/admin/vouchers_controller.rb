@@ -1,6 +1,9 @@
 class Admin::VouchersController < Admin::BaseController
   def index
-    @vouchers = Voucher.all
+    @q = Voucher.ransack(params[:q])
+    @vouchers = @q.result(distinct: true)
+    @pagy, @vouchers = pagy @vouchers,
+                            limit: Settings.vouchers.pagy_10
   end
 
   def new

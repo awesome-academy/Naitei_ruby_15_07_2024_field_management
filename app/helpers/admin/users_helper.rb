@@ -7,7 +7,7 @@ module Admin::UsersHelper
   end
 
   def user_activation_status user
-    if user.activated
+    if user.confirmed?
       content_tag :span, I18n.t("admin.users.activate.activated"),
                   class: "user-activated"
     else

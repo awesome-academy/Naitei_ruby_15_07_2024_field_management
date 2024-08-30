@@ -199,7 +199,8 @@ vi:
         avatar: "Ảnh"
         actions: "Hành động"
         search: "Tìm kiếm"
-        search_by_name: "Tìm kiếm theo tên"
+        search_by_name_or_email: "Tìm kiếm theo tên"
+        search_by_phone: "Tìm kiếm theo số điện thoại"
       destroy:
         success_message: "Người dùng đã được xóa thành công."
         failure_message: "Có lỗi xảy ra khi xóa người dùng. Vui lòng thử lại."
@@ -231,6 +232,18 @@ vi:
       messages:
         created_successfully: "Voucher đã được tạo thành công."
         creation_failed: "Có lỗi xảy ra khi tạo Voucher. Vui lòng thử lại."
+      form:
+        title: "Mã Giảm Giá"
+        code: "Mã Giảm Giá"
+        name: "Tên Giảm Giá"
+        value: "Giá Trị"
+        quantity: "Số Lượng"
+        expired_date: "Ngày Hết Hạn"
+        status: "Trạng Thái"
+        filter: "Lọc"
+        statuses:
+          available: "Còn Hạn"
+          expired: "Hết Hạn"
   user:
     users:
       message:
@@ -602,6 +615,18 @@ vi:
         submit: "Gửi lại hướng dẫn mở khóa"
       signed_up: "Tài khoản của bạn đã được tạo thành công."
       signed_up_but_unconfirmed: "Vui lòng kiểm tra email của bạn để kích hoạt tài khoản."
+    passwords:
+      instruction: "Vui lòng kiểm tra email của bạn để nhận hướng dẫn đặt lại mật khẩu."
+      new:
+        title: "Quên mật khẩu?"
+        email: "Địa chỉ Email"
+        submit: "Gửi hướng dẫn đặt lại mật khẩu"
+      edit:
+        title: "Thay đổi mật khẩu của bạn"
+        password: "Mật khẩu mới"
+        password_confirmation: "Xác nhận mật khẩu mới"
+        password_min_length: "ký tự trở lên"
+        submit: "Thay đổi mật khẩu của tôi"
     mailer:
       confirmation_instructions:
         greeting: "Xin chào %{name}"

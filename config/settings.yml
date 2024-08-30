@@ -41,6 +41,8 @@ users:
     digit: '\d'
     special_char: '[@$!%*?&]'
 rate: "/5"
+vouchers:
+  pagy_10: 10
 vouchers_limit_page: 3
 user:
   booking_fields_pagy: 10
@@ -48,7 +50,7 @@ items: 5
 two: 2
 tracking:
   date_format: "%b %d, %Y"
-  time_format: "%I:%M %p" 
+  time_format: "%I:%M %p"
 chartkick:
   round: 2
   date_from_default: 1
