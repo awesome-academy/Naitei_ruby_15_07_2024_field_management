@@ -24,6 +24,10 @@ Rails.application.routes.draw do
       resources :fields, only: %i(new create edit update destroy) do
         member do
           get "status", to: "fields#status"
+          get "/dashboard", to: "dashboards#show"
+        end
+        collection do
+          get "/dashboards", to: "dashboards#index"
         end
       end
       resources :vouchers, only: %i(index new create)

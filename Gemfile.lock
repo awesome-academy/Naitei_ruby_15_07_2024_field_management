@@ -104,6 +104,7 @@ GEM
     caxlsx_rails (0.6.4)
       actionpack (>= 3.1)
       caxlsx (>= 3.0)
+    chartkick (5.1.0)
     chronic_duration (0.10.6)
       numerizer (~> 0.1.1)
     concurrent-ruby (1.2.2)
@@ -134,6 +135,8 @@ GEM
       sassc (>= 2.0)
     globalid (1.1.0)
       activesupport (>= 5.0)
+    groupdate (6.4.0)
+      activesupport (>= 6.1)
     htmlentities (4.3.4)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
@@ -356,12 +359,14 @@ DEPENDENCIES
   capybara
   caxlsx
   caxlsx_rails
+  chartkick
   config
   debug
   devise
   faker (= 2.21.0)
   figaro
   font-awesome-sass
+  groupdate
   i18n
   image_processing (= 1.12.2)
   importmap-rails

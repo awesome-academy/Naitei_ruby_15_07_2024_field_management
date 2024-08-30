@@ -1,0 +1,24 @@
+<%= search_form_for @q, url: dashboard_admin_field_path, method: :get, class: "filter-form" do |f| %>
+  <div class="row">
+    <div class="col-md-3">
+      <%= f.label :date_gteq, t("admin.dashboards.filter.date.from") %>
+      <%= f.date_field :date_gteq, class: "form-control" %>
+    </div>
+    <div class="col-md-3">
+      <%= f.label :date_lteq, t("admin.dashboards.filter.date.to") %>
+      <%= f.date_field :date_lteq, class: "form-control" %>
+    </div>
+    <div class="col-md-3">
+      <%= label_tag :analysis_type,t("admin.dashboards.filter.analysis_type") %>
+      <%= select_tag :analysis_type,
+                                 options_for_select([
+                                  [t("admin.dashboards.filter.week"), :week], 
+                                  [t("admin.dashboards.filter.month"), :month],
+                                  [t("admin.dashboards.filter.day"), :day]], 
+                                  params[:analysis_type]), class: "form-control" %>
+    </div>
+    <div class="col-md-3 align-self-end">
+      <%= f.submit "Filter", class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>

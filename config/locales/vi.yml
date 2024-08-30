@@ -152,6 +152,43 @@ vi:
         cannot_delete: "Không thể xóa sân có đơn đặt chỗ đang chờ xử lý hoặc đã được xác nhận trong tương lai."
       messages:
         error_field_not_found: "Không tìm thấy sân."
+    dashboards:
+      validate_date: "Ngày kết thúc không thể trước ngày bắt đầu."
+      index:
+        title: "Dashboard cho tất cả các sân"
+        no_appropiate_result: "Không có kết quả phù hợp"
+        revenue: "Doanh thu: "
+        currency: "USD"
+        revenue_over_time: "Doanh thu theo thời gian"
+        revenue_by_capacity: "Doanh thu theo Sức chứa"
+        revenue_by_grass: "Doanh thu theo Loại cỏ"
+        title_x_date: "Ngày"
+        title_y_revenue: "Doanh thu"
+      show:
+        title: "Dashboard cho sân %{field_name}"
+        revenue_over_time: "Doanh thu theo thời gian"
+        title_x_date: "Ngày"
+        title_y_revenue: "Doanh thu"
+        no_appropiate_result: "Không có kết quả phù hợp"
+        revenue: "Doanh thu của sân: "
+        currency: "USD"
+      filter:
+        week: "Theo Tuần"
+        month: "Theo Tháng"
+        day: "Theo Ngày"
+        analysis_type: "Loại phân tích"
+        capacity:
+          all: "Tất cả"
+          five: "5"
+          seven: "7"
+          eleven: "11"
+        grass:
+          all: "Tất cả"
+          artificial: "Nhân tạo"
+          natural: "Tự nhiên"
+        date:
+          from: "Từ ngày"
+          to: "Đến ngày"
     users:
       index:
         title: "Người dùng"
