@@ -1,4 +1,5 @@
 class User::BookingFieldsController < User::BaseController
+  skip_load_and_authorize_resource only: :create
   before_action :logged_in, :login_as_user,
                 only: %i(new create pay demo_payment export)
   before_action :get_booking_field, only: %i(pay demo_payment update)
@@ -27,6 +28,7 @@ class User::BookingFieldsController < User::BaseController
   end
 
   def create
+    authorize! :create, BookingField
     @booking_field = current_user.booking_fields.build booking_params
     process_vouchers
 
@@ -38,10 +40,12 @@ class User::BookingFieldsController < User::BaseController
   end
 
   def pay
+    authorize! :pay, BookingField
     render :show_pay
   end
 
   def demo_payment
+    authorize! :demo_payment, BookingField
     @booking_field.approval!
     @booking_field.paid!
     flash[:success] = t ".booking_success"

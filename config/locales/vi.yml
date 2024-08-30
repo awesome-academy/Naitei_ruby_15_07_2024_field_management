@@ -276,6 +276,25 @@ vi:
         start_time: "Giờ bắt đầu"
         end_time: "Giờ kết thúc"
         all: "Tất cả"
+    activities:
+      index: 
+        title: "Dòng thời gian"
+        your_timeline: "Dòng thời gian của bạn"
+      helper:
+        model:
+          booking_field: "Đặt Sân"
+          favorite: "Yêu Thích"
+          activity: "Hoạt Động"
+        action_type:
+          booked: "Đã đặt"
+          canceled: "đã hủy đặt sân"
+          paid: "đã thanh toán cho đặt sân"
+          favorite: "đã yêu thích"
+          unfavorite: "đã bỏ yêu thích"
+          perform_action: "đã thực hiện hành động trên"
+        model_name:
+          item: "một mục"
+          field: "một sân"
     vouchers:
       voucher:
         code: "Mã voucher"

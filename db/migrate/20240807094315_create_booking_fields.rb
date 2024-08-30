@@ -7,7 +7,7 @@ class CreateBookingFields < ActiveRecord::Migration[7.0]
       t.datetime :start_time
       t.datetime :end_time
       t.float :total
-      t.integer :status
+      t.integer :status, default: 0
 
       t.timestamps
     end

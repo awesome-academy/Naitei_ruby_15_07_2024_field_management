@@ -277,6 +277,25 @@ en:
         start_time: "Start time"
         end_time: "End time"
         all: "All"
+    activities:
+      index: 
+        title: "Timeline"
+        your_timeline: "Your timeline"
+      helper:
+        model:
+          booking_field: "Booking"
+          favorite: "Favorite"
+          activity: "Activity"
+        action_type:
+          booked: "Booked"
+          canceled: "canceled the booking for"
+          paid: "paid the booking for"
+          favorite: "favorited"
+          unfavorite: "unfavorited"
+          perform_action: "performed an action on"
+        model_name:
+          item: "an item"
+          field: "a field"
     vouchers:
       voucher:
         code: "Code"

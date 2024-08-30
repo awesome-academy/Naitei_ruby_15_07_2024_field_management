@@ -1,0 +1,18 @@
+<% provide :title, I18n.t("user.activities.index.title") %>
+<h1><%= t ".title" %></h1>
+<div class="row">
+  <div class="col-md-12 col-lg-12">
+    <div id="tracking-pre"></div>
+    <div id="tracking">
+       <%== pagy_bootstrap_nav @pagy %>
+      <div class="text-center tracking-status-intransit">
+        <p class="tracking-status text-tight"><%= t ".your_timeline" %></p>
+      </div>
+      <div class="tracking-list">
+        <% @activities.each do |activity| %>
+          <%= gender_activity_view activity %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

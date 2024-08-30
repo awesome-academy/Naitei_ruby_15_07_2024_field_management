@@ -34,7 +34,6 @@ class Ability
   end
 
   def define_user_permissions user
-    can :read, BookingField, user_id: user.id
     can %i(update show), User, id: user.id
     can :manage, Address, user_id: user.id
     can :create, BookingField
@@ -43,6 +42,8 @@ class Ability
     can %i(favorite unfavorite), Field
     can :manage, Rating, user_id: user.id
     can :manage, Comment, user_id: user.id
-    can :manage, Timeline, user_id: user.id
+    can :manage, [:user, :activity]
+    can :pay, BookingField, user_id: user.id
+    can :demo_payment, BookingField, user_id: user.id
   end
 end
