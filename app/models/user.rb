@@ -70,6 +70,8 @@ class User < ApplicationRecord
     validate_password_uppercase
     validate_password_digit
     validate_password_special_char
+    validate_password_not_same_as_old
+    validate_password_not_same_as_name_or_email
   end
 
   def validate_password_length
@@ -125,5 +127,26 @@ class User < ApplicationRecord
 
   def password_has_special_char?
     password =~ Regexp.new(Settings.users.password.special_char)
+  end
+
+  def validate_password_not_same_as_old
+    return unless encrypted_password.present? &&
+                  BCrypt::Password.new(encrypted_password_was)
+                                  .is_password?(password)
+
+    errors.add(:password,
+               I18n.t("activerecord.error.password.same_as_old"))
+  end
+
+  def validate_password_not_same_as_name_or_email
+    if password.downcase.include? name.downcase
+      errors.add(:password,
+                 I18n.t("activerecord.error.password.same_as_name"))
+    end
+
+    return unless password.downcase.include?(email.split("@").first.downcase)
+
+    errors.add(:password,
+               I18n.t("activerecord.error.password.same_as_email"))
   end
 end
