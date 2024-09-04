@@ -42,7 +42,7 @@ class User::CommentsController < User::BaseController
   end
 
   def logged_in
-    return if logged_in?
+    return if user_signed_in?
 
     store_location
     flash[:danger] = t ".please_log_in"

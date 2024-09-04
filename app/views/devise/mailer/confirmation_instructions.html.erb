@@ -1,0 +1,10 @@
+<p><%= t "devise.mailer.confirmation_instructions.greeting", name: @resource.name %>,</p>
+
+<p><%= t "devise.mailer.confirmation_instructions.welcome_message" %></p>
+
+<p><%= t "devise.mailer.confirmation_instructions.confirmation_instructions" %></p>
+
+<p><%= link_to t("devise.mailer.confirmation_instructions.confirm_my_account"), confirmation_url(@resource, confirmation_token: @token) %></p>
+
+<p><%= t "devise.mailer.confirmation_instructions.thanks" %>,<br>
+<%= t "devise.mailer.confirmation_instructions.team" %></p>

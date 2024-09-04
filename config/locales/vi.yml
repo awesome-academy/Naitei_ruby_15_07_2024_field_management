@@ -523,3 +523,26 @@ vi:
         resend_confirmation: "Không nhận được hướng dẫn xác nhận?"
         resend_unlock: "Không nhận được hướng dẫn mở khóa?"
         sign_in_with: "Đăng nhập bằng %{provider}"
+    registrations:
+      new:
+        title: "Đăng ký"
+        name: "Tên"
+        email: "Email"
+        password: "Mật khẩu"
+        password_confirmation: "Xác nhận mật khẩu"
+        submit: "Đăng ký"
+        characters_minimum: "ký tự ít nhất"
+      edit:
+        title: "Chỉnh sửa thông tin"
+        submit: "Cập nhật"
+        currently_waiting: "Đang đợi xác nhận từ: "
+      signed_up: "Tài khoản của bạn đã được tạo thành công."
+      signed_up_but_unconfirmed: "Vui lòng kiểm tra email của bạn để kích hoạt tài khoản."
+    mailer:
+      confirmation_instructions:
+        greeting: "Xin chào %{name}"
+        welcome_message: "Chào mừng bạn đến với nền tảng của chúng tôi! Vui lòng xác nhận tài khoản của bạn bằng cách nhấp vào liên kết dưới đây:"
+        confirmation_instructions: "Để xác nhận tài khoản của bạn, vui lòng nhấp vào liên kết dưới đây:"
+        confirm_my_account: "Xác nhận tài khoản của tôi"
+        thanks: "Cảm ơn"
+        team: "Đội ngũ"
