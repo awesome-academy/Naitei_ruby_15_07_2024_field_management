@@ -78,6 +78,14 @@ class BookingField < ApplicationRecord
     where(field_id:).with_status(:approval) if field_id.present?
   }
 
+  scope :grouped_revenue, lambda {|analysis_type, date_from, date_to|
+    group_by_period(analysis_type.to_sym, :date, range: date_from..date_to)
+      .sum(:total)
+  }
+  scope :revenue_by_capacity, ->{group("fields.capacity").sum(:total)}
+
+  scope :revenue_by_grass, ->{group("fields.grass").sum(:total)}
+
   def self.ransackable_attributes _auth_object = nil
     %w(date total start_time end_time status paymentStatus)
   end

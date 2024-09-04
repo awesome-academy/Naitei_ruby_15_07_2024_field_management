@@ -152,6 +152,43 @@ en:
         cannot_delete: "Cannot delete field with pending or approved bookings in the future."
       messages:
         error_field_not_found: "Field not found."
+    dashboards:
+      validate_date: "End date cannot be before start date."
+      index:
+        title: "Dashboard for all fields"
+        no_appropiate_result: "No appropiate result"
+        revenue: "Revenue: "
+        currency: "USD"
+        revenue_over_time: "Revenue over time"
+        revenue_by_capacity: "Revenue by Capacity"
+        revenue_by_grass: "Revenue by Grass"
+        title_x_date: "Date"
+        title_y_revenue : "Revenue"
+      show:
+        title: "Dashboard for %{field_name}"
+        revenue_over_time: "Revenue over time"
+        title_x_date: "Date"
+        title_y_revenue : "Revenue"
+        no_appropiate_result: "No appropiate result"
+        revenue: "Field revenue: "
+        currency: "USD"
+      filter:
+        week: "By Week"
+        month: "By Month"
+        day: "By Day"
+        analysis_type: "Analysis Type"
+        capacity:
+          all: "All"
+          five: "5"
+          seven: "7"
+          eleven: "11"
+        grass:
+          all: "All"
+          artificial: "Artificial"
+          natural: "Natural"
+        date:
+          from: "Date from"
+          to: "Date to"
     users:
       index:
         title: "Users"

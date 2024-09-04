@@ -1,0 +1,24 @@
+<% provide :title, t(".title") %>
+<h1><%= t ".title", field_name: @field.name %></h1>
+
+<%= render "filter_show" %>
+
+<div class="row padding-top-10">
+  <div>
+    <%= t ".total" %>
+    <strong class="ml-2 font-semibold text-lg">
+      <%= @booking_fields.sum(:total).round(Settings.chartkick.round) %>
+    </strong>
+    <strong class="ml-2 font-semibold text-lg">
+        <%= t ".currency" %>
+    </strong>
+  </div>
+</div>
+<div class="row">
+  <%= line_chart @revenue_field_data, 
+                  title: t(".revenue_over_time"), 
+                  xtitle: t(".title_x_date"), 
+                  ytitle: t(".title_y_revenue"),
+                  empty: t(".no_appropiate_result") 
+  %>
+</div>

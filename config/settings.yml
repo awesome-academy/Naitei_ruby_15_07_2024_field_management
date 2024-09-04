@@ -49,3 +49,6 @@ two: 2
 tracking:
   date_format: "%b %d, %Y"
   time_format: "%I:%M %p" 
+chartkick:
+  round: 2
+  date_from_default: 1
