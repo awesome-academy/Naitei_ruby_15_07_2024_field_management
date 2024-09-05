@@ -43,7 +43,7 @@ class Ability
     can :manage, Rating, user_id: user.id
     can :manage, Comment, user_id: user.id
     can :manage, [:user, :activity]
-    can :pay, BookingField, user_id: user.id
-    can :demo_payment, BookingField, user_id: user.id
+    can %i(pay demo_payment export export_status export_download),
+        BookingField, user_id: user.id
   end
 end

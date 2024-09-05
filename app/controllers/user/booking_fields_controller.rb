@@ -53,6 +53,7 @@ class User::BookingFieldsController < User::BaseController
   end
 
   def export
+    authorize! :export, BookingField
     @q = current_user.booking_fields.ransack(params[:q])
     @bookings_export = @q.result(distance: true).includes(:field)
     respond_to do |format|
@@ -68,6 +69,7 @@ class User::BookingFieldsController < User::BaseController
   end
 
   def export_status
+    authorize! :export_status, BookingField
     respond_to do |format|
       format.json do
         job_id = params[:job_id]
@@ -82,6 +84,7 @@ class User::BookingFieldsController < User::BaseController
   end
 
   def export_download
+    authorize! :export_download, BookingField
     job_id = params[:job_id]
 
     respond_to do |format|
