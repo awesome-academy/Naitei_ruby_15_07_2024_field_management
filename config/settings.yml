@@ -18,6 +18,12 @@ calendar:
 field:
   minute_step: 30
   price_step: 0.01
+  name_max_len: 100
+  name_min_len: 3
+  price_max: 100000
+  price_min: 50
+  address_max_len: 255
+  address_min_len: 10
 image:
   file_type: "image/png,image/gif,image/jpeg"
 example_field_image: https://i.pinimg.com/564x/6f/11/db/6f11dbd25aa96cc6f699362839dc9d0b.jpg
