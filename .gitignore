@@ -41,6 +41,7 @@ config/environments/*.local.yml
 !/spec/spec_helper.rb
 !/spec/models
 !/spec/factories
+!/spec/controllers
 
 /config/application.yml
 public/data
