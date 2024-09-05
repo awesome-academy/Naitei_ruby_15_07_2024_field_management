@@ -1,0 +1,53 @@
+<%= search_form_for @q, url: admin_vouchers_path, method: :get, class: "row g-3 mb-4" do |f| %>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= f.label :code_cont, t("admin.vouchers.form.code") %>
+        <%= f.text_field :code_cont, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= f.label :name_cont, t("admin.vouchers.form.name") %>
+        <%= f.text_field :name_cont, class: "form-control" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-md-3">
+      <div class="form-group">
+        <%= f.label :value, t("admin.vouchers.form.value") %>
+        <%= f.select :s, options_for_select([["↑", "value asc"], ["↓", "value desc"]], params[:s]), class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="form-group">
+        <%= f.label :quantity, t("admin.vouchers.form.quantity") %>
+        <%= f.select :s, options_for_select([["↑", "quantity asc"], ["↓", "quantity desc"]], params[:s]), class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="form-group">
+        <%= f.label :expired_date, t("admin.vouchers.form.expired_date") %>
+        <%= f.select :s, options_for_select([["↑", "expired_date asc"], ["↓", "expired_date desc"]], params[:s]), class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="form-group">
+        <%= f.label :status_eq, t("admin.vouchers.form.status") %>
+        <%= f.select :status_eq, options_for_select(Voucher.statuses.keys.map { |status| [t("admin.vouchers.form.statuses.#{status}"), status] }, params[:status_eq]), class: "form-control" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-md-2">
+      <%= f.submit t("admin.vouchers.form.filter"), class: "btn btn-success" %>
+    </div>
+  </div>
+<% end %>

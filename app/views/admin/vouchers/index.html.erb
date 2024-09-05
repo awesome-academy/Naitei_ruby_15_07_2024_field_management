@@ -1,6 +1,10 @@
 <% provide :title, t("admin.vouchers.title") %>
 <h1><%= t "admin.vouchers.title" %></h1>
 
+<%= render "voucher_filter_form" %>
+
+<%== pagy_bootstrap_nav @pagy if @vouchers.any? %>
+
 <table class="table">
   <thead>
     <tr>
@@ -16,5 +20,7 @@
     <%= render_voucher_rows @vouchers %>
   </tbody>
 </table>
+
+<%== pagy_bootstrap_nav @pagy if @vouchers.any? %>
 
 <%= link_to t("admin.vouchers.new_voucher"), new_admin_voucher_path, class: "btn btn-success" %>

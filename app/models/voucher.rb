@@ -23,7 +23,16 @@ class Voucher < ApplicationRecord
     decrement!(:quantity)
   end
 
+  def self.ransackable_attributes _auth_object = nil
+    %w(code name value quantity expired_date status)
+  end
+
+  def self.ransackable_associations _auth_object = nil
+    []
+  end
+
   private
+
   def check_status
     return unless quantity.zero?
 
