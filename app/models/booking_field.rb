@@ -65,7 +65,7 @@ class BookingField < ApplicationRecord
   }
 
   scope :excluding_status,
-        ->(status){where.not(status:) if status.present?}
+        ->(status){status.present? ? where.not(status:) : none}
 
   scope :future_bookings, ->{where("date >= ?", Time.zone.today)}
 
@@ -74,13 +74,19 @@ class BookingField < ApplicationRecord
                            where(field_id:, date:).where.not(id: current_id)
                          }
   scope :with_status, ->(status){where(status:)}
-  scope :yet_book?, lambda {|field_id|
-    where(field_id:).with_status(:approval) if field_id.present?
+  scope :yet_book?, lambda {|field_id = nil|
+    field_id.present? ? where(field_id:).with_status(:approval) : none
   }
 
-  scope :grouped_revenue, lambda {|analysis_type, date_from, date_to|
-    group_by_period(analysis_type.to_sym, :date, range: date_from..date_to)
-      .sum(:total)
+  scope :grouped_revenue, lambda {|analysis_type = nil, date_from = nil,
+                                date_to = nil|
+    if analysis_type.present? && date_from.present? && date_to.present?
+      return group_by_period(analysis_type.to_sym, :date,
+                             range: date_from..date_to)
+             .sum(:total)
+    end
+
+    none
   }
   scope :revenue_by_capacity, ->{group("fields.capacity").sum(:total)}
 
