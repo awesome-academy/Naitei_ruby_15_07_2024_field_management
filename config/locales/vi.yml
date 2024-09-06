@@ -1,4 +1,22 @@
 vi:
+  api:
+  v1:
+    user:
+      booking_fields:
+        field_not_found: "Không tìm thấy sân"
+        success_create: "Đặt sân thành công"
+        fail_create: "Đặt sân thất bại"
+        wrong_params: "Sai tham số"
+        cancel_success: "Hủy đặt sân thành công"
+        cancel_fail: "Hủy đặt sân thất bại"
+        link_to_pay: "Vui lòng tiến hành thanh toán"
+        booking_not_found: "Không tìm thấy thông tin đặt sân"
+      ratings:
+        destroy_success: "Xóa đánh giá thành công"
+        destroy_fail: "Xóa đánh giá thất bại"
+        not_booking_not_rating: "Bạn chưa đặt sân này!"
+        field_not_found: "Không tìm thấy sân"
+        rating_not_found: "Không tìm thấy đánh giá"
   job:
     check_payment_status:
       not_found: "Đơn đặt sân với ID %{id} không tìm thấy."

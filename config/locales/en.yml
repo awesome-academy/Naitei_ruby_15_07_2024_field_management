@@ -1,4 +1,22 @@
 en:
+  api:
+    v1:
+      user:
+        booking_fields:
+          field_not_found: "Field not found"
+          success_create: "Booking created successfully"
+          fail_create: "Failed to create booking"
+          wrong_params: "Wrong params"
+          cancel_success: "Cancel Booking Successfully"
+          cancel_fail: "Cancel Booking Failed"
+          link_to_pay: "Please proceed to pay"
+          booking_not_found: "Booking Field not found"
+        ratings:
+          destroy_success: "Destroy rating successfully"
+          destroy_fail: "Fail to delete rating"
+          not_booking_not_rating: "You haven't booked this field yet!"
+          field_not_found: "Field not found"
+          rating_not_found: "Rating not found"
   job:
     check_payment_status:
       not_found: "Can't not found BookingField with id: %{id}"
