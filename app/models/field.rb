@@ -60,5 +60,65 @@ class Field < ApplicationRecord
   has_many :ratings, dependent: :destroy
 
   validates :capacity, presence: true, inclusion: {in: [5, 7, 11]}
-  validates :price, presence: true
+  validates :price,
+            presence: {message: I18n.t("fields.messages.price.blank")}
+  validate :validate_price_range
+  validate :validate_name_length
+  validate :validate_address_length
+
+  private
+
+  def validate_price_range
+    if price.present? &&
+       (price < Settings.field.price_min || price > Settings.field.price_max)
+      errors.add(:price,
+                 I18n.t("fields.messages.price.invalid_range",
+                        min: Settings.field.price_min,
+                        max: Settings.field.price_max))
+    end
+  end
+
+  def validate_name_length
+    if name.blank?
+      add_name_blank_error
+    else
+      check_name_length
+    end
+  end
+
+  def add_name_blank_error
+    errors.add(:name, I18n.t("fields.messages.name.blank"))
+  end
+
+  def check_name_length
+    if name.length < Settings.field.name_min_len
+      errors.add(:name, I18n.t("fields.messages.name.too_short",
+                               count: Settings.field.name_min_len))
+    elsif name.length > Settings.field.name_max_len
+      errors.add(:name, I18n.t("fields.messages.name.too_long",
+                               count: Settings.field.name_max_len))
+    end
+  end
+
+  def validate_address_length
+    if address.blank?
+      add_address_blank_error
+    else
+      check_address_length
+    end
+  end
+
+  def add_address_blank_error
+    errors.add(:address, I18n.t("fields.messages.address.blank"))
+  end
+
+  def check_address_length
+    if address.length < Settings.field.address_min_len
+      errors.add(:address, I18n.t("fields.messages.address.too_short",
+                                  min: Settings.field.address_min_len))
+    elsif address.length > Settings.field.address_max_len
+      errors.add(:address, I18n.t("fields.messages.address.too_long",
+                                  max: Settings.field.address_max_len))
+    end
+  end
 end

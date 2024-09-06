@@ -391,6 +391,21 @@ en:
     message:
       confirm: "You sure?"
   fields:
+    messages:
+      capacity:
+        blank: "can't be blank"
+        invalid: "is not included in the list"
+      price:
+        blank: "can't be blank"
+        invalid_range: "must be between %{min} and %{max}"
+      name:
+        blank: "can't be blank"
+        too_short: "is too short (minimum is %{count} characters)"
+        too_long: "is too long (maximum is %{count} characters)"
+      address:
+        blank: "can't be blank"
+        too_short: "is too short (minimum is %{min} characters)"
+        too_long: "is too long (maximum is %{max} characters)"
     index:
       filter_favorites: "Show only my favorite fields"
       soccer_field_title: "Soccer Fields List"
