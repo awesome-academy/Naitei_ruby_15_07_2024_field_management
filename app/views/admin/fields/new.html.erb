@@ -1,7 +1,8 @@
 <% provide :title, t(".title") %>
 <h1><%= t ".title" %></h1>
 <div class="container mt-4">
-  <%= form_with model: @field, url: admin_fields_path, local: true do |form| %>
-    <%= render "shared/field_form", form: form %>
+  <%= form_with model: @field, url: admin_fields_path, local: true do |f| %>
+    <%= render "shared/error_messages", error_object: f.object %>
+    <%= render "shared/field_form", form: f %>
   <% end %>
 </div>

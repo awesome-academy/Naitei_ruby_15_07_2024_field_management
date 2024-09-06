@@ -16,13 +16,21 @@
   </div>
 
   <div class="col-md-6 mb-4">
-    <%= form.label :name, t(".name") %> <span class="text-danger">(*)</span>
+    <label style="display: inline-flex; align-items: center;">
+      <%= t ".name" %>
+      <span class="text-danger" style="margin-left: 5px;">(*)</span>
+    </label>
     <%= form.text_field :name, class: "form-control", required: true %>
   </div>
 
   <div class="col-md-6 mb-4">
-    <%= form.label :price, t(".price") %> <span class="text-danger">(*)</span>
-    <%= form.number_field :price, step: Settings.field.price_step, class: "form-control", required: true %>
+    <div class="field_with_errors">
+      <label style="display: inline-flex; align-items: center;">
+        <%= t ".price" %>
+        <span class="text-danger" style="margin-left: 5px;">(*)</span>
+      </label>
+      <%= form.number_field :price, step: Settings.field.price_step, class: "form-control", required: true %>
+    </div>
   </div>
 
   <div class="col-md-12 mb-4">

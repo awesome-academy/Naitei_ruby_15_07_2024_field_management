@@ -12,14 +12,6 @@ nav.navbar {
   margin-top: 0;
   padding-top: 0;
 }
-body {
-  margin: 0;
-  padding: 0;
-}
-html {
-  margin: 0;
-  padding: 0;
-}
 #logo {
   color: $logo-color;
   font-weight: bold;
@@ -63,6 +55,9 @@ html {
 }
 
 /* footer */
+.container {
+  flex: 1;
+}
 .footer {
   background-color: $footer-background;
   color: $footer-text;
@@ -101,15 +96,19 @@ html {
   font-size: 0.8rem;
 }
 .wrapper {
-  min-height: 100%;
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
 }
 
 /* universal */
 html, body {
-  padding-top: 30px;
   height: 100%;
+  margin: 0;
+  padding: 0;
+}
+body {
+  padding-top: 70px;
 }
 section {
   overflow: auto;
@@ -582,4 +581,13 @@ textarea {
 
 .padding-top-10 {
   padding-top: 30px
+}
+
+.field_with_errors label {
+  display: inline-flex;
+  align-items: center;
+}
+
+.field_with_errors .text-danger {
+  margin-left: 5px;
 }

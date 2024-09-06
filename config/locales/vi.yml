@@ -392,19 +392,19 @@ vi:
   fields:
     messages:
       capacity:
-        blank: "không được để trống"
-        invalid: "không nằm trong danh sách cho phép"
+        blank: "(loại sân) không được để trống"
+        invalid: "(loại sân) không nằm trong danh sách cho phép"
       price:
-        blank: "không được để trống"
-        invalid_range: "phải nằm trong khoảng từ %{min} đến %{max}"
+        blank: "(giá) không được để trống"
+        invalid_range: "(giá) phải nằm trong khoảng từ %{min} đến %{max}"
       name:
-        blank: "không được để trống"
-        too_short: "quá ngắn (tối thiểu %{count} ký tự)"
-        too_long: "quá dài (tối đa %{count} ký tự)"
+        blank: "(tên) không được để trống"
+        too_short: "(tên) quá ngắn (tối thiểu %{count} ký tự)"
+        too_long: "(tên) quá dài (tối đa %{count} ký tự)"
       address:
-        blank: "không được để trống"
-        too_short: "quá ngắn (tối thiểu %{min} ký tự)"
-        too_long: "quá dài (tối đa %{max} ký tự)"
+        blank: "(địa chỉ) không được để trống"
+        too_short: "(địa chỉ) quá ngắn (tối thiểu %{min} ký tự)"
+        too_long: "(địa chỉ) quá dài (tối đa %{max} ký tự)"
     index:
       filter_favorites: "Hiển thị các sân yêu thích"
       soccer_field_title: "Danh sách sân bóng"
