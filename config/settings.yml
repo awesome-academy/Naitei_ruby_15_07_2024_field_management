@@ -60,3 +60,5 @@ tracking:
 chartkick:
   round: 2
   date_from_default: 1
+jwt:
+  exp: 24

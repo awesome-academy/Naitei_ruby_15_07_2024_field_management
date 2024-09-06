@@ -677,3 +677,9 @@ en:
         unlock_my_account: "Unlock my account"
   authenticate:
     not_allowed: "You are not authorized to access this page."
+  jwt:
+    unauthorized: "Unauthorized"
+    forbidden_admin: "Forbidden: Admins only"
+    access_denied: "Forbidden: Access denied"
+    encoding: "Error encoding JWT: %{message}"
+    decoding: "Error decoding JWT: %{message}"
