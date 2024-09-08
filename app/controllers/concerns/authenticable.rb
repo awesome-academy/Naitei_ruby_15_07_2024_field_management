@@ -18,7 +18,7 @@ module Authenticable
   end
 
   def authenticate_admin!
-    return if @current_user.admin?
+    return if @current_user&.admin?
 
     render json: {error: I18n.t("jwt.forbidden_admin")}, status: :forbidden
   end

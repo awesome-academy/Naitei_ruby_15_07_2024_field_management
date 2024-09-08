@@ -17,6 +17,12 @@ en:
           not_booking_not_rating: "You haven't booked this field yet!"
           field_not_found: "Field not found"
           rating_not_found: "Rating not found"
+      field:
+        not_found: "Field not found"
+        delete:
+          success: "Field deleted successfully"
+          failure: "Failed to delete field"
+          unauthorized: "Cannot delete this field"
   job:
     check_payment_status:
       not_found: "Can't not found BookingField with id: %{id}"
