@@ -59,6 +59,18 @@ Rails.application.routes.draw do
       end
     end
 
+    namespace :api do
+      namespace :v1 do
+        namespace :user do
+          resources :booking_fields, only: %i(new  index create update) do
+          end
+          resources :fields, only: %i(show) do
+            resources :ratings, only: %i(create destroy index)
+          end
+        end
+      end
+    end
+
     root "fields#index"
   end
 end
