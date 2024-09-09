@@ -23,7 +23,7 @@ class FieldsController < ApplicationController
       flash[:success] = t ".favorites.favorite_added"
     else
       flash[:danger] = t ".favorites.favorite_failed"
-      redirect_to fields_path
+      redirect_to fields_path and return
     end
 
     respond_to_format
@@ -32,10 +32,11 @@ class FieldsController < ApplicationController
   def unfavorite
     favorite = find_favorite
 
-    if destroy_favorite favorite
+    if favorite.present? && destroy_favorite(favorite)
       flash[:success] = t ".favorites.favorite_removed"
     else
-      handle_unfavorite_error favorite
+      handle_unfavorite_error
+      return
     end
 
     respond_to_format
@@ -70,7 +71,7 @@ class FieldsController < ApplicationController
 
   def handle_unfavorite_error
     flash[:danger] = t ".favorites.favorite_remove_failed"
-    redirect_to fields_path
+    redirect_to fields_path and return
   end
 
   def respond_to_format
@@ -82,9 +83,15 @@ class FieldsController < ApplicationController
 
   def authorize_favorite
     authorize! :favorite, @field
+  rescue CanCan::AccessDenied
+    flash[:alert] = I18n.t("authenticate.not_allowed")
+    redirect_to fields_path
   end
 
   def authorize_unfavorite
     authorize! :unfavorite, @field
+  rescue CanCan::AccessDenied
+    flash[:alert] = I18n.t("authenticate.not_allowed")
+    redirect_to fields_path
   end
 end

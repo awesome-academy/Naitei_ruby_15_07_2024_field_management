@@ -444,7 +444,7 @@ en:
       artificial: "Artificial"
       natural: "Natural"
     show:
-      field_not_found: "Field not found!"
+      field_not_found: "Field not found"
     create:
       create_field_button: "Add field"
     favorites:
@@ -657,3 +657,5 @@ en:
         account_locked: "Your account has been locked due to an excessive number of unsuccessful sign in attempts."
         unlock_instructions: "Click the link below to unlock your account:"
         unlock_my_account: "Unlock my account"
+  authenticate:
+    not_allowed: "You are not authorized to access this page."

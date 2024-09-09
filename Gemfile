@@ -51,6 +51,7 @@ end
 
 group :test do
   gem "capybara"
+  gem "rails-controller-testing" # rubocop:disable Bundler/DuplicatedGem
   gem "selenium-webdriver"
   gem "shoulda-matchers"
   gem "webdrivers"

@@ -443,7 +443,7 @@ vi:
       artificial: "Nhân tạo"
       natural: "Tự nhiên"
     show:
-      field_not_found: "Không tìm thấy sân này!"
+      field_not_found: "Không tìm thấy sân này"
     create:
       create_field_button: "Thêm sân"
     favorites:
@@ -661,3 +661,5 @@ vi:
         account_locked: "Tài khoản của bạn đã bị khóa do số lần đăng nhập không thành công vượt quá giới hạn."
         unlock_instructions: "Nhấn vào liên kết dưới đây để mở khóa tài khoản của bạn:"
         unlock_my_account: "Mở khóa tài khoản của tôi"
+  authenticate:
+    not_allowed: "Bạn không được phép truy cập trang này."
