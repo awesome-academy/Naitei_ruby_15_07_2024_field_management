@@ -681,3 +681,9 @@ vi:
         unlock_my_account: "Mở khóa tài khoản của tôi"
   authenticate:
     not_allowed: "Bạn không được phép truy cập trang này."
+  jwt:
+    unauthorized: "Không có quyền truy cập"
+    forbidden_admin: "Cấm: Chỉ dành cho quản trị viên"
+    access_denied: "Cấm: Không có quyền truy cập"
+    encoding: "Lỗi mã hóa JWT: %{message}"
+    decoding: "Lỗi giải mã JWT: %{message}"
