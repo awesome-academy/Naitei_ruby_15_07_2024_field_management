@@ -17,6 +17,12 @@ vi:
         not_booking_not_rating: "Bạn chưa đặt sân này!"
         field_not_found: "Không tìm thấy sân"
         rating_not_found: "Không tìm thấy đánh giá"
+      field:
+        not_found: "Không tìm thấy sân"
+        delete:
+          success: "Xóa sân thành công"
+          failure: "Không thể xóa sân"
+          unauthorized: "Không thể xóa sân này"
   job:
     check_payment_status:
       not_found: "Đơn đặt sân với ID %{id} không tìm thấy."
