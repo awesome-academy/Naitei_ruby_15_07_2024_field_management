@@ -160,6 +160,7 @@ vi:
         edit_button: "Chỉnh sửa"
         delete_button: "Xóa sân"
         confirm_delete: "Bạn chắc chắn muốn xóa?"
+        dashboard_button: "Tổng quan"
       new:
         title: "Thêm sân"
       create:

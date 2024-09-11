@@ -10,6 +10,7 @@
       <p><strong><%= t ".address" %>:</strong> <%= @field.address %></p>
     </div>
     <div class="col-md-8">
+      <%= link_to t(".dashboard_button"), dashboard_admin_field_path(@field), class: "btn btn-success" %>
       <%= link_to t(".edit_button"), edit_admin_field_path(@field), class: "btn btn-warning" %>
       <%= link_to t(".delete_button"), admin_field_path(@field),
             data: { turbo_confirm: t(".confirm_delete"), turbo_method: :delete },

@@ -6,6 +6,7 @@ class User::BookingFieldsController < User::BaseController
   before_action :set_field_and_date, only: :new
 
   def index
+    authorize! :access, :history
     @q = current_user.booking_fields.ransack(params[:q])
     @booking_fields = @q.result.includes(:field)
     @pagy, @booking_fields = pagy @booking_fields,
