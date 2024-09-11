@@ -203,6 +203,7 @@ vi:
         day: "Theo Ngày"
         analysis_type: "Loại phân tích"
         capacity:
+          capacity_type: "Kích cỡ sân"
           all: "Tất cả"
           five: "5"
           seven: "7"
@@ -211,6 +212,7 @@ vi:
           all: "Tất cả"
           artificial: "Nhân tạo"
           natural: "Tự nhiên"
+          grass_type: "Loại cỏ"
         date:
           from: "Từ ngày"
           to: "Đến ngày"

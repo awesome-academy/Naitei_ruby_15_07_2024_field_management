@@ -203,6 +203,7 @@ en:
         day: "By Day"
         analysis_type: "Analysis Type"
         capacity:
+          capacity_type: "Capacity type"
           all: "All"
           five: "5"
           seven: "7"
@@ -211,6 +212,7 @@ en:
           all: "All"
           artificial: "Artificial"
           natural: "Natural"
+          grass_type: "Grass type"
         date:
           from: "Date from"
           to: "Date to"

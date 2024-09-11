@@ -8,7 +8,7 @@
         <%= render "shared/error_messages", error_object: resource %>
         <%= f.hidden_field :reset_password_token %>
 
-        <div class="form-group">
+        <div class="form-group mb-3">
           <%= f.label :password, t(".password"), class: "control-label" %>
           <% if @minimum_password_length %>
             <em>(<%= @minimum_password_length %> <%= t ".password_min_length" %>)</em><br />
@@ -18,14 +18,14 @@
           </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group mb-3">
           <%= f.label :password_confirmation, t(".password_confirmation"), class: "control-label" %>
           <div class="col-md-12">
             <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
           </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group mb-3">
           <div class="col-md-12">
             <%= f.submit t(".submit"), class: "custom-btn w-100" %>
           </div>

@@ -1,5 +1,11 @@
 <% if current_user.favorited_fields.include?(@field) %>
-  <%= link_to I18n.t("fields.favorites.unfavorite"), unfavorite_field_path(@field), method: :delete, remote: true, class: "btn btn-danger text-white rounded-pill w-100" %>
+  <%= link_to unfavorite_field_path(@field), method: :delete, remote: true, class: "btn btn-danger text-white rounded-pill w-50 d-flex align-items-center justify-content-center" do %>
+    <i class="fa-solid fa-heart me-2"></i>
+    <span><%= I18n.t("fields.favorites.unfavorite") %></span>
+  <% end %>
 <% else %>
-  <%= link_to I18n.t("fields.favorites.favorite"), favorite_field_path(@field), method: :post, remote: true, class: "btn btn-primary text-white rounded-pill w-100" %>
+  <%= link_to favorite_field_path(@field), method: :post, remote: true, class: "btn btn-primary text-white rounded-pill w-50 d-flex align-items-center justify-content-center" do %>
+    <i class="fa-regular fa-heart me-2"></i>
+    <span><%= I18n.t("fields.favorites.favorite") %></span>
+  <% end %>
 <% end %>

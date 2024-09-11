@@ -7,7 +7,7 @@
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: "form-horizontal" }) do |f| %>
         <%= render "shared/error_messages", error_object: resource %>
 
-        <div class="form-group">
+        <div class="form-group mb-3">
           <%= f.label :email, t("devise.registrations.new.email"), class: "control-label" %>
           <div class="col-md-12">
             <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
@@ -15,13 +15,14 @@
         </div>
 
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-          <div class="alert alert-warning">
+          <div class="alert alert-warning mb-3">
             <%= t "devise.registrations.new.currently_waiting", unconfirmed_email: resource.unconfirmed_email %>
           </div>
         <% end %>
 
-        <div class="form-group">
-          <%= f.label :password, t("devise.registrations.new.password"), class: "control-label" %> <i>(<%= t "devise.registrations.edit.required_for_changes" %>)</i><br />
+        <div class="form-group mb-3">
+          <%= f.label :password, t("devise.registrations.new.password"), class: "control-label" %>
+          <i>(<%= t "devise.registrations.edit.required_for_changes" %>)</i><br />
           <div class="col-md-12">
             <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
             <% if @minimum_password_length %>
@@ -32,21 +33,22 @@
           </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group mb-3">
           <%= f.label :password_confirmation, t("devise.registrations.new.password_confirmation"), class: "control-label" %><br />
           <div class="col-md-12">
             <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
           </div>
         </div>
 
-        <div class="form-group">
-          <%= f.label :current_password, t("devise.registrations.edit.current_password"), class: "control-label" %> <i>(<%= t "devise.registrations.edit.required_for_changes" %>)</i><br />
+        <div class="form-group mb-3">
+          <%= f.label :current_password, t("devise.registrations.edit.current_password"), class: "control-label" %>
+          <i>(<%= t "devise.registrations.edit.required_for_changes" %>)</i><br />
           <div class="col-md-12">
             <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control" %>
           </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group mb-3">
           <div class="col-md-12">
             <%= f.submit t("devise.registrations.edit.submit"), class: "custom-btn w-100" %>
           </div>

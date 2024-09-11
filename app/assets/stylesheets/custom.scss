@@ -123,18 +123,44 @@ textarea {
   margin-bottom: 10px;
 }
 .custom-btn {
-  font-size: 14px;
-  padding: 8px 10px;
   background-color: $button-background;
   border: none;
   color: $button-text;
-  border-radius: 5px;
-  display: block;
-  width: 100%;
+  font-size: 18px;
+  padding: 10px 20px;
   text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+.custom-btn i {
+  margin-right: 10px;
 }
 .custom-btn:hover {
   background-color: $button-hover;
+}
+.custom-btn-gg {
+  background-color: $button-background-gg;
+  border: none;
+  color: $button-text;
+  font-size: 18px;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+.custom-btn-gg i {
+  margin-right: 10px;
+}
+.custom-btn-gg:hover {
+  background-color: $button-hover-gg;
 }
 .p-link {
   font-size: 18px;
