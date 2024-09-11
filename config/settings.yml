@@ -62,3 +62,4 @@ chartkick:
   date_from_default: 1
 jwt:
   exp: 24
+default_password: "Egh987ns!"

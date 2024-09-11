@@ -1,7 +1,8 @@
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :validatable,
-         :confirmable, :lockable
+         :confirmable, :lockable,
+         :omniauthable, omniauth_providers: [:google_oauth2]
 
   PERMITTED_ATTRIBUTES = [:name,
                           :email,
@@ -53,6 +54,18 @@ class User < ApplicationRecord
 
     def new_token
       SecureRandom.urlsafe_base64
+    end
+
+    def from_omniauth access_token
+      data = access_token.info
+      provider = access_token.provider
+      user = User.find_by email: data["email"]
+
+      user ||= User.create(name: data["name"],
+                           email: data["email"],
+                           password: Settings.default_password,
+                           provider:)
+      user
     end
   end
 
