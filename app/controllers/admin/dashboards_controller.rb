@@ -1,4 +1,6 @@
 class Admin::DashboardsController < ApplicationController
+  authorize_resource class: false
+
   before_action :find_field, only: %i(show)
   before_action :find_params_statistic
   def index

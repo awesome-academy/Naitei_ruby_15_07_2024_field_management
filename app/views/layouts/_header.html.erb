@@ -24,7 +24,7 @@
               <%= link_to t(".vouchers"), admin_vouchers_path, class: "nav-link" %>
             </li>
             <li class="nav-item">
-              <%= link_to t(".statistics"), root_path, class: "nav-link" %>
+              <%= link_to t(".statistics"), dashboards_admin_fields_path, class: "nav-link" %>
             </li>
             <li class="nav-item">
               <%= link_to t(".logout"), destroy_user_session_path, data: {turbo_method: :delete}, class: "nav-link" %>

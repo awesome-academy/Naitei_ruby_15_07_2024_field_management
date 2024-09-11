@@ -17,6 +17,9 @@ class Ability
 
   def admin_permissions
     can :manage, :all
+    can :access, :dashboard
+    cannot :manage, :activity
+    cannot :manage, :history
     cannot :favorite, Field
     cannot :unfavorite, Field
   end
@@ -42,7 +45,7 @@ class Ability
     can %i(favorite unfavorite), Field
     can :manage, Rating, user_id: user.id
     can :manage, Comment, user_id: user.id
-    can :manage, [:user, :activity]
+    can :manage, [:user, :activity, :history]
     can %i(pay demo_payment export export_status export_download),
         BookingField, user_id: user.id
   end

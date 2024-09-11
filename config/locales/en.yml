@@ -160,6 +160,7 @@ en:
         edit_button: "Edit"
         delete_button: "Delete"
         confirm_delete: "You sure ?"
+        dashboard_button: "Dashboard"
       new:
         title: "New Field"
       create:
