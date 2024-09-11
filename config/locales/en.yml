@@ -308,6 +308,7 @@ en:
         address: "Address:"
         people: "people"
         calendar: "Calendar"
+        hour: "Hour"
         booking_infor:
           date: "Date"
           start_time: "Start time"

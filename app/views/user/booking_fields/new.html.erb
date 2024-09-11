@@ -32,7 +32,7 @@
         </div>
         <div class="col-md-3 description-field des-booking-text">
           <p>
-            <strong><%= t ".block_time" %></strong> <span id="block-time"><%= @field.block_time %></span>
+            <strong><%= t ".block_time" %></strong> <span id="block-time"><%= @field.block_time %></span> <%= t(".hour") %>
           </p>
           <p>
             <strong><%= t ".address" %></strong> <span><%= @field.address %></span>
@@ -89,9 +89,9 @@
                 <div id="showModal" class="btn btn-success mb-3"><%= t ".action" %></div>
               </div>
               <div id="myModal">
-                <div class="modal-content">    
+                <div class="modal-content-track">    
                   <%= render @vouchers %>
-                  <div class="btn btn-success justify-content-center"><span class="close"><%= t ".apply" %></span></div>
+                  <div class="btn btn-success justify-content-center close"><span class=""><%= t ".apply" %></span></div>
                 </div>
               </div>
             <% end %>

@@ -1,7 +1,8 @@
 class User::RatingsController < User::BaseController
-  before_action :logged_in, :login_as_user, :check_booking, only: %i(create)
-  before_action :get_field
-  before_action :get_rating, only: :destroy
+  before_action :store_user_location, if: :storable_location?
+  before_action :authenticate_user!, :check_booking, only: %i(create)
+  before_action :find_field
+  before_action :find_rating, only: :destroy
 
   def create
     @rating = current_user.ratings.build rating_params
@@ -49,7 +50,7 @@ class User::RatingsController < User::BaseController
     end
   end
 
-  def get_field
+  def find_field
     @field = Field.find_by id: params[:field_id]
     return if @field
 
@@ -57,7 +58,7 @@ class User::RatingsController < User::BaseController
     redirect_to root_url
   end
 
-  def get_rating
+  def find_rating
     @rating = @field.ratings.find_by id: params[:id]
     return if @rating
 
@@ -67,20 +68,5 @@ class User::RatingsController < User::BaseController
 
   def rating_params
     params.require(:rating).permit Rating::RATING_PARAMS
-  end
-
-  def logged_in
-    return if user_signed_in?
-
-    store_location
-    flash[:danger] = t ".please_log_in"
-    redirect_to signin_url
-  end
-
-  def login_as_user
-    return if current_user.user?
-
-    flash[:danger] = t ".you_are_not_user"
-    redirect_to root_path
   end
 end

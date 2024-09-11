@@ -308,6 +308,7 @@ vi:
         address: "Địa chỉ:"
         people: "người"
         calendar: "Lịch"
+        hour: "giờ"
         booking_infor:
           date: "Ngày"
           start_time: "Giờ bắt đầu"
@@ -526,7 +527,7 @@ vi:
       address: "Địa chỉ:"
       people: "người"
       currency: "VND"
-      hour: "gio"
+      hour: "giờ"
     field_form:
       name: "Tên sân"
       price: "Giá"
