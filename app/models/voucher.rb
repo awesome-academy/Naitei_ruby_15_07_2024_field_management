@@ -15,6 +15,8 @@ class Voucher < ApplicationRecord
   has_many :use_vouchers, dependent: :destroy
   after_save :check_status
 
+  validates :value, presence: true
+
   scope :available_vouchers, ->{where(status: :available).limit(Settings.items)}
 
   def decrement_quantity

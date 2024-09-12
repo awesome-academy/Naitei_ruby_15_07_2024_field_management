@@ -12,13 +12,13 @@
       <%= label_tag :analysis_type,t("admin.dashboards.filter.analysis_type") %>
       <%= select_tag :analysis_type,
                                  options_for_select([
-                                  [t("admin.dashboards.filter.week"), :week], 
+                                  [t("admin.dashboards.filter.week"), :week],
                                   [t("admin.dashboards.filter.month"), :month],
-                                  [t("admin.dashboards.filter.day"), :day]], 
+                                  [t("admin.dashboards.filter.day"), :day]],
                                   params[:analysis_type]), class: "form-control" %>
     </div>
     <div class="col-md-3 align-self-end">
-      <%= f.submit "Filter", class: "btn btn-primary" %>
+      <%= f.submit "Filter", class: "btn btn-success" %>
     </div>
   </div>
 <% end %>

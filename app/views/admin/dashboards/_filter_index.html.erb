@@ -1,50 +1,50 @@
 <%= search_form_for @q, url: dashboards_admin_fields_path, method: :get, class: "filter-form" do |f| %>
-  <div class="row">
-    <div class="row g-3">
-      <div class="col-md-4">
-        <%= f.label :date_gteq, t("admin.dashboards.filter.date.from") %>
-        <%= f.date_field :date_gteq, class: "form-control" %>
-      </div>
-      <div class="col-md-4">
-        <%= f.label :date_lteq, t("admin.dashboards.filter.date.to") %>
-        <%= f.date_field :date_lteq, class: "form-control" %>
-      </div>
-      <div class="col-md-4">
-        <%= label_tag :analysis_type, t("admin.dashboards.filter.analysis_type") %>
-        <%= select_tag :analysis_type, 
-                                options_for_select([
-                                  [t("admin.dashboards.filter.week"), :week], 
-                                  [t("admin.dashboards.filter.month"), :month],
-                                  [t("admin.dashboards.filter.day"), :day]], 
-                                  params[:analysis_type]), class: "form-control" %>
-      </div>
+  <div class="row g-3 mb-3">
+    <div class="col-md-4">
+      <%= f.label :date_gteq, t("admin.dashboards.filter.date.from") %>
+      <%= f.date_field :date_gteq, class: "form-control" %>
     </div>
-    <div class="row g-3 filter-margin">
-      <div class="col-md-2">
-        <%= f.label :field_capacity_eq, t(".capacity.capacity_type") %>
-        <div>
-          <%= f.select :field_capacity_eq,
+    <div class="col-md-4">
+      <%= f.label :date_lteq, t("admin.dashboards.filter.date.to") %>
+      <%= f.date_field :date_lteq, class: "form-control" %>
+    </div>
+    <div class="col-md-4">
+      <%= label_tag :analysis_type, t("admin.dashboards.filter.analysis_type") %>
+      <%= select_tag :analysis_type,
+                                options_for_select([
+                                  [t("admin.dashboards.filter.week"), :week],
+                                  [t("admin.dashboards.filter.month"), :month],
+                                  [t("admin.dashboards.filter.day"), :day]],
+                                  params[:analysis_type]), class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="row g-3 mb-3">
+    <div class="col-md-6">
+      <%= f.label :field_capacity_eq, t("admin.dashboards.filter.capacity.capacity_type") %>
+      <%= f.select :field_capacity_eq,
                             options_for_select([
                               [t("admin.dashboards.filter.capacity.all"), ""],
                               [t("admin.dashboards.filter.capacity.five"), 5],
                               [t("admin.dashboards.filter.capacity.seven"), 7],
                               [t("admin.dashboards.filter.capacity.eleven"), 11]],
                               ), class: "form-control" %>
-        </div>
-      </div>
-    
-      <div class="col-md-2">
-        <%= f.label :field_grass_eq, t(".grass.grass_type") %>
-        <%= f.select :field_grass_eq,
+    </div>
+
+    <div class="col-md-6">
+      <%= f.label :field_grass_eq, t("admin.dashboards.filter.grass.grass_type") %>
+      <%= f.select :field_grass_eq,
                             options_for_select([
                               [t("admin.dashboards.filter.grass.all"), ""],
                               [t("admin.dashboards.filter.grass.natural"), 0],
                               [t("admin.dashboards.filter.grass.artificial"), 1]],
                               ), class: "form-control" %>
-      </div> 
-      <div class="col-md-2 align-self-end">
-        <%= f.submit "Filter", class: "btn btn-primary" %>
-      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12 text-end">
+      <%= f.submit "Filter", class: "btn btn-success" %>
     </div>
   </div>
 <% end %>

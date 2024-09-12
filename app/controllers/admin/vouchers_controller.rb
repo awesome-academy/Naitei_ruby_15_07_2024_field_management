@@ -13,10 +13,10 @@ class Admin::VouchersController < Admin::BaseController
   def create
     @voucher = Voucher.new voucher_params
     if @voucher.save
-      flash[:success] = t "admin.vouchers.created_successfully"
+      flash[:success] = t "admin.vouchers.messages.created_successfully"
       redirect_to admin_vouchers_path
     else
-      flash.now[:danger] = t "admin.vouchers.creation_failed"
+      flash.now[:danger] = t "admin.vouchers.messages.creation_failed"
       render :new, status: :unprocessable_entity
     end
   end
