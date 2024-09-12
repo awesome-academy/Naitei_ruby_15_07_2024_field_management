@@ -7,8 +7,10 @@ User.create!(
   phone: Faker::PhoneNumber.cell_phone_in_e164,
   password: "Egh987ns!",
   role: :user,
-  activated: true,
-  activated_at: DateTime.now
+  encrypted_password: Devise::Encryptor.digest(User, "Egh987ns!") ,
+  confirmed_at:  Time.zone.now ,
+  confirmation_sent_at: Time.zone.now ,
+  confirmation_token: SecureRandom.urlsafe_base64 
 )
 
 # Create additional users
@@ -19,8 +21,10 @@ users = 30.times.map do
     phone: Faker::PhoneNumber.cell_phone_in_e164,
     password: "Egh987ns!",
     role: :user,
-    activated: Time.zone.now,
-    activated_at: DateTime.now
+    encrypted_password: Devise::Encryptor.digest(User, "Egh987ns!") ,
+    confirmed_at:  Time.zone.now ,
+    confirmation_sent_at: Time.zone.now ,
+    confirmation_token: SecureRandom.urlsafe_base64 
   )
 end
 
@@ -31,10 +35,11 @@ User.create!(
   phone: Faker::PhoneNumber.cell_phone_in_e164,
   password: "Egh987ns!",
   role: :admin,
-  activated: true,
-  activated_at: DateTime.now
+  encrypted_password: Devise::Encryptor.digest(User, "Egh987ns!") ,
+  confirmed_at:  Time.zone.now ,
+  confirmation_sent_at: Time.zone.now ,
+  confirmation_token: SecureRandom.urlsafe_base64 
 )
-
 
 # Create fields with attached images
 fields = 20.times.map do
@@ -43,8 +48,8 @@ fields = 20.times.map do
     price: Faker::Commerce.price(range: 50.0..200.0),
     grass: [:natural, :artificial].sample,
     capacity: [5, 7, 11].sample,
-    open_time: Time.parse("08:00"),  # Use Time instead of DateTime
-    close_time: Time.parse("22:00"), # Use Time instead of DateTime
+    open_time: Time.parse("08:00").strftime(Settings.calendar.time_format),  
+    close_time: Time.parse("22:00").strftime(Settings.calendar.time_format),
     block_time: 1
   )
   image_url_prefix = if field.capacity == 11
@@ -102,9 +107,8 @@ users.first(5).each do |user|
     date = rand(0..13).days.from_now.to_date # Random date within 2 weeks from now
   
     # Generate start and end times within the field's open and close times
-    start_time = Time.parse("09:00") # Use Time instead of DateTime
-    end_time = Time.parse("10:00")# Use Time instead of DateTime
-  
+    start_time = Time.parse("09:00").strftime(Settings.calendar.time_format)
+    end_time = Time.parse("10:00").strftime(Settings.calendar.time_format)
     # Ensure no overlapping bookings unless the existing booking is canceled
     existing_bookings = BookingField.existing_books(field.id, date, nil)
     overlap = existing_bookings.any? do |booking|

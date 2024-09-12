@@ -1,9 +1,10 @@
 class User::BookingFieldsController < User::BaseController
   skip_load_and_authorize_resource only: :create
-  before_action :logged_in, :login_as_user,
+  before_action :find_field_and_date, only: :new
+  before_action :store_user_location, if: :storable_location?
+  before_action :authenticate_user!,
                 only: %i(new create pay demo_payment export)
   before_action :get_booking_field, only: %i(pay demo_payment update)
-  before_action :set_field_and_date, only: :new
 
   def index
     authorize! :access, :history
@@ -144,22 +145,7 @@ class User::BookingFieldsController < User::BaseController
     params.require(:booking_field).permit BookingField::BOOKING_PARAMS
   end
 
-  def logged_in
-    return if user_signed_in?
-
-    store_location
-    flash[:danger] = t ".please_log_in"
-    redirect_to signin_url
-  end
-
-  def login_as_user
-    return if current_user.user?
-
-    flash[:danger] = t ".you_are_not_user"
-    redirect_to root_path
-  end
-
-  def set_field_and_date
+  def find_field_and_date
     @field = Field.find_by id: params[:field_id]
     @date = if params[:date].presence
               Date.parse(params[:date].to_s)

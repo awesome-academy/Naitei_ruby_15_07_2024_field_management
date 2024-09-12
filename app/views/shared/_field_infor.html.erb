@@ -18,7 +18,7 @@
   </div>
 </div>
 
-<div class="section bg-transparent row mb-5 section-field-detail">
+<div class="section bg-transparent row mb-5 section-field-detail dflex">
   <div class="col-md-6 field-description">
     <div id="favorite_button_<%= @field.id %>">
       <%= render_favorite_button_if_user @field %>
@@ -56,7 +56,7 @@
     </div>
   </div>
 
-  <div class="row g-4 list-field">
+  <div class="col-md-6 g-4 list-field">
     <%== pagy_bootstrap_nav @pagy %>
     <% @images.each do |image| %>
       <%= image_tag(image, class: "d-block w-100 field_infor_image") %>

@@ -73,7 +73,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_09_11_011258) do
     t.time "start_time"
     t.time "end_time"
     t.float "total"
-    t.integer "status"
+    t.integer "status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "paymentStatus", default: 1

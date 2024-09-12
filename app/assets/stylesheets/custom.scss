@@ -485,10 +485,9 @@ textarea {
   background-color: $popup-background;
 }
 
-.modal-content {
-  background-color: $white;
-  margin: 10% auto;
-  padding: 20px;
+.modal-content-track {
+  margin: 3% auto;
+  padding: 5px;
   border: 1px solid $gray;
   width: 80%;
   max-width: 1000px;
@@ -496,6 +495,7 @@ textarea {
   text-align: center;
   border-radius: 5px;
   overflow: auto;
+  background-color: $white;
 }
 
 .close {

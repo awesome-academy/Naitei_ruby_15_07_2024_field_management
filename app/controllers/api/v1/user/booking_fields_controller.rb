@@ -1,10 +1,12 @@
 class Api::V1::User::BookingFieldsController < ApplicationController
   protect_from_forgery with: :null_session
 
+  include Authenticable
+
   before_action :set_field_and_date, only: :new
   before_action :find_booking_field, :process_params, only: %i(update)
   def index
-    @q = BookingField.ransack(params[:q])
+    @q = current_user.booking_fields.ransack(params[:q])
     @booking_fields = @q.result.includes(:field)
     @pagy, @booking_fields = pagy @booking_fields,
                                   limit: Settings.user.booking_fields_pagy
@@ -33,7 +35,7 @@ class Api::V1::User::BookingFieldsController < ApplicationController
   end
 
   def create
-    @booking_field = BookingField.new booking_params
+    @booking_field = current_user.booking_fields.build booking_params
     @booking_field.user = User.first
     process_vouchers
 

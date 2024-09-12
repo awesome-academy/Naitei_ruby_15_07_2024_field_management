@@ -17,7 +17,8 @@ class Users::SessionsController < Devise::SessionsController
           render json: {token:}, status: :ok and return
         end
 
-        redirect_to root_path and return
+        redirect_to stored_location_for(:user) || root_path
+        return
       end
     end
   end
